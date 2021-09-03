@@ -1,0 +1,49 @@
+:icons: font
+
+== Selected Projects
+
+https://www.worldoftennis.com[icon:gamepad[]] *World of Tennis: Roaring '20s.* Bringing global multiplayer tennis to your fingers with tactical competition and gameplay on Android, iOS, Xbox One, Nintendo Switch, Windows 10, macOS, Steam and Amazon.
+
+https://github.com/rg-software/joe-blade-3-remake[icon:gamepad[]] *Joe Blade 3 Remake.* A modern remake of ZX Spectrum game Joe Blade 3.
+
+https://github.com/rg-software/zxrecolor[icon:gamepad[]] *ZX Recoloring Project.* This toolset will help you to give a more modern look to your favorite ZX Spectrum games and make them attractive even to the new generation of gamers.
+
+https://github.com/rg-software/wlx-markdown-viewer[icon:wrench[]] *Wlx-markdown-viewer.* Markdown lister plugin for Total Commander.
+
+https://github.com/rg-software/wcx-audioconverter[icon:wrench[]] *Wcx-audioconverter.* Audioconverter packer plugin for Total Commander.
+
+https://www.softmaker.de/softmaker-office[icon:tasks[]] *OMML Renderer.* An Office MathML math expressions renderer for SoftMaker Office.
+
+
+
+//external-link 
+//globe-e
+//gamepad
+//flask
+//wrench
+//cog
+//graduation-cap
+//desktop
+//folder-open
+
+//dla
+//fv
+//grading cat
+//mobilefarm
+//weblibrary
+
+// wfx-https-browser
+
+// WordBricks: to github
+// EmoTwitter: to github
+// OMML: just a link to softmaker
+// Grammar checker: ignore?
+// ZX Recoloring project: github
+// Russinan morpho: github
+// AI for soccer
+// AI for FN3
+// JavaPlag
+
+//CPV 
+//CoTex
+//KeyTrain

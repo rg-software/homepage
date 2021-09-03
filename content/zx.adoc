@@ -1,0 +1,120 @@
+== ZX Spectrum
+
+My path to computer science began with ZX Spectrum-compatible computers, and I still keep interest in these machines. Original ZX Spectrum was a British home computer created in 1982, and its numerous clones and variations were immensely popular in Russia of early 90's. At that time it was an incomparably cheaper alternative to PC, still providing a lot of fun for game and programming activities. Spectrum keeps its fandom even today, with https://www.worldofspectrum.org/infoseekadv.cgi?year=2012[dozens of titles] released yearly.
+
+Looking back from 2014, I see ZX Spectrum as a platform for a great number of creative experiments in programming. It's hard to evaluate the diversity of games and utilities, created for this computer. Spectrum was cheap and thus opened the doors to software development to numerous amateurs. It was open in the sense that no licensing or "approval" was needed to create and sell Spectrum software (in contrast to the game consoles of the same time, such as developed by Nintendo and SEGA). Unfortunately, the inexorable https://en.wikipedia.org/wiki/Sturgeon's_law[Sturgeon's law] works here, too, but in the remaining fraction of projects (mostly games) some real gems can be found.
+
+Quite naturally, many successful Spectrum games were just conversions from arcade machines or simply well-crafted shooters, beat 'em ups and similar action games that "pushed the technological limits", "featured great graphics and sound", and so on. Nowadays the technical abilities of outdated systems do not impress much, so we can devote more attention to the creative aspects. Here I want to list some of my favorite Spectrum games that found notable for some reasons. I don't want to create a yet another top-games list with great but ubiquitous https://www.worldofspectrum.org/infoseekid.cgi?id=0001686[Exolon], https://www.worldofspectrum.org/infoseekid.cgi?id=0004256/[R-Type], and https://www.worldofspectrum.org/infoseekid.cgi?id=0001303/[Deathchase]. I want to recall the games that remain fresh even nowadays. Also I would love to see similar games on PC.
+
+Playing Spectrum is easy now. Just grab https://kolmck.net/apps/EmuZ/EmuZWin_Eng.htm/[the emulator], run it, set the double display size, and open or drag-and-drop the game archive. The most typical controls are keyboard (Q, A, O, P, M/Space or Z, X, O, K, Space), Kempston joystick (can be mapped to the physical joystick or gamepad), and Interface I/II (keys 1, 2, 3, 4, 5 or 6, 7, 8, 9, 0).
+
+Spectrum has very severe limitations on the use of color graphics, so most games feature a rather poor palette and blocky artwork. Fortunately, now we have great https://www.worldofspectrum.org/forums/showthread.php?t=45538/[Nirvana engine] (developed in 2013!) that removes some of these limitations via certain technical tricks, so the game is not over yet.
+
+[%noheader,cols="2,4",grid=none]
+|===
+|image:underwurlde.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0009446/[Underwurlde (1984)]
+
+A unique arcade maze game, where the only way to die is to fall down from a great height. Still, the game is incredibly challenging and features hundreds of screens.
+
+|image:videopool.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0005566/[Video Pool (1985)]
+
+The simplest pool game ever, and a great pastime for a nice company even today. No learning curve here, no special tricks, just run and enjoy.
+
+|image:cyclone.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0001206/[Cyclone (1985)]
+
+One of my most beloved games. You simply have to pick up people and cargo, scattered among a bunch of islands, with a helicopter. A very calm and relaxing game; the only thing I dislike is the timer that forces to play faster.
+
+|image:juggernaut.png[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0002650/[Juggernaut (1985)]
+
+Another peaceful game (without any nasty timers!) Here you simply have to deliver cargo from various dealers to the company warehouse. However, driving a large truck through narrow streets is a challenging task: it is very easy to damage it too much and to get a game over message.
+
+|image:pingpong.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0003722/[Ping Pong (1985)]
+
+This is not an original ZX Spectrum game, it is a conversion from an arcade machine. Still, do you know many table tennis games around? This one is still great.
+
+|image:highwayencounter.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0002323/[Highway Encounter (1985)]
+
+This game can be called "a shooter", but with a unique feature: you have to clean from the debris and obstacles the path through the highway center, so the "ultimate weapon" can be pushed all the way to the end, where it has to destroy the alien base. Also, you have to take care of yourself and your robotic friends who push the sandbox-looking weapon through the screens.
+
+|image:showjumping.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0004482/[Show Jumping (1986)]
+
+Just a show jumping simulator. Do you know many such games around?
+
+|image:turboesprit.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0005461/[Turbo Esprit (1986)] 
+
+This is a unique "free-roaming" driving game for ZX Spectrum. A sort of 80's Grand Theft Auto. Yep, there is an aim: you have to chase and neutralize several "gang cars", but they also freely roam the city, so every time the game process is different.
+
+|image:bobsleigh.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0000611/[Bobsleigh (1987)] 
+
+A bobsleigh simulator. Once again, are there many competitors in this genre?.. Also, Bobsleigh is both an arcade game and management simulator, where you have to plan the budgets and the upcoming races very carefully.
+
+|image:deflektor.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0001327/[Deflektor (1987)]
+
+A unique puzzle/arcade game, where your objective is to direct the laser beam into the receiver using numerous rotating mirrors. Also you have to "eat" all the balls on the level, which is a very challenging task, given that the time is limited. Deflektor inspired some remakes, and there is at least one modern game that recreated essentially the same gameplay, https://www.amazon.com/Nebo-Lumen/dp/B0026N1WD8/[Lumen].
+
+|image:iball2.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0002431/[I, Ball 2 (1987)]
+
+Spartan Spectrum graphics inspired a vast amount of games involving moving blocks, balls, lines, and other simple shapes. I, Ball 2 is a great example of such a genuinely 80's-style arcade game: simple, challenging, and addictive.
+
+|image:nether_earth.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0003391/[Nether Earth (1987)] 
+
+Nether Earth is not just one of the world's first real-time strategy games, it is a game of hard decisions, where you have to think twice before producing any units, since most of them will have to work independently without your supervision. The gameplay of Nether Earth was recreated in planetary battles of https://spacerangershd.com/[Space Rangers] and some remakes.
+
+|image:pi-r-squared.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0003734/[Pi-R Squared (1987)]
+
+Honestly speaking, I am not a fan of this game, but the idea of walking through the set of rotating wheels to collect the necessary items deserves special mention.
+
+|image:nebulus.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0003377/[Nebulus (1987)]
+
+Another unique action game, where you have to climb a tower, avoiding numerous enemies. Very challenging and fun. This game was released for a variety of platforms, so it is not "Spectrum only".
+
+|image:coliseum.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0001008/[Coliseum (1988)]
+
+A bit awkward chariot racing game, where you both race and fight your opponents. Actually, Coliseum is not that fun, but do you know any other chariot racing games?
+
+|image:actionforce2.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0000077/[Action Force&nbsp;2 (1988)]
+
+Among endless point-and-shoot games this one occupies a special place. Here you have to cover the protagonist, who does the job, while the enemies try to kill him. Great concept, though the gameplay is quite repetitive.
+
+|image:fantasy_dizzy.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0009335/[Fantasy World Dizzy (1989)]
+
+The games of the Dizzy series can be called "the ultimate Spectrum adventures". While the game process is very simple (find something, bring it somewhere, apply), the diverse and colorful worlds of Dizzy spawned numerous remakes, conversions and inspired games, such as https://www.spudsquest.com/[Spud's Quest]. For me, the best Dizzy games include everything between Dizzy III and Dizzy VI inclusive. Some modern https://www.yolkfolk.com/dizzyage/[DizzyAGE] games are also good. Also I prefer somehow more "mystic" Spectrum graphics to more cartoonish Amiga artwork. Generally, Dizzy games is a great contribution to the genre of exploration adventures. The biggest fun here is just to see the whole game world, explore it screen by screen.
+
+|image:myth.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0003354/[Myth: History in the Making (1989)]
+
+Probably, exploration action games is my most favorite genre. Exploring the worlds is always fun, especially if the worlds are diverse, beautifully drawn and are not too puzzling (so there is no need to spend hours in the maze-like buildings or dungeons). Myth is the ultimate Spectrum exploration action game &mdash; beautiful, colorful, challenging, and diverse. Again, the blocky Spectrum graphics adds some mystic flavor, missing in the Amiga version.
+
+|image:venturama.gif[]
+|https://www.worldofspectrum.org/infoseekid.cgi?id=0005555/[Venturama (1992)]
+
+Venturama is rarely mentioned among top Spectrum games, and indeed, its simple levels and unresponsive control scheme is hard to praise. However, the whole "exploration adventure" environment is brilliant, so I can forgive the drawbacks and concentrate on world exploration.
+
+|image:alterego2.png[]
+|https://www.retrosouls.net/?p=798/[Alter Ego 2 (2014)]
+
+Probably, this is the first complete multicolor game for ZX Spectrum, based on the Nirvana engine. This very fact should already secure a firm place for the game in Spectrum history, but the game itself is brilliant, too. It can be described as an innovative arcade puzzle. Highly recommended.
+
+|image:gravibots.png[]
+|https://www.retrosouls.net/?p=798/[GraviBots (2014)]
+
+Gravibots is another arcade puzzle by Denis Grachev, the author of Alter Ego 2. Being a rather simple game, Gravibots looks perfectly playable in 2014. Give it a try.
+
+|===

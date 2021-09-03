@@ -1,0 +1,137 @@
+baseURL = 'http://example.org/' # TODO
+languageCode = 'en'
+defaultContentLanguage = 'en'
+title = 'The Pro Amateur'
+theme = 'hugo-coder'
+enableEmoji = true
+rssLimit = 40
+paginate = 10
+
+# TODO: google analytics or https://www.goatcounter.com 
+# [params.utterances]
+#  repo = "" # https://utteranc.es/#heading-repository
+#  issueTerm = "" # https://utteranc.es/#heading-mapping
+#  label = "" # https://utteranc.es/#heading-issue-label
+#  theme = "" # https://utteranc.es/#heading-theme
+
+[params]
+  author = "Maxim Mozgovoy"
+  info = ["Researcher and software developer"]
+  customCSS = ["css/admonitions.css", "css/academicons.min.css"]
+  description = "The Home of Maxim Mozgovoy"
+  keywords = "blog,developer,personal,homepage"
+  avatarURL = "misc/dizzy-dtr.gif"
+  favicon_32 = "misc/favicon.png"
+  # footerContent = "Hi, I am footer"
+  hideColorSchemeToggle = false # TODO: Maybe remove
+  
+
+[[params.social]]
+  name = "Mail"
+  icon = "fa fa-envelope fa-2x"
+  weight = 5
+  url = "mailto:mozgovoy@u-aizu.ac.jp"
+
+[[params.social]]
+  name = "Facebook"
+  icon = "fa fa-facebook fa-2x"
+  weight = 7
+  url = "https://www.facebook.com/maxim.mozgovoy.92/"
+
+[[params.social]]
+  name = "Github"
+  icon = "fa fa-github fa-2x"
+  weight = 10
+  url = "https://github.com/rg-software"
+
+[[params.social]]
+  name = "Youtube"
+  icon = "fa fa-youtube fa-2x"
+  weight = 12
+  url = "https://www.youtube.com/channel/UCyuC02Va7Wr-j-9X9Tfy1vA/"
+
+[[params.social]]
+  name = "Stack Exchange"
+  icon = "fa fa-stack-exchange fa-2x"
+  weight = 20
+  url = "https://stackexchange.com/users/15050179/rg-software/"
+
+[[params.social]]
+  name = "Google Scholar"
+  icon = "ai ai-google-scholar"
+  weight = 23
+  url = "https://scholar.google.com/citations?user=XlMbkRsAAAAJ/"
+
+[[params.social]]
+  name = "LJ"
+  icon = "fa fa-pencil fa-2x"
+  weight = 26
+  url = "https://rg-software.livejournal.com/"
+
+[[params.social]]
+  name = "Habr"
+  icon = "fa fa-comments-o fa-2x"
+  weight = 27
+  url = "https://habr.com/users/rg_software/"
+
+[[params.social]]
+  name = "RSS"
+  icon = "fa fa-rss"
+  weight = 28
+  url = "posts/index.xml"
+  rel = "alternate"
+  type = "application/rss+xml"
+
+[[params.social]]
+  name = "CC"
+  icon = "fa fa-cc-cc"
+  weight = 35
+  url = "https://creativecommons.org/licenses/by/4.0/"
+
+[[params.social]]
+  name = "BY"
+  icon = "fa fa-cc-by"
+  weight = 40
+  url = "https://creativecommons.org/licenses/by/4.0/"
+
+[[menu.main]]
+  name = "Blog"
+  weight = 10
+  url  = "posts/"
+  
+[[menu.main]]
+  name = "Books"
+  weight = 20
+  url  = "books/"
+
+[[menu.main]]
+  name = "Papers"
+  weight = 30
+  url  = "papers/"
+
+[[menu.main]]
+  name = "Software"
+  weight = 35
+  url  = "software/"
+
+[[menu.main]]
+  name = "CV"
+  weight = 40
+  url = "cv/"
+
+[[menu.main]]
+  name = "ZX"
+  weight = 45
+  url = "zx/"
+
+[[menu.main]]
+  name = "About"
+  weight = 50
+  url = "about/"
+
+#[markup]
+#  [markup.asciidocExt]
+#    extensions = ['asciidoctor-diagram']
+#    workingFolderCurrent = true
+
+[frontmatter]

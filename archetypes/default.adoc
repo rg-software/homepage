@@ -1,0 +1,11 @@
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+draft: true
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+
