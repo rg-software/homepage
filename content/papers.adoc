@@ -1,3 +1,4 @@
+:title: Papers
 :icons: font
 
 // TODO: Guest editor: MDPI, ToG special issue

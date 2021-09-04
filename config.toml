@@ -10,7 +10,7 @@ paginate = 10
 [params.utterances]
   repo = "rg-software/homepage-comments"
   issueTerm = "pathname"
-#  label = "" # https://utteranc.es/#heading-issue-label
+# label = "" # https://utteranc.es/#heading-issue-label # optional
   theme = "github-light"
 
 [params]
@@ -22,7 +22,7 @@ paginate = 10
   avatarURL = "misc/dizzy-dtr.gif"
   favicon_32 = "misc/favicon.png"
   # footerContent = "Hi, I am footer"
-  hideColorSchemeToggle = false # TODO: Maybe remove
+  hideColorSchemeToggle = false # NOTE: doesn't work; why?
   
 
 [[params.social]]
