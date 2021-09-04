@@ -14,9 +14,8 @@ link:mailto:mozgovoy@u-aizu.ac.jp[mozgovoy@u-aizu.ac.jp]
 
 == Research Interests
 
-Machine learning, natural language processing, behavior-capture AI, computer games, sentiment analysis, computer-assisted language learning, plagiarism detection.
-
-image::research.png[]
+* Machine learning, human-like game AI, computer games.
+* Computer-assisted language learning, natural language processing.
 
 
 == Career
@@ -37,28 +36,13 @@ image:fi.png[] Finnish (in progress) +
 image:ja.png[] Japanese (in progress)
 
 
-== Education
-
-*2002-2007.* University of Joensuu, _MSc (2004) and PhD (2007), Computer Science_ +
-*2000-2006.* St.&nbsp;Petersburg State University, _MSc (2003) and PhD (2006), Mathematics_ +
-*1998-2000.* North Ossetian State University +
-*1988-1998.* Secondary school #39, Vladikavkaz
-
-
-== Graduation Works
-
-link:joensuu_dissertation.pdf[icon:file-pdf-o[]]&nbsp;(PhD thesis) Enhancing Computer-Aided Plagiarism Detection. University of Joensuu, 2007. +
-link:amcp_dissertation.pdf[icon:file-pdf-o[]]&nbsp;(PhD thesis) Machine semantic analysis of the Russian language and its applications (in Russian). St.&nbsp;Petersburg State University, 2006. See also link:amcp_synopsis.pdf[the synopsis]. +
-link:joensuu_thesis.pdf[icon:file-pdf-o[]]&nbsp;(MSc thesis) Concurrent Program Verifier — a Tool for Teaching Concurrent Programming. University of Joensuu, 2004. +
-link:amcp_thesis.pdf[icon:file-pdf-o[]]&nbsp;(MSc thesis) Informational Retrieval: Finding and Utilizing Semantic Relations in Sentences (in Russian). St.&nbsp;Petersburg State University, 2003.
-
-  
 == Current Teaching (The University of Aizu)
 
 *From 2018.* Introduction to Data Management +
 *From 2018.* Integrated Exercise for Software II (Exercises) +
 *From 2012.* Software Engineering for Internet Applications +
 *From 2010.* Concurrent and Distributed Computing +
+
 
 == Past Teaching
 
@@ -71,3 +55,19 @@ link:amcp_thesis.pdf[icon:file-pdf-o[]]&nbsp;(MSc thesis) Informational Retrieva
 *2004-2005.* Theoretical Foundations of CS (Theory of Computing), University of Eastern Finland +
 *2004.* Data Mining and Plagiarism Detection (Invited Lectures), St. Petersburg State University +
 *1998-2000.* Basics of {cpp} Programming, North Ossetian State University
+
+
+== Education
+
+*2002-2007.* University of Joensuu, _MSc (2004) and PhD (2007), Computer Science_ +
+*2000-2006.* St.&nbsp;Petersburg State University, _MSc (2003) and PhD (2006), Mathematics_ +
+*1998-2000.* North Ossetian State University +
+*1988-1998.* Secondary school #39, Vladikavkaz
+
+
+== Graduation Works
+
+link:joensuu_dissertation.pdf[icon:file-pdf-o[]]&nbsp;(PhD thesis) Enhancing Computer-Aided Plagiarism Detection. University of Joensuu, 2007. +
+link:amcp_dissertation.pdf[icon:file-pdf-o[]]&nbsp;(PhD thesis) Machine semantic analysis of the Russian language and its applications _(in Russian)_. St.&nbsp;Petersburg State University, 2006. +
+link:joensuu_thesis.pdf[icon:file-pdf-o[]]&nbsp;(MSc thesis) Concurrent Program Verifier — a Tool for Teaching Concurrent Programming. University of Joensuu, 2004. +
+link:amcp_thesis.pdf[icon:file-pdf-o[]]&nbsp;(MSc thesis) Informational Retrieval: Finding and Utilizing Semantic Relations in Sentences _(in Russian)_. St.&nbsp;Petersburg State University, 2003.

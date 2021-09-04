@@ -7,12 +7,11 @@ enableEmoji = true
 rssLimit = 40
 paginate = 10
 
-# TODO: google analytics or https://www.goatcounter.com 
-# [params.utterances]
-#  repo = "" # https://utteranc.es/#heading-repository
-#  issueTerm = "" # https://utteranc.es/#heading-mapping
+[params.utterances]
+  repo = "rg-software/homepage-comments"
+  issueTerm = "pathname"
 #  label = "" # https://utteranc.es/#heading-issue-label
-#  theme = "" # https://utteranc.es/#heading-theme
+  theme = "github-light"
 
 [params]
   author = "Maxim Mozgovoy"
@@ -133,5 +132,7 @@ paginate = 10
 #  [markup.asciidocExt]
 #    extensions = ['asciidoctor-diagram']
 #    workingFolderCurrent = true
+# [frontmatter]
 
-[frontmatter]
+[params.goatCounter]
+  code = "proamateur" # Account page: https://[code].goatcounter.com

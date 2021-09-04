@@ -12,10 +12,11 @@ https://github.com/rg-software/wlx-markdown-viewer[icon:wrench[]] *Wlx-markdown-
 
 https://github.com/rg-software/wcx-audioconverter[icon:wrench[]] *Wcx-audioconverter.* Audioconverter packer plugin for Total Commander.
 
-https://www.softmaker.de/softmaker-office[icon:tasks[]] *OMML Renderer.* An Office MathML math expressions renderer for SoftMaker Office.
+https://www.softmaker.de/softmaker-office[icon:cog[]] *OMML Renderer.* An Office MathML math expressions renderer for SoftMaker Office.
 
 
 
+//tasks
 //external-link 
 //globe-e
 //gamepad

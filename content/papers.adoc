@@ -1,5 +1,6 @@
 :icons: font
 
+// TODO: Guest editor: MDPI, ToG special issue
 
 == Book Chapters
 
@@ -58,11 +59,11 @@ link:fm06.pdf[icon:file-pdf-o[]] K.&nbsp;Fredriksson, M.&nbsp;Mozgovoy. Efficien
 
 link:mozgovoy06.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Desktop Tools for Offline Plagiarism Detection in Computer Programs. _Informatics in Education_, 2006, vol.&nbsp;5(1), pp.&nbsp;97-112.  
 
-link:mozgovoy06qa.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Simple Question-Answering System, Based on Russian Semantic Analyzer (Russian). _St.&nbsp;Petersburg University Bulletin_, 2006, vol.&nbsp;10(1), pp.&nbsp;116-122.
+link:mozgovoy06qa.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Simple Question-Answering System, Based on Russian Semantic Analyzer _(in Russian)_. _St.&nbsp;Petersburg University Bulletin_, 2006, vol.&nbsp;10(1), pp.&nbsp;116-122.
 
 link:mfwjs05.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, K.&nbsp;Fredriksson, D.&nbsp;White, M.&nbsp;Joy, and E.&nbsp;Sutinen. Fast Plagiarism Detection System. _Lecture Notes in Computer Science_, 2005, vol.&nbsp;3772, pp.&nbsp;267-270.
 
-link:mozgovoy05ir.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Semantical Analyzer and the Problem of Text Retrieval (Russian). _St.&nbsp;Petersburg University Bulletin_, 2005, vol.&nbsp;10(3), pp.&nbsp;54-59.
+link:mozgovoy05ir.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Semantical Analyzer and the Problem of Text Retrieval _(in Russian)_. _St.&nbsp;Petersburg University Bulletin_, 2005, vol.&nbsp;10(3), pp.&nbsp;54-59.
 
 
 == Conference Papers
@@ -186,7 +187,7 @@ link:mkk07.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, S.&nbsp;Karakovskiy, V.&nbsp
 
 link:mtk06.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, V.&nbsp;Tusov, V.&nbsp;Klyuev. The Use of Machine Semantic Analysis in Plagiarism Detection. _Proceedings of the 9th International Conference on Humans and Computers_, Aizu-Wakamatsu, Japan, 2006, pp.&nbsp;72-77.  
 
-link:mozgovoy06thes.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Context-oriented Thesaurus of the Russian Language (Russian). _Proceedings of the 37th International Conference on Control Processes and Stability_, St.&nbsp;Petersburg, Russia, 2006, pp.&nbsp;379-383.   
+link:mozgovoy06thes.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Context-oriented Thesaurus of the Russian Language _(in Russian)_. _Proceedings of the 37th International Conference on Control Processes and Stability_, St.&nbsp;Petersburg, Russia, 2006, pp.&nbsp;379-383.   
 
 
 == Keynote and Invited Speeches
