@@ -14,8 +14,8 @@ link:mailto:mozgovoy@u-aizu.ac.jp[mozgovoy@u-aizu.ac.jp]
 
 == Research Interests
 
-* Machine learning, human-like game AI, computer games.
-* Computer-assisted language learning, natural language processing.
+icon:gamepad[] Machine learning, human-like game AI, computer games. +
+icon:language[] Computer-assisted language learning, natural language processing.
 
 
 == Career
