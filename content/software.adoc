@@ -1,9 +1,7 @@
 ---
-title: "Software"
+title: "Selected Projects"
 ---
 :icons: font
-
-== Selected Projects
 
 https://www.worldoftennis.com[icon:gamepad[]] *World of Tennis: Roaring '20s.* A great online tennis game, featured multiple times on iOS App Store, Google Play! and Windows Store.
 

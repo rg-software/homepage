@@ -2,8 +2,6 @@
 title: "Books"
 ---
 
-== Books
-
 [%noheader,cols="1,4",grid=none]
 |===
 |https://www.ozon.ru/context/detail/id/7237198/[image:enru_dictionary.jpg[Англо-русский толковый словарь-справочник]]

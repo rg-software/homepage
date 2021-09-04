@@ -1,9 +1,7 @@
 ---
-title: "CV"
+title: "My CV"
 ---
 :icons: font
-
-== My CV
 
 [%noheader,cols="2,5",grid=none]
 |===

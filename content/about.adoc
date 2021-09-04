@@ -2,8 +2,6 @@
 title: "About"
 ---
 
-== About
-
 THIS IS TODO
 
 The Pro Amateur
