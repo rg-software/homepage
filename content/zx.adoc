@@ -1,3 +1,7 @@
+---
+title: "ZX"
+---
+
 == ZX Spectrum
 
 My path to computer science began with ZX Spectrum-compatible computers, and I still keep interest in these machines. Original ZX Spectrum was a British home computer created in 1982, and its numerous clones and variations were immensely popular in Russia of early 90's. At that time it was an incomparably cheaper alternative to PC, still providing a lot of fun for game and programming activities. Spectrum keeps its fandom even today, with https://www.worldofspectrum.org/infoseekadv.cgi?year=2012[dozens of titles] released yearly.

@@ -1,20 +1,37 @@
+---
+title: "Software"
+---
 :icons: font
 
 == Selected Projects
 
-https://www.worldoftennis.com[icon:gamepad[]] *World of Tennis: Roaring '20s.* Bringing global multiplayer tennis to your fingers with tactical competition and gameplay on Android, iOS, Xbox One, Nintendo Switch, Windows 10, macOS, Steam and Amazon.
+https://www.worldoftennis.com[icon:gamepad[]] *World of Tennis: Roaring '20s.* A great online tennis game, featured multiple times on iOS App Store, Google Play! and Windows Store.
 
 https://github.com/rg-software/joe-blade-3-remake[icon:gamepad[]] *Joe Blade 3 Remake.* A modern remake of ZX Spectrum game Joe Blade 3.
 
-https://github.com/rg-software/zxrecolor[icon:gamepad[]] *ZX Recoloring Project.* This toolset will help you to give a more modern look to your favorite ZX Spectrum games and make them attractive even to the new generation of gamers.
+https://github.com/rg-software/zxrecolor[icon:gamepad[]] *ZX Recoloring Project.* A toolset for giving a modern look to our favorite ZX Spectrum games and make them attractive to the new generation of gamers.
 
-https://github.com/rg-software/wlx-markdown-viewer[icon:wrench[]] *Wlx-markdown-viewer.* Markdown lister plugin for Total Commander.
+https://github.com/rg-software/wlx-markdown-viewer[icon:wrench[]] *Wlx-markdown-viewer.* A markdown lister plugin for Total Commander.
 
-https://github.com/rg-software/wcx-audioconverter[icon:wrench[]] *Wcx-audioconverter.* Audioconverter packer plugin for Total Commander.
+https://github.com/rg-software/wcx-audioconverter[icon:wrench[]] *Wcx-audioconverter.* An audioconverter packer plugin for Total Commander.
+
+https://github.com/rg-software/weblibrary[icon:wrench[]] *WebLibrary.* An offline browser/organizer for locally stored internet documents. Allows saving web pages for later reading.
 
 https://www.softmaker.de/softmaker-office[icon:cog[]] *OMML Renderer.* An Office MathML math expressions renderer for SoftMaker Office.
 
+https://github.com/rg-software/cpv[icon:flask[]] *Concurrent Program Verifier.* An educational tool for understanding concurrent programming.
 
+
+//dla
+//fv
+//grading cat
+//mobilefarm
+//CoTex
+//KeyTrain
+
+// WordBricks: to github? (Desktop & mobile)
+// EmoTwitter: to github? 
+// Russinan morpho: github?
 
 //tasks
 //external-link 
@@ -27,24 +44,9 @@ https://www.softmaker.de/softmaker-office[icon:cog[]] *OMML Renderer.* An Office
 //desktop
 //folder-open
 
-//dla
-//fv
-//grading cat
-//mobilefarm
-//weblibrary
-
+// NO NEED
 // wfx-https-browser
-
-// WordBricks: to github
-// EmoTwitter: to github
-// OMML: just a link to softmaker
-// Grammar checker: ignore?
-// ZX Recoloring project: github
-// Russinan morpho: github
 // AI for soccer
 // AI for FN3
 // JavaPlag
 
-//CPV 
-//CoTex
-//KeyTrain
