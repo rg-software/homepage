@@ -2,23 +2,26 @@
 title: "Books"
 ---
 
+It's been a while since I had a chance to write something of a book length. I have ideas for future writings, but no firm plans as of today. Maybe I should try some other formats instead? We'll see.
+
 [%noheader,cols="1,4",grid=none]
 |===
-|https://www.ozon.ru/context/detail/id/7237198/[image:enru_dictionary.jpg[Англо-русский толковый словарь-справочник]]
+|https://www.ozon.ru/context/detail/id/7237198/[image:enru_dictionary.jpg[]]
 |V.&nbsp;Rychkov, M.&nbsp;Mozgovoy
 
-English-Russian Explanatory and Reference Dictionary for the Users of PCs, Laptops, Tablets, and Digital Hardware
+English-Russian Explanatory and Reference Dictionary for the Users of PCs, Laptops, Tablets, and Digital Hardware _(in Russian)_
 
 _Nauka i tekhnika_, 2011, 304&nbsp;p.
 |===
 
-I admit this book could have a shorter name! We were making just "a dictionary", but then the publisher renamed it a bit. However, the name looks quite adequate on the cover. The book itself has grown from an earlier (and https://www.ozon.ru/context/detail/id/1667003/[sold out]) work of the principal author. My initial role was of a co-pilot: I had to select articles for the new edition (remove obsolete terms, add new ones), to re-read all the articles, and to fix obvious mistakes. The very principle of dictionary composition presumes a very precise text structure, and I found interesting to experiment with automation. As a result, dictionary articles were placed into an Excel table, and then they were automatically exported to a Word document with all necessary layout elements, such as indentations, italics, bold font ready; they are so easy to forget if the text is typed manually. During the final project phase, I had to participate in authoring new articles as an equal contributor, and to deal with endless proofreading, of course. At the end, the publisher decided to include some pictures into the dictionary.
+This book is an extension of the https://www.ozon.ru/context/detail/id/1667003/[previous work] of the principal author. I was more like a co-pilot here. What was interesting to me is to automate the process. All our articles were created in Excel sheets, and special macros were used to export and format them according to the usual dictionary structure, and to create cross-references.
+
 
 '''
 
 [%noheader,cols="1,4",grid=none]
 |===
-|https://www.jbpub.com/catalog/9780763776275/samples/[image:alac-en.jpg[Algorithms, Languages, Automata, and Compilers]]
+|https://www.amazon.com/Algorithms-Languages-Automata-Compilers-Practical/dp/0763776270/[image:alac-en.jpg[]]
 |Maxim Mozgovoy
 
 Algorithms, Languages, Automata, and Compilers: A Practical Approach
@@ -26,15 +29,13 @@ Algorithms, Languages, Automata, and Compilers: A Practical Approach
 _Jones and Bartlett Publishers_, 2009, 345&nbsp;p.
 |===
 
-Finally! The English editition of the book of the same name (reworked and updated) is now released in the USA. Clearly, getting the first book published in English was a big event for me. Especially keeping in mind an awful amount of work I invested into the project. Hope to continue this practice.
-
-An excerpt from the press release: [The book] covers the standard "theory of computing" topics through a strong emphasis on practical applications rather than theorems and proofs. Finite automata, Turing machines, models of computation, complexity, solvability, and other topics that form a foundation of modern programming are discussed - first with a gentle theoretical orientation, and then applied through programming code and practical examples. JFLAP projects and applications are integrated throughout the book, and code, simulations, and projects are on an accompanying CD-ROM.
+This is the English edition of my older book on theory of computing. Diving into a world of English-language commercial publishing was a very interesting experience. The amount of work invested was enormous, but I think it was worth it.
 
 '''
 
 [%noheader,cols="1,4",grid=none]
 |===
-|https://www.amazon.com/Enhancing-Computer-Aided-Plagiarism-Detection-Mozgovoy/dp/3639097246/[image:ecapd.jpg[Enhancing Computer-Aided Plagiarism Detection]]
+|https://www.amazon.com/Enhancing-Computer-Aided-Plagiarism-Detection-Mozgovoy/dp/3639097246/[image:ecapd.jpg[]]
 |Maxim Mozgovoy
 
 Enhancing Computer-Aided Plagiarism Detection
@@ -42,92 +43,84 @@ Enhancing Computer-Aided Plagiarism Detection
 _VDM Verlag_, 2008, 120&nbsp;p.
 |===
 
-//<a href=cv.html#theses>
-Actually, this is not a real book. It is my PhD thesis, published as a book. VDM Verlag specializes in such kinds of projects. Hope they will manage to sell at least five to ten copies.
-Since I have a plenty of space here, let's fill it with the abstract.
-"This work is dedicated to the problem of computer- aided plagiarism detection, i.e. to the development and the use of software instruments that help to reveal plagiarism. The creation of such tools raises specific algorithmic problems that deserve attention. The results covered in this work, include: (a) Building the taxonomy of existing plagiarism detection methods according to their speed and reliability characteristics. (b) Studying and improving string matching algorithms used in plagiarism detection. Introducing "tokenizers" for the natural language texts, applying natural language parsers for plagiarism detection in order to enhance the quality of the detectors. (c) Optimizing the speed performance of string matching based plagiarism detection algorithms by applying a combined fast and reliable scoring scheme. Developing an efficient parameterized matching procedure. (d) Developing a fast string matching based plagiarism detection algorithm."
+This is simply my PhD thesis published as a book by VDM Verlag, which specializes in such kinds of projects. At that time I hoped it would give it some additional visibility. Not sure the publisher managed to sell anything, but I don't really mind.
 
 '''
 
 [%noheader,cols="1,4",grid=none]
 |===
-|https://www.ozon.ru/context/detail/id/2985461/[image:85problems.jpg[C++ мастер-класс]]
+|https://www.ozon.ru/context/detail/id/2985461/[image:85problems.jpg[]]
 |Maxim Mozgovoy
 
-C++ Masterclass: 85 Nontrivial Projects, Solutions and Problems
+C++ Masterclass: 85 Nontrivial Projects, Solutions and Problems _(in Russian)_
 
 _Nauka i tekhnika_, 2007, 272&nbsp;p.
 |===
 
-The story of this book is quite funny. Postgraduate students of Russian universities have to do (in addition to exams) a so-called &quot;pedagogical practice&quot;, by teaching some subject to first- or second-year students. The idea iself is rather questionable, but that's not the matter now. Since almost the whole period of my postgraduate studies  in SPbSU I actually spent in Finland, it was problematic to teach in St. Petersburg. The head of our department suggested a simple tradeoff: instead of teaching, I had to compose about one hundred tasks for younger students' courseworks. I liked the idea, so we parted pleased with each other.
+As a PhD student in St. Petersburg I had to pass a so-called "teaching practice", which is usually done by teaching a certain subject to first- or second-year students. I couldn't really do it because I was actually living in Finland by that time. So we we struck a deal with our Head of Department: instead of teaching, I had to compose a collection of topics for student courseworks.
 
-It was boring to copy tasks from books. Moreover, I discovered that almost all the tasks in collections are either &quot;typical&quot; (i.e. they are simple exercises that train some specific skills), or &quot;olympic&quot; (complex algorithmic brain-teasers having no relation to the real world). Having realized that the books of problems are not useful, I began to recall the problems that ever interested me, incidentally inventing my own exercises. The problems had to be not too simple and not too hard, interesting and practical. As a result, having composed about one hundred definitions for the courseworks, I settled down.
+I could have simply copied topics from other sources, but reading available literature left me dissatisfied. I started recalling problems from my own past experience, modifying book materials and inventing new exercises.
 
-Although, it was vexing to work just for a checkmark. I wanted to find a more decent use for my collection. After some thinking, I decided to convert it into a book. After some critical evaluation, I threw away half of all the problems, and spent two or three more months composing new assignments. Finally, the total number of problems became eighty-five.
-      
-The publisher appreciated the idea of the book, but adviced me to change its ideology: instead of a standard &quot;from problem to the solution&quot; style I was proposed to focus on solutions. Thus, instead of a book of problems (handy mostly for teachers) we got a book that illustrates practical algorithms and techniques of modern computer science with interesing examples. To me, the result appears to be quite worthy.
+I got my university paperwork done, but it was vexing to work just for a "pass" grade. After some thinking I decided to turn my little collection into a book. Along the way it became more "solution-oriented", which made it more interesting for a general audience.
 
 '''
 
 [%noheader,cols="1,4",grid=none]
 |===
-|https://www.ozon.ru/context/detail/id/2432037/[image:alac.jpg[Алгоритмы, языки, автоматы, компиляторы]]
+|https://www.ozon.ru/context/detail/id/2432037/[image:alac.jpg[]]
 |Maxim Mozgovoy
 
-Classics of Programming: Algorithms, Languages, Automata, Compilers. A Practical Approach
+Classics of Programming: Algorithms, Languages, Automata, Compilers. A Practical Approach _(in Russian)_
 
 _Nauka i tekhnika_, 2006, 320&nbsp;p.
 |===
 
-The idea of this book came to my mind after I got acquainted with the so-called theory of computing. From the scientific point of view, this theory tries fo find the answers to some of the fundamental questions of computer science: what is algorithm? what is problem? why one problem is easy to solve, while another is hard? how to create a machine that solves problems? From the practical point of view the development of the theory of computing led to invention of numerious useful algorithms and models, suitable for everyday use.
+I find theory of computing fascinating. It goes straight to the point: what is _algorithm_? what is _problem_? why one problem is easy to solve, while another is hard? how to create a machine that solves problems? Theory of computing helped to design numerous everyday algorithms and models. However, most books on theory of computing are quite theory- and math-heavy, which might repel many coders. I think it is unfortunate, so I decided to write a book that would both introduce the basic ideas of theory of computing and discuss some practical tools.
 
-Theoretical aspects have been described in different well-known books for decades, but introductory texts for practitioneers are not common. While some books describe parsing algorithms or finite automata models, the theory of computing is usually not mentioned.
-
-In this book I tried, on the one hand, to give an idea of the theory of computing as such (on the most basic level I was able to do), and on the other hand, to provide some practical ready-to-use algorithms. I believe that familiarity with the theory of computing is useful for any programmer &#8212; both for general education, and for improving one's practical skills.
 
 '''
 
 [%noheader,cols="1,4",grid=none]
 |===
-|https://www.piter.com/book.phtml?978594723853/[image:ent_prog.jpg[Занимательное программирование]]
+|https://www.ozon.ru/product/zanimatelnoe-programmirovanie-samouchitel-1587438/[image:ent_prog.jpg[]]
 |Maxim Mozgovoy
 
-Entertaining Programming
+Entertaining Programming _(in Russian)_
 
 _Piter Publishing_, 2004, 208&nbsp;p.
 |===
 
-This book is very dear to me as my first independent work in spite all its drawbacks. The topic of "entertaining" programming is still close to my heart, so I will definitely consider it in some later works. While similar good books are common nowadays, they seldom follow the style I like, so it means I should return to writing.<p>During the past years I collected enough materials on various entertaining aspects of programming. Computer models, animation, 3D graphics, graph and maze processing, game development &#8212; all the things that looked exciting to me. Here I tried to bring these topic altogether, and, I believe, the result turned out to be not that bad. What I personally like in this work is relatively high complexity of materials for a book of such title. So the book can both entertain and teach something.
+This book is very dear to me as my first independent work in spite all its drawbacks. The topic of "entertaining" programming is still close to my heart, so I will definitely revisit it some time later. My target is "step two" in our trade. There are many books explaining how to _start_ programming, but there are few sources showing _what to do next_. Some topics like "write a game" are easy to come up with, other are less obvious. My challenge is to explore some possible directions and to show how diverse and yet equally fascinating they are.
 
 '''
 
 [%noheader,cols="1,4",grid=none]
 |===
-|https://www.piter.com/book.phtml?978527200218/[image:vb.net.jpg[VB.NET]]
+|https://www.ozon.ru/product/visual-basic-net-135036033/[image:vb.net.jpg[]]
 |V.&nbsp;Dolzhenkov, M.&nbsp;Mozgovoy
 
-Visual Basic.NET: Training Course
+Visual Basic.NET: Training Course _(in Russian)_
 
 _Piter Publishing_, 2003, 464&nbsp;p.
 |===
 
-I remember I was so happy to receive a proposal to become one of the book authors! That's the real thing! My name will be on the cover page! Clearly, abition is a terrible thing (especially in early 20s); due to my ambitions I put great efforts and spent a lot of time for the project, while I could just walk in the city or play some computer game.</p>
+This book is purely technical and not too creative in terms of content. However, it was my chance to join a real book project as an author, and back then I thought it was a really cool thing. So I put great efforts and spent a lot of time working on this title. We have simply divided responsibilities by chapters, so each of us could focus on his own part. A reasonably solid work, but nothing beyond that.
 
-Since this book is purely technical, a real tandem of authors (like in case of Ilf and Petrov) is not needed. It is possible just to divide the work into two parts and write independently. So we did. As a result, we got a rather adequate textbook. I can't say I am really proud of this work, but I am not going to disown it either. The book does its job, and nobody expects it to be full of stylistic or scientific gems.
 
 '''
 
 [%noheader,cols="1,4",grid=none]
 |===
-|https://www.bhv.ru/books/book.php?id=1428/[image:excel2002.gif[MS Excel 2002]]
+|https://www.ozon.ru/product/microsoft-excel-2002-naibolee-polnoe-rukovodstvo-153364/[image:excel2002.gif[]]
 |V.&nbsp;Dolzhenkov, Yu.&nbsp;Kolesnikov
 
-Microsoft Excel 2002: The Complete Guide
+Microsoft Excel 2002: The Complete Guide _(in Russian)_
 
 BHV-Petersburg, 2002, 1072&nbsp;p.
 |===
 
-This is my first experience in book publishing. The task was not very exciting: to prepare several chapters for the new edition. The book is not new: it was first entitled &quot;Microsoft Excel 97&quot;, then &quot;Microsoft Excel 2000&quot;, and only after that &#8212; &quot;Microsoft Excel 2002&quot; appeared. Now there are subsequent editions available, but I have no relation to them.
+My name isn't on the title and yet this book is in the list here. Let's say it was a little side job aimed to prove that I can be _a real author_ by contributing some material to an existing book. After all, I was just a 3rd year student, so my credit wasn't high.
 
-The essense of such &quot;preparation&quot; was simple: to ensure that existing text does not contradict with the new Excel version, to make new screenshots, and to invent new examples (to make the book less similar to the previous one). Except inventing examples, this work is quite boring, so I tried to introduce &quot;creative elements&quot; into the daily routine. During the work we got a &quot;trip&quot; from our beloved Microsoft. When the book was almost ready, we found that these gentlemen decided to exclude a tool called Microsoft Map from the MS Office package. I don't know whether somebody uses it or not, but we had a separate chapter about Microsoft Map. And that chapter was mine. And I was supposed to receive some money for it... Cool, isn't it? Later Microsoft got rid of Photo Editor in Office 2003 in a similar way (wrong decision, in my opinion). Finally we found a Solomonic decision: keep the Microsoft Map chapter, and tell our readers that Microsoft definitely was wrong, but it is not a problem, since your wonderful authors will teach you how to extract this tool from Office 2000 package, and to insert it into Office 2002 by means of some manipulations with the system registry. Yep, I got my money for that chapter.
-  
+This book is a makeover of an earlier work "Microsoft Excel 2000", which is, in turn, a makeover of "Microsoft Excel 97". Since Excel 2002 (aka Excel XP) was a very slight makeover of Excel 2000 itself, my job in was simple: to ensure that the existing text corresponds to reality. In addition, the authors wanted to have new screenshots and examples to add some market value to the book, which actually required the most effort.
+
+I was in charge of several chapters only, and I was promised a per-chapter payment. One of the chapters was about a tool called _Microsoft Map_, which (as we found out later) silently disappeared from the final build of Excel 2002. I wasn't happy with the prospect of losing my _Microsoft Map_ honorarium, so I found a way to extract the tool from Office 2000 and reuse it in Office 2002. So we reproached Microsoft for their rash decision in the book, explained how to undo it, and preserved the _Microsoft Map_ chapter.
