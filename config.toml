@@ -22,7 +22,7 @@ paginate = 10
   avatarURL = "misc/dizzy-dtr.gif"
   favicon_32 = "misc/favicon.png"
   # footerContent = "Hi, I am footer"
-  hideColorSchemeToggle = false # NOTE: doesn't work; why?
+  hideColorSchemeToggle = true # NOTE: doesn't work; why?
   
 
 [[params.social]]
