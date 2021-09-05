@@ -9,6 +9,8 @@ https://github.com/rg-software/joe-blade-3-remake[icon:gamepad[]] *Joe Blade 3 R
 
 https://github.com/rg-software/zxrecolor[icon:gamepad[]] *ZX Recoloring Project.* A toolset for giving a modern look to our favorite ZX Spectrum games and make them attractive to the new generation of gamers.
 
+https://github.com/rg-software/zx-keytrain[icon:gamepad[]] *Keyboard Trainer.* A touch typing training game written for ZX Spectrum ca. 1997.
+
 https://github.com/rg-software/wlx-markdown-viewer[icon:wrench[]] *Wlx-markdown-viewer.* A markdown lister plugin for Total Commander.
 
 https://github.com/rg-software/wcx-audioconverter[icon:wrench[]] *Wcx-audioconverter.* An audioconverter packer plugin for Total Commander.
