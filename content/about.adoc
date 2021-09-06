@@ -1,7 +1,15 @@
 ---
-title: "About"
+title: "The Pro Amateur"
 ---
 
-THIS IS TODO
+This is the third incarnation of my home page. Its primary purpose had always been to keep some basic "about me" info, so I could easily send a link to a colleague or a prospective employer. Now I want to make link:blog/[my blog] its primary focus.
 
-The Pro Amateur
+I've never tried blogging on a regular basis, being more comfortable writing longer pieces like link:papers/[papers] or link:books/[books]. However, occasionally I feel I know something that might be useful for others, so it makes sense to write about it. A good blog, though, needs a focus on a certain theme.
+
+These days I often think of myself as of _a professional amateur_. Literally every day I have to deal with a diverse set of tasks ranging from fixing a bug in C++ code and setting up a Docker container to reviewing a research article and writing a grant proposal. I know some things better than other things, but I rarely have to _dig really deep_. It used to be frustrating: I don't mind _becoming a pro_ in some areas, but there are always more pressing issues to take care of.
+
+This sounds like is a recipe for https://en.wikipedia.org/wiki/Impostor_syndrome[impostor syndrome], which haunts me indeed. On the other hand, _all of us are amateurs_. We have to clean our rooms, cook food, take care of children and animals, sign bank account contracts, deal with car insurance, vote for politicians and so on. Most of us manage these complexities of modern life somehow, despite not being professionals in all relevant spheres.
+
+I think I am quite good in _understanding things_ and _explaining things_. When I need to find a solution for my problem, I usually manage to do it. When I need to explain to others, people usually understand me. Understanding thins is not easy, though. Internet is packed with extra-detailed information about _anything_ and with quick "let's try X" articles that won't get you any far. I hope to strike a good balance between these two extremes. My typical goal is to understand the logic of something and _get the things done_.
+
+My plan is to write mostly about specific (technology-related) needs I had and how I managed to achieve them. Occasionally I will probably write about side topics such as books, art, science, politics, or life in general. Does it sound like a good idea? No clue, time will show.
