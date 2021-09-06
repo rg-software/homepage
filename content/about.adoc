@@ -2,9 +2,9 @@
 title: "The Pro Amateur"
 ---
 
-This is the third incarnation of my home page. Its primary purpose had always been to keep some basic "about me" info, so I could easily send a link to a colleague or a prospective employer. Now I want to make link:blog/[my blog] its primary focus.
+This is the third incarnation of my home page. Its primary purpose had always been to keep some basic "about me" info, so I could easily send a link to a colleague or a prospective employer. Now I want to make link:/posts/[my blog] its primary focus.
 
-I've never tried blogging on a regular basis, being more comfortable writing longer pieces like link:papers/[papers] or link:books/[books]. However, occasionally I feel I know something that might be useful for others, so it makes sense to write about it. A good blog, though, needs a focus on a certain theme.
+I've never tried blogging on a regular basis, being more comfortable writing longer pieces like link:/papers/[papers] or link:/books/[books]. However, occasionally I feel I know something that might be useful for others, so it makes sense to write about it. A good blog, though, needs a focus on a certain theme.
 
 These days I often think of myself as of _a professional amateur_. Literally every day I have to deal with a diverse set of tasks ranging from fixing a bug in C++ code and setting up a Docker container to reviewing a research article and writing a grant proposal. I know some things better than other things, but I rarely have to _dig really deep_. It used to be frustrating: I don't mind _becoming a pro_ in some areas, but there are always more pressing issues to take care of.
 
