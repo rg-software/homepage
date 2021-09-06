@@ -10,7 +10,7 @@ Naturally, many successful Spectrum games were just conversions from arcade mach
 
 Playing Spectrum is easy now. Just grab any reasonably fresh https://worldofspectrum.org/tools/emulators[emulator] and run it, or use https://jsspeccy.zxdemo.org[an online emulator], and open a game archive file. The most often-used controls are keyboard (`Q`, `A`, `O`, `P`, `M`/`Space` or `Z`, `X`, `O`, `K`, `Space`), Kempston joystick (can be mapped to a physical joystick or a gamepad), and Interface I/II (`1`, `2`, `3`, `4`, `5` or `6`, `7`, `8`, `9`, `0` keys).
 
-Spectrum has very severe limitations on the use of color graphics, so most games feature a rather poor palette and blocky artwork. Fortunately, now we have great https://www.worldofspectrum.org/forums/showthread.php?t=45538/[Nirvana engine] (developed in 2013!) that removes some of these limitations via certain technical tricks, so the game is not over yet.
+Spectrum has very severe limitations on the use of color graphics, so most games feature a rather poor palette and blocky artwork. Fortunately, now we have great https://worldofspectrum.org/forums/discussion/45538/a-new-full-screen-bicolor-engine-called-nirvana[Nirvana engine] (developed in 2013 and updated in 2015!) that removes some of these limitations via certain technical tricks, so the game is not over yet.
 
 [%noheader,cols="2,4",grid=none]
 |===
@@ -47,7 +47,7 @@ This game can be called "a shooter", but with a unique feature: you have to clea
 |image:showjumping.gif[]
 |https://www.worldofspectrum.org/infoseekid.cgi?id=0004482/[Show Jumping (1986)]
 
-Just a show jumping simulator. Do you know many such games around?
+Just a show jumping simulator. Quite relaxing for my taste. Do you know many such games around?
 
 |image:turboesprit.gif[]
 |https://www.worldofspectrum.org/infoseekid.cgi?id=0005461/[Turbo Esprit (1986)] 
