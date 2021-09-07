@@ -27,7 +27,7 @@ print("hello, world")
 
 The problem is simple: `json` is a standard module, while `dotmap` is not, so it is supposed to be installed in advance. It is easy to install `dotmap` by typing
 
-[source,shell]
+[source]
 ----
 pip install dotmap
 ----
@@ -48,7 +48,7 @@ The issues described above are well known in Python world, and there are standar
 
 Poetry can be installed via command line as follows:
 
-[source,shell]
+[source]
 ----
 # Bash
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
@@ -61,7 +61,7 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 
 As discussed above, it is almost always desirable to make a local Python environment reproducible, so it makes sense to include Poetry configuration into the project from the very start. However, it can also be done any time later. To do it, navigate to the project directory and run
 
-[source,shell]
+[source,cmd]
 ----
 poetry init
 ----
@@ -74,14 +74,14 @@ When adding dependencies, it might be important to set _constraints_ to their ve
 
 Adding a new main dependency is easy:
 
-[source,shell]
+[source]
 ----
 poetry add <name1> [... <nameN>]
 ----
 
 A development dependency can be added in a similar manner:
 
-[source,shell]
+[source]
 ----
 poetry add --dev <name1> [... <nameN>]
 ----
@@ -101,14 +101,14 @@ It is important to note that Poetry _will not install_ Python interpreters speci
 
 Thus, for example, running 
 
-[source,shell]
+[source]
 ----
 poetry add dotmap
 ----
 
 will fail if Python 3.6 is not installed, while `pyproject.toml` has a dependency 
 
-[source,shell]
+[source]
 ----
 python = "3.6"
 ----
@@ -119,7 +119,7 @@ By default, Poetry uses the Python version found in `PATH`. However, suppose tha
 
 The most straightforward way to do it is to run `poetry env use` with a full path to the required Python version:
 
-[source,shell]
+[source,cmd]
 ----
 poetry env use C:\Python3.6\python.exe
 ----
@@ -130,7 +130,7 @@ Technically, a virtual environment is just a directory where all environment-spe
 
 By default, all virtual environment directories are kept in the user home location. It is also possible to instruct Poetry to create virtual environment right inside the respective projects by calling
 
-[source,shell]
+[source]
 ----
 poetry config virtualenvs.in-project true
 ----
@@ -142,7 +142,7 @@ I think this setup is actually more convenient. If I want to delete a project, i
 
 Having a `pyproject.toml` file inside the project is enough to run
 
-[source,shell]
+[source]
 ----
 poetry install [--no-dev]
 ----
@@ -153,7 +153,7 @@ Poetry authors recommend to make one extra step, though. When Poetry installs de
 
 Let's consider an example. Suppose we have a project that depends on the library `dotmap`. We add it with a command
 
-[source,shell]
+[source]
 ----
 poetry add dotmap@1.*
 ----
@@ -162,7 +162,7 @@ Poetry actually installs `dotmap` version 1.3.24 (the most recent version at the
 
 So, to prevent possible issues it is recommended to place `poetry.lock` under version control and update the libraries listed there manually. This is done by calling
 
-[source,shell]
+[source]
 ----
 poetry update [--no-dev]
 ----
@@ -173,14 +173,14 @@ The effect of this command is equivalent to deleting `poetry.lock` and running `
 
 The explicit way to run code inside a project-specific virtual environment is to use `poetry run` command:
 
-[source,shell]
+[source]
 ----
 poetry run python main.py
 ----
 
 Basically, `poetry run` executes any given command inside the project's environment. It is also possible to open a command line shell to work with environment's tools without having to prefix them with `poetry run` all the time:
 
-[source,shell]
+[source]
 ----
 poetry shell
 ----
