@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on The Pro Amateur</title>
+    <link>https://home.rt247a.ddns.me/posts/</link>
+    <description>Recent content in Posts on The Pro Amateur</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 Sep 2021 14:47:03 +0900</lastBuildDate>
+    
+	<atom:link href="https://home.rt247a.ddns.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Managing Python with Poetry</title>
+      <link>https://home.rt247a.ddns.me/posts/managing-python-with-poetry/</link>
+      <pubDate>Mon, 06 Sep 2021 14:47:03 +0900</pubDate>
+      
+      <guid>https://home.rt247a.ddns.me/posts/managing-python-with-poetry/</guid>
+      <description>The Problem Python is a very reasonable &#34;default&#34; language of choice for a variety of tasks. At least on desktop platforms, it makes sense to start with Python and see how it goes. Unfortunately, along its way to popularity it lost much of the simplicity that made it fun in the first place. An especially egregious aspect of Python is its poor backward compatibility. In practice it means that your codebase will only reliably work with a specific version of Python interpreter.</description>
+    </item>
+    
+  </channel>
+</rss>
