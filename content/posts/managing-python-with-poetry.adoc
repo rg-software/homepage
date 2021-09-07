@@ -1,7 +1,7 @@
 ---
 title: "Managing Python with Poetry"
 date: 2021-09-06T14:47:03+09:00
-draft: true
+draft: false
 ---
 
 :source-highlighter: rouge
