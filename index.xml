@@ -2,73 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>The Pro Amateur</title>
-    <link>https://home.rt247a.ddns.me/</link>
+    <link>https://rg-software.github.io/homepage/</link>
     <description>Recent content on The Pro Amateur</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Sep 2021 14:47:03 +0900</lastBuildDate>
-    
-	<atom:link href="https://home.rt247a.ddns.me/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 06 Sep 2021 14:47:03 +0900</lastBuildDate><atom:link href="https://rg-software.github.io/homepage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Managing Python with Poetry</title>
-      <link>https://home.rt247a.ddns.me/posts/managing-python-with-poetry/</link>
+      <link>https://rg-software.github.io/homepage/posts/managing-python-with-poetry/</link>
       <pubDate>Mon, 06 Sep 2021 14:47:03 +0900</pubDate>
       
-      <guid>https://home.rt247a.ddns.me/posts/managing-python-with-poetry/</guid>
-      <description>The Problem Python is a very reasonable &#34;default&#34; language of choice for a variety of tasks. At least on desktop platforms, it makes sense to start with Python and see how it goes. Unfortunately, along its way to popularity it lost much of the simplicity that made it fun in the first place. An especially egregious aspect of Python is its poor backward compatibility. In practice it means that your codebase will only reliably work with a specific version of Python interpreter.</description>
+      <guid>https://rg-software.github.io/homepage/posts/managing-python-with-poetry/</guid>
+      <description>The Problem Python is a very reasonable &amp;#34;default&amp;#34; language of choice for a variety of tasks. At least on desktop platforms, it makes sense to start with Python and see how it goes. Unfortunately, along its way to popularity it lost much of the simplicity that made it fun in the first place. An especially egregious aspect of Python is its poor backward compatibility. In practice it means that your codebase will only reliably work with a specific version of Python interpreter.</description>
     </item>
     
     <item>
       <title>Books</title>
-      <link>https://home.rt247a.ddns.me/books/</link>
+      <link>https://rg-software.github.io/homepage/books/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://home.rt247a.ddns.me/books/</guid>
-      <description>It&amp;#8217;s been a while since I had a chance to write something of a book length. I have ideas for future writings, but no firm plans as of today. Maybe I should try some other formats instead? We&amp;#8217;ll see.
+      <guid>https://rg-software.github.io/homepage/books/</guid>
+      <description>It’s been a while since I had a chance to write something of a book length. I have ideas for future writings, but no firm plans as of today. Maybe I should try some other formats instead? We’ll see.
      
- V.&amp;nbsp;Rychkov, M.&amp;nbsp;Mozgovoy
+ V. Rychkov, M. Mozgovoy
 English-Russian Explanatory and Reference Dictionary for the Users of PCs, Laptops, Tablets, and Digital Hardware (in Russian)
-Nauka i tekhnika, 2011, 304&amp;nbsp;p.</description>
+Nauka i tekhnika, 2011, 304 p.</description>
     </item>
     
     <item>
       <title>My CV</title>
-      <link>https://home.rt247a.ddns.me/cv/</link>
+      <link>https://rg-software.github.io/homepage/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://home.rt247a.ddns.me/cv/</guid>
-      <description>Maxim Mozgovoy
-Associate professor at The University of Aizu
-Technical director at Helium9 Games
-mozgovoy@u-aizu.ac.jp
-    Research Interests  Machine learning, human-like game AI, computer games.
- Computer-assisted language learning, natural language processing.
-   Career From 2016. Co-founder and technical director, Helium9 Games (Czech Republic)
-From 2009. Associate professor, The University of Aizu (Japan)
-2006-2007. Senior software engineer, TruSoft Int&amp;#8217;l Inc.</description>
+      <guid>https://rg-software.github.io/homepage/cv/</guid>
+      <description>Maxim Mozgovoy Associate professor at The University of Aizu Technical director at Helium9 Games mozgovoy@u-aizu.ac.jp
+    Research Interests  Machine learning, human-like game AI, computer games.  Computer-assisted language learning, natural language processing.
+   Career From 2016. Co-founder and technical director, Helium9 Games (Czech Republic) From 2009. Associate professor, The University of Aizu (Japan) 2006-2007. Senior software engineer, TruSoft Int’l Inc.</description>
     </item>
     
     <item>
       <title>Research publications</title>
-      <link>https://home.rt247a.ddns.me/papers/</link>
+      <link>https://rg-software.github.io/homepage/papers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://home.rt247a.ddns.me/papers/</guid>
-      <description>Book Chapters  I.&amp;nbsp;Umarov, M.&amp;nbsp;Mozgovoy. Creating Believable and Effective AI Agents for Games and Simulations: Reviews and Case Study. Contemporary Advancements in Information Technology Development in Dynamic Environments, IGI Global, 2014, pp.&amp;nbsp;33-57.
-  W.&amp;nbsp;Hämäläinen, V.&amp;nbsp;Kumpulainen, M.&amp;nbsp;Mozgovoy. Evaluation of Clustering Methods for Adaptive Learning Systems. Artificial Intelligence Applications in Distance Education, IGI Global, 2014, pp.&amp;nbsp;245-268.
-  T.&amp;nbsp;Kakkonen, M.&amp;nbsp;Mozgovoy. Students&#39; Cyber-Plagiarism. Encyclopedia of Cyber-Behavior, IGI Global, 2012, pp.&amp;nbsp;1168-1177.
-   Journal Papers  M.</description>
+      <guid>https://rg-software.github.io/homepage/papers/</guid>
+      <description>Book Chapters  I. Umarov, M. Mozgovoy. Creating Believable and Effective AI Agents for Games and Simulations: Reviews and Case Study. Contemporary Advancements in Information Technology Development in Dynamic Environments, IGI Global, 2014, pp. 33-57.
+  W. Hämäläinen, V. Kumpulainen, M. Mozgovoy. Evaluation of Clustering Methods for Adaptive Learning Systems. Artificial Intelligence Applications in Distance Education, IGI Global, 2014, pp. 245-268.
+  T. Kakkonen, M. Mozgovoy. Students&amp;#39; Cyber-Plagiarism. Encyclopedia of Cyber-Behavior, IGI Global, 2012, pp.</description>
     </item>
     
     <item>
       <title>Selected Projects</title>
-      <link>https://home.rt247a.ddns.me/software/</link>
+      <link>https://rg-software.github.io/homepage/software/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://home.rt247a.ddns.me/software/</guid>
-      <description>World of Tennis: Roaring &#39;20s. A great online tennis game, featured multiple times on iOS App Store, Google Play! and Windows Store.
+      <guid>https://rg-software.github.io/homepage/software/</guid>
+      <description>World of Tennis: Roaring &amp;#39;20s. A great online tennis game, featured multiple times on iOS App Store, Google Play! and Windows Store.
   Joe Blade 3 Remake. A modern remake of ZX Spectrum game Joe Blade 3.
   ZX Recoloring Project. A toolset for giving a modern look to our favorite ZX Spectrum games and make them attractive to the new generation of gamers.
   Keyboard Trainer.</description>
@@ -76,20 +65,20 @@ From 2009. Associate professor, The University of Aizu (Japan)
     
     <item>
       <title>The Pro Amateur</title>
-      <link>https://home.rt247a.ddns.me/about/</link>
+      <link>https://rg-software.github.io/homepage/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://home.rt247a.ddns.me/about/</guid>
-      <description>This is the third incarnation of my home page. Its primary purpose had always been to keep some basic &#34;about me&#34; info, so I could easily send a link to a colleague or a prospective employer. Now I want to make my blog its primary focus.
- I&amp;#8217;ve never tried blogging on a regular basis, being more comfortable writing longer pieces like papers or books. However, occasionally I feel I know something that might be useful for others, so it makes sense to write about it.</description>
+      <guid>https://rg-software.github.io/homepage/about/</guid>
+      <description>This is the third incarnation of my home page. Its primary purpose had always been to keep some basic &amp;#34;about me&amp;#34; info, so I could easily send a link to a colleague or a prospective employer. Now I want to make my blog its primary focus.
+ I’ve never tried blogging on a regular basis, being more comfortable writing longer pieces like papers or books. However, occasionally I feel I know something that might be useful for others, so it makes sense to write about it.</description>
     </item>
     
     <item>
       <title>ZX Spectrum</title>
-      <link>https://home.rt247a.ddns.me/zx/</link>
+      <link>https://rg-software.github.io/homepage/zx/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://home.rt247a.ddns.me/zx/</guid>
+      <guid>https://rg-software.github.io/homepage/zx/</guid>
       <description>My computer story began with ZX Spectrum-compatible machines, and I still remember them fondly. Original ZX Spectrum was a British home computer created in 1982, and its numerous clones and variations were immensely popular in Russia of early 90s. At that time it was an incomparably cheaper alternative to PC, still providing a lot of fun for game and programming activities. Spectrum keeps its fandom even today, with dozens of titles released yearly.</description>
     </item>
     

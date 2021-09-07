@@ -2,13 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on The Pro Amateur</title>
-    <link>https://home.rt247a.ddns.me/tags/</link>
+    <link>https://rg-software.github.io/homepage/tags/</link>
     <description>Recent content in Tags on The Pro Amateur</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    
-	<atom:link href="https://home.rt247a.ddns.me/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en</language><atom:link href="https://rg-software.github.io/homepage/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
