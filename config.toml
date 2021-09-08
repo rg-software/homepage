@@ -1,4 +1,4 @@
-baseURL = 'https://rg-software.github.io/homepage/'
+baseURL = 'https://mmozgovoy.dev' # https://rg-software.github.io/homepage/'
 languageCode = 'en'
 defaultContentLanguage = 'en'
 title = 'The Pro Amateur'
