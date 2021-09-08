@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on The Pro Amateur</title>
-    <link>https://rg-software.github.io/homepage/posts/</link>
+    <link>https://mmozgovoy.dev/posts/</link>
     <description>Recent content in Posts on The Pro Amateur</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Sep 2021 14:47:03 +0900</lastBuildDate><atom:link href="https://rg-software.github.io/homepage/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Sep 2021 14:47:03 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Managing Python with Poetry</title>
-      <link>https://rg-software.github.io/homepage/posts/managing-python-with-poetry/</link>
+      <link>https://mmozgovoy.dev/posts/managing-python-with-poetry/</link>
       <pubDate>Mon, 06 Sep 2021 14:47:03 +0900</pubDate>
       
-      <guid>https://rg-software.github.io/homepage/posts/managing-python-with-poetry/</guid>
+      <guid>https://mmozgovoy.dev/posts/managing-python-with-poetry/</guid>
       <description>The Problem Python is a very reasonable &amp;#34;default&amp;#34; language of choice for a variety of tasks. At least on desktop platforms, it makes sense to start with Python and see how it goes. Unfortunately, along its way to popularity it lost much of the simplicity that made it fun in the first place. An especially egregious aspect of Python is its poor backward compatibility. In practice it means that your codebase will only reliably work with a specific version of Python interpreter.</description>
     </item>
     
