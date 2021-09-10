@@ -8,7 +8,7 @@ rssLimit = 40
 paginate = 10
 
 [params.utterances]
-  repo = "rg-software/homepage-comments"
+  repo = "rg-software/homepage"
   issueTerm = "pathname"
 # label = "" # https://utteranc.es/#heading-issue-label # optional
   theme = "github-light"

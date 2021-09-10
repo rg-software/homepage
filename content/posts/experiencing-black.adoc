@@ -99,21 +99,21 @@ This approach sometimes generates quite ugly structures:
 # Before Black
 if (min_x <= mouse_cursor_x <= max_x and
     min_y <= mouse_cursor_y <= max_y and
-	fire_button_pressed):
+    fire_button_pressed):
 	
     hit_the_target()
 
 # After Black
 if (
-	min_x <= mouse_cursor_x <= max_x
-	and min_y <= mouse_cursor_y <= max_y
-	and fire_button_pressed
+    min_x <= mouse_cursor_x <= max_x
+    and min_y <= mouse_cursor_y <= max_y
+    and fire_button_pressed
 ):
 
 	hit_the_target()
 ----
 
-However, the most annoying features were strict insistence on spaces (vs tabs) and 88-character line width limit.
+However, the most annoying features were strict insistence on spaces (vs tabs) and an 88-character line width limit.
 
 I am aware that using spaces is recommended by PEP8, but I honestly couldn't understand how to work with space-indented Python sources. Suppose I am working on the following fragment:
 
@@ -149,7 +149,7 @@ op_tags = ['<span class="{}">'.format(css_class_for_tag(token[1])) for token in 
 cls_tags = ["</span>" for x in range(len(tokens))]
 ----
 
-Here each line describes one _complete_ operation: tokenize input text, tag tokens, generate a list of opening tags, generate a list of closing tags. I am not saying this code is really good, but at least its structure is clear and consistent. Maybe line 3 is overly long and thus allegedly harder to understand, but its context helps to figure out its purpose. Homogeneity is a good property. Consider a sentence: _"They sell apples, pears, lychees, and plums at this counter."_ Even if I don't know what is _lychees_, I can reasonably safely presume that this is a kind of fruit, since it appears inside a list of other fruit types.
+Here each line describes one _complete_ operation: tokenize input text, tag tokens, generate a list of opening tags, generate a list of closing tags. I am not saying this code is really good, but at least its structure is clear and consistent. Maybe line 3 is overly long and thus allegedly harder to understand, but its context helps to figure out its purpose. Homogeneity is a good property. Consider a sentence: _"They sell apples, pears, lychees, and plums at this counter."_ Even if I don't know what is _lychees_, I can reasonably safely presume that this is a kind of fruit, since it appears inside a list of other fruit names.
 
 Black transforms the code above into the following:
 
