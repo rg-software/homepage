@@ -177,10 +177,10 @@
 <div class="content">
 <pre class="rouge highlight"><code data-lang="cpp"><span style="">std</span><span style="">::</span><span style="">vector</span><span style="">&lt;</span><span style="">wxString</span><span style="">&gt;</span> <span style="">get_labels</span><span style="">(</span><span style="">wxButton</span><span style="">*</span> <span style="">b1</span><span style="">,</span> <span style="">wxButton</span><span style="">*</span> <span style="">b2</span><span style="">)</span>
 <span style="">{</span>
-	<span style="">std</span><span style="">::</span><span style="">vector</span><span style="">&lt;</span><span style="">wxString</span><span style="">&gt;</span> <span style="">r</span><span style="">;</span>
-	<span style="">r</span><span style="">.</span><span style="">push_back</span><span style="">(</span><span style="">b1</span><span style="">-&gt;</span><span style="">GetLabel</span><span style="">());</span>
-	<span style="">r</span><span style="">.</span><span style="">push_back</span><span style="">(</span><span style="">b2</span><span style="">-&gt;</span><span style="">GetLabel</span><span style="">());</span>
-	<span style="color: #008800;font-weight: bold">return</span> <span style="">r</span><span style="">;</span>
+    <span style="">std</span><span style="">::</span><span style="">vector</span><span style="">&lt;</span><span style="">wxString</span><span style="">&gt;</span> <span style="">r</span><span style="">;</span>
+    <span style="">r</span><span style="">.</span><span style="">push_back</span><span style="">(</span><span style="">b1</span><span style="">-&gt;</span><span style="">GetLabel</span><span style="">());</span>
+    <span style="">r</span><span style="">.</span><span style="">push_back</span><span style="">(</span><span style="">b2</span><span style="">-&gt;</span><span style="">GetLabel</span><span style="">());</span>
+    <span style="color: #008800;font-weight: bold">return</span> <span style="">r</span><span style="">;</span>
 <span style="">}</span></code></pre>
 </div>
 </div>
@@ -239,7 +239,7 @@
 
 <span style="color: #888888"># After Black
 </span><span style="">result</span> <span style="">=</span> <span style="">get_user_data</span><span style="">(</span>
-	<span style="">server_ip_address</span><span style="">,</span> <span style="">server_port</span><span style="">,</span> <span style="">user_name</span><span style="">,</span> <span style="">auth_token</span><span style="">,</span> <span style="">timeout_sec</span><span style="">,</span> <span style="">use_ssl</span><span style="">=</span><span style="color: #003388">True</span><span style="">,</span>
+    <span style="">server_ip_address</span><span style="">,</span> <span style="">server_port</span><span style="">,</span> <span style="">user_name</span><span style="">,</span> <span style="">auth_token</span><span style="">,</span> <span style="">timeout_sec</span><span style="">,</span> <span style="">use_ssl</span><span style="">=</span><span style="color: #003388">True</span><span style="">,</span>
 <span style="">)</span></code></pre>
 </div>
 </div>
@@ -249,13 +249,13 @@
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span style="">result</span> <span style="">=</span> <span style="">get_user_data</span><span style="">(</span>
-	<span style="">server_ip_address</span><span style="">,</span>
-	<span style="">server_port</span><span style="">,</span>
-	<span style="">user_name</span><span style="">,</span>
-	<span style="">auth_token</span><span style="">,</span>
-	<span style="">timeout_sec</span><span style="">,</span>
-	<span style="">use_ssl</span><span style="">=</span><span style="color: #003388">True</span><span style="">,</span>
-	<span style="">retries</span><span style="">=</span><span style="color: #0000dd;font-weight: bold">10</span><span style="">,</span>
+    <span style="">server_ip_address</span><span style="">,</span>
+    <span style="">server_port</span><span style="">,</span>
+    <span style="">user_name</span><span style="">,</span>
+    <span style="">auth_token</span><span style="">,</span>
+    <span style="">timeout_sec</span><span style="">,</span>
+    <span style="">use_ssl</span><span style="">=</span><span style="color: #003388">True</span><span style="">,</span>
+    <span style="">retries</span><span style="">=</span><span style="color: #0000dd;font-weight: bold">10</span><span style="">,</span>
 <span style="">)</span></code></pre>
 </div>
 </div>
@@ -278,7 +278,7 @@
     <span style="color: #008800">and</span> <span style="">fire_button_pressed</span>
 <span style="">):</span>
 
-	<span style="">hit_the_target</span><span style="">()</span></code></pre>
+    <span style="">hit_the_target</span><span style="">()</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -291,7 +291,7 @@
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span style="color: #008800;font-weight: bold">for</span> <span style="">e</span> <span style="color: #008800">in</span> <span style="">lst</span><span style="">:</span>
     <span style="color: #008800;font-weight: bold">if</span> <span style="">e</span> <span style="">==</span> <span style="color: #0000dd;font-weight: bold">0</span><span style="">:</span>
-	    <span style="color: #008800;font-weight: bold">print</span><span style="">(</span><span style="color: #dd2200;background-color: #fff0f0">&#34;zero found&#34;</span><span style="">)</span></code></pre>
+        <span style="color: #008800;font-weight: bold">print</span><span style="">(</span><span style="color: #dd2200;background-color: #fff0f0">&#34;zero found&#34;</span><span style="">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -336,7 +336,7 @@
 <pre class="rouge highlight"><code data-lang="python"><span style="">tokens</span> <span style="">=</span> <span style="">TreebankWordTokenizer</span><span style="">().</span><span style="">tokenize</span><span style="">(</span><span style="">text</span><span style="">)</span>
 <span style="">tokens_tagged</span> <span style="">=</span> <span style="">PerceptronTagger</span><span style="">().</span><span style="">tag</span><span style="">(</span><span style="">tokens</span><span style="">)</span>
 <span style="">op_tags</span> <span style="">=</span> <span style="">[</span>
-	<span style="color: #dd2200;background-color: #fff0f0">&#39;&lt;span class=&#34;{}&#34;&gt;&#39;</span><span style="">.</span><span style="color: #003388">format</span><span style="">(</span><span style="">css_class_for_tag</span><span style="">(</span><span style="">token</span><span style="">[</span><span style="color: #0000dd;font-weight: bold">1</span><span style="">]))</span> <span style="color: #008800;font-weight: bold">for</span> <span style="">token</span> <span style="color: #008800">in</span> <span style="">tokens_tagged</span>
+    <span style="color: #dd2200;background-color: #fff0f0">&#39;&lt;span class=&#34;{}&#34;&gt;&#39;</span><span style="">.</span><span style="color: #003388">format</span><span style="">(</span><span style="">css_class_for_tag</span><span style="">(</span><span style="">token</span><span style="">[</span><span style="color: #0000dd;font-weight: bold">1</span><span style="">]))</span> <span style="color: #008800;font-weight: bold">for</span> <span style="">token</span> <span style="color: #008800">in</span> <span style="">tokens_tagged</span>
 <span style="">]</span>
 <span style="">cls_tags</span> <span style="">=</span> <span style="">[</span><span style="color: #dd2200;background-color: #fff0f0">&#34;&lt;/span&gt;&#34;</span> <span style="color: #008800;font-weight: bold">for</span> <span style="">x</span> <span style="color: #008800">in</span> <span style="color: #003388">range</span><span style="">(</span><span style="color: #003388">len</span><span style="">(</span><span style="">tokens</span><span style="">))]</span></code></pre>
 </div>
