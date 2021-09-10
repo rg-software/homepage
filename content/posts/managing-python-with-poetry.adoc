@@ -13,7 +13,7 @@ draft: false
 
 Python is a very reasonable "default" language of choice for a variety of tasks. At least on desktop platforms, it makes sense to start with Python and see how it goes. Unfortunately, along its way to popularity it https://xkcd.com/1987/[lost much of the simplicity] that https://xkcd.com/353/[made it fun] in the first place. An especially egregious aspect of Python is its poor backward compatibility. In practice it means that your codebase will only reliably work with a specific version of Python interpreter.
 
-Even worse, the same holds for many popular libraries. Some Python codebase will only work with a certain library version 5.0.0 or _lower_, while another codebase requires 5.0.1 or _higher_. Thus, working with a single combination of Python interpreter and a bunch of libraries is simply not an option beyond most basic experiments.
+Even worse, the same holds for many popular libraries. Some Python codebase will only work with a certain library version 5.0.0 or _lower_, while another codebase requires 5.0.1 or _higher_. Thus, working with a single combination of Python interpreter and a bunch of libraries is simply not an option beyond the most basic experiments.
 
 Working with third-party code is also not straightforward. Python has an official https://pypi.org[package repository], where any reasonable non-standard library is supposed to be present. Thus, code snippets found online often make no distinction between the standard library and third-party packages. For example, the following snippet will throw an exception on a freshly installed Python:
 
@@ -32,7 +32,7 @@ The problem is simple: `json` is a standard module, while `dotmap` is not, so it
 pip install dotmap
 ----
 
-However, it simply installs the most recent version of `dotmap` globally for the current Python setup, which might cause issues with other code bases, requiring a certain different version of `dotmap`.
+However, it simply installs the most recent version of `dotmap` globally for the current Python interpreter, which might cause issues with other codebases, requiring a certain different version of `dotmap`.
 
 Summing up, there are _several separate issues_ here:
 
@@ -70,7 +70,7 @@ This command simply asks a few questions in an interactive mode and generates a 
 
 The most important sections are `[tool.poetry.dependencies]` listing both the _main_ project dependencies and the required Python version, and `[tool.poetry.dev-dependencies]`, responsible for the _development_ dependencies. The command line tool asks about dependencies, but they can be also added any time later.
 
-When adding dependencies, it might be important to set _constraints_ to their version numbers. By default, Poetry suggests the most recent version from https://pypi.org[PyPi], but it is also possible to add a library not listed on PyPi (such as a Git repository or a binary file). Dependency specification syntax is https://python-poetry.org/docs/dependency-specification/[quite elaborate], and requires understanding of https://semver.org[semantic versioning] system. I would say that in most cases the default option would work fine.
+When adding dependencies, it might be important to set _constraints_ to their version numbers. By default, Poetry suggests the most recent version from https://pypi.org[PyPi], but it is also possible to add a library not listed on PyPi (such as a Git repository or a binary file). Dependency specification syntax is https://python-poetry.org/docs/dependency-specification/[quite elaborate], and requires understanding of the https://semver.org[semantic versioning] system. I would say that in most cases the default option would work fine.
 
 Adding a new main dependency is easy:
 
@@ -128,7 +128,7 @@ Poetry remembers this setup, and will use Python 3.6 every time we run `poetry a
 
 Technically, a virtual environment is just a directory where all environment-specific settings and libraries are stored. If it breaks for some reason, we can simply delete this directory and call `poetry install` or `poetry env use` to recreate it.
 
-By default, all virtual environment directories are kept in the user home location. It is also possible to instruct Poetry to create virtual environment right inside the respective projects by calling
+By default, all virtual environment directories are kept in the user home location. It is also possible to instruct Poetry to create virtual environments right inside the respective projects by calling
 
 [source]
 ----
@@ -140,16 +140,16 @@ I think this setup is actually more convenient. If I want to delete a project, i
 
 === Installing Dependencies
 
-Having a `pyproject.toml` file inside the project is enough to run
+Having a `pyproject.toml` file inside the project is enough to be able to run
 
 [source]
 ----
 poetry install [--no-dev]
 ----
 
-and get all the necessary dependencies installed inside the corresponding virtual environment. As mentioned above, Poetry will also automatically create the environment if it is not present (alternatively, use `poetry env use` to choose the right Python version). Thus, this is the minimal working setup for preparing the system for an existing project: navigate to the project directory on the disk and run `poetry install`. The `--no-dev`` option instructs Poetry to skip development dependencies.
+and get all the necessary dependencies installed inside the corresponding virtual environment. As mentioned above, Poetry will also automatically create the environment if it is not present (alternatively, use `poetry env use` to choose the right Python version). Thus, this is the minimal working setup for preparing the system for an existing project: navigate to the project directory on the disk and run `poetry install`. The `--no-dev` option instructs Poetry to skip development dependencies.
 
-Poetry authors recommend to make one extra step, though. When Poetry installs dependencies, it writes down the _exact versions_ installed into a file called `poetry.lock`. If we keep it as a part of the project (i.e., add it to version control), Poetry will make sure to install these specific versions during `poetry install`.
+Poetry authors recommend to make one extra step, though. When Poetry installs dependencies, it writes down their _exact version numbers_  into a file called `poetry.lock`. If we keep it as a part of the project (i.e., add it to version control), Poetry will make sure to install these specific versions during `poetry install`.
 
 Let's consider an example. Suppose we have a project that depends on the library `dotmap`. We add it with a command
 

@@ -1,0 +1,182 @@
+---
+title: "Experiencing Black"
+date: 2021-09-09T15:11:43+09:00
+draft: false
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+
+== On Code and Formatting Styles
+
+One of my long-term goals is to setup a _powerful_ development environment that would make the most of today's technology. As someone who grew up using QuickBasic and {cpp}Builder, I could never understand deliberate efforts to rely on simple text editors and command-line compilers. To me, it is like claiming that the past 20 or 30 years of toolmaking gave us nothing worthy of attention.
+
+On the other hand, I am not really an early adopter. I tend to use something _established_, and, like many of us, I am a person of habit. Thus, I find it easier to adopt something new inside an environment that is relatively new to me itself, such as Python. I am not so fluent in Python as, say, in C++, and my experience is much shorter. This also means that I am not so confident about my coding style, which brings us to the today's topic.
+
+Some languages like {cpp} don't really have any "official" code style standards. There are certain traditions, and a few https://google.github.io/styleguide/cppguide.html[corporate standards], where _formatting_ guidelines are heavily peppered with _stylistic_ recommendations (do this, don't do that). Other languages (notably, Go) might consider certain formatting https://pkg.go.dev/go/format["canonical"], and strongly encourage their use.
+
+Python proposes a relatively loose guideline for both formatting and stylistic choices known as https://www.python.org/dev/peps/pep-0008/[PEP8]. Officially this document describes _"coding conventions for <...> the standard library"_, so it is not even a "recommended" code style, it is rather "the internal style" used in Python. However, there is no surprise that PEP8 is widely adopted as a default formatting and style guide in many Python projects.
+
+It's been always hard for me to be consistent in {cpp} because {cpp} world is not very consistent itself. Say, a typical GUI library like https://www.wxwidgets.org[wxWidgets] uses upper camel case names, while the Standard library prefers snake case. Thus, a completely fine {cpp} fragment will contain a mixture of both styles:
+
+[source,cpp]
+----
+std::vector<wxString> get_labels(wxButton* b1, wxButton* b2)
+{
+	std::vector<wxString> r;
+	r.push_back(b1->GetLabel());
+	r.push_back(b2->GetLabel());
+	return r;
+}
+----
+
+In such cases I often feel puzzled: should my function be called `get_labels()` or `GetLabels()`? Most often I tend to choose the latter option, because snake case names look a bit like a part of the standard library to me. However, I think most of {cpp} code in the wild opts for the former option. There are other popular holywars like "spaces vs tabs", "Allman vs K&R", and so on.
+
+These experiences motivated me to try adhering _to the right style_ in Python from the very start, and use the tools that would help me following this road.
+
+== Checkers vs Formatters
+
+Broadly speaking, there are two classes of systems out there. _Checkers_ identify pieces of code that do not conform to the given guideline. A checker, such as https://github.com/PyCQA/pycodestyle[pycodestyle], can be paired with a refactoring algorithm to produce a tool like https://github.com/hhatto/autopep8[autopep8]. The main attribute of this approach is its local scope: a tool identifies a certain rule violation and tries to fix it, while the rest of the code is kept intact.
+
+In practice, guidelines like PEP8 leave a lot of room for variations. It is possible to produce quite different-looking pieces of code, both conforming the rules. For example, PEP8 provides clear recommendations on the use of blank lines between the functions, but then adds that _"extra blank lines may be used (sparingly) to separate groups of related functions"_. Thus, it's nearly impossible to violate PEP8 by adding any number of blank lines between functions (I am not ready to judge what constitutes "sparingly" in every single case).
+
+_Formatters_ simply reformat existing code as they find suitable. Using a formatter is like exporting an Excel table to an CSV file and importing it into another document: the table will have the same content, but no traces of the original formatting. Thus, a formatter is quite a crude and uncompromising tool. Some tools like https://github.com/google/yapf[YAPF] opt for the middle path. YAPF does perform reformatting, but its numerous "knobs" give a lot of room for fine-tuning and "soft" enforcements of certain guidelines.
+
+https://github.com/psf/black[Black] is the tool that brings the idea of "enforcement" to the extreme. There are very few ways to adjust its behavior and very little freedom in writing Black-conformant code. Basically, the selling point of this tool is "install it and forget about formatting at all". If I had more time and Python experience, maybe I'd opted for a tool like YAPF. However, tinkering with knobs didn't sound tempting, and was really worried about going down the rabbit hole of polishing the tools instead of doing the work, so I decided to take a dive into the Black style.
+
+== Notes on Black Style
+
+I have very mixed feelings about it. I think it general it does "the right job" in clear-cut cases, but the choices of Black authors in borderline situations are often quite odd. For example, Black destroys the tabular structure of configuration fragments:
+
+[source,python]
+----
+# Before Black
+ip        = "127.0.0.1"     # IP v4 and v6 are supported
+port      = 8000            # use 0 to assign automatically
+user_name = "john_doe"      # 10 characters max
+
+# After Black
+ip = "127.0.0.1"  # IP v4 and v6 are supported
+port = 8000  # use 0 to assign automatically
+user_name = "john_doe"  # 10 characters max
+----
+
+Similarly, I don't like how it reformats longish lists of arguments in function calls:
+
+[source,python]
+----
+# Before Black
+result = get_user_data(server_ip_address, server_port, 
+                       user_name, auth_token, timeout_sec, use_ssl=True)
+
+# After Black
+result = get_user_data(
+	server_ip_address, server_port, user_name, auth_token, timeout_sec, use_ssl=True,
+)
+----
+
+When the list becomes really long, Black formats it in a more reasonable way:
+
+[source,python]
+----
+result = get_user_data(
+	server_ip_address,
+	server_port,
+	user_name,
+	auth_token,
+	timeout_sec,
+	use_ssl=True,
+	retries=10,
+)
+----
+
+This approach sometimes generates quite ugly structures:
+
+[source,python]
+----
+# Before Black
+if (min_x <= mouse_cursor_x <= max_x and
+    min_y <= mouse_cursor_y <= max_y and
+	fire_button_pressed):
+	
+    hit_the_target()
+
+# After Black
+if (
+	min_x <= mouse_cursor_x <= max_x
+	and min_y <= mouse_cursor_y <= max_y
+	and fire_button_pressed
+):
+
+	hit_the_target()
+----
+
+However, the most annoying features were strict insistence on spaces (vs tabs) and 88-character line width limit.
+
+I am aware that using spaces is recommended by PEP8, but I honestly couldn't understand how to work with space-indented Python sources. Suppose I am working on the following fragment:
+
+[source,python]
+----
+for e in lst:
+    if e == 0:
+	    print("zero found")
+----
+
+As soon as I hit `Enter` after `print()`, the cursor will be located right under `print()`. Now if I want to write something within the scope of the `for`-loop (outside `if`), I'll have delete _four spaces_. It makes no sense: in Python, a tab is a meaningful character, a part of the language grammar. No one would ever need to delete _one space_ in this context and obtain a malformed program. Thus, a reasonable response to a `Left arrow` button press would be to move the cursor four characters back, to the previous tab stop.
+
+I don't really care how these blanks are represented internally in the system. What I want is just a bit of user-friendliness from my code editor. However, this is not how most editors work, to the best of my knowledge. They presume that if I want tabs, I can simply use tabs! Fortunately, it turned out that Visual Studio Code supports exactly the kind of behavior I am talking about. This feature (named "sticky tab stops") was added quite recently, in https://code.visualstudio.com/updates/v1_52#_sticky-tab-stops-when-indenting-with-spaces[late 2020].
+
+Limiting line width is also a PEP8 recommendation. Black is actually not so strict in this regard: its 88-character limit is more generous than the standard recommendation of 79 characters. Moreover, this is one of the rare Black parameters that can be altered.
+
+Since I am not a Python expert, I decided to take the idea that _good code should be made of short lines_ as an accepted view. Naturally, the same can be said about any programming language, since we should be able to see code on our monitors (not seeing line tails can't be good), so the whole debate boils down to the magic number of 79 or 88 characters. Black agrees that "80-something" is good, but gives some leeway to make lines just a bit longer if needed.
+
+So, is "80-something" really good? On one hand, Python is quite _dense_, so even short lines containing, for example, list comprehensions, carry a lot of information:
+
+[source,python]
+----
+num_list = [y for y in range(100) if y % 2 == 0 if y % 5 == 0]
+----
+
+On the other hand, _this very feature_ enables us to write concise and consistent code if applied reasonably:
+
+[source,python]
+----
+tokens = TreebankWordTokenizer().tokenize(text)
+tokens_tagged = PerceptronTagger().tag(tokens)
+op_tags = ['<span class="{}">'.format(css_class_for_tag(token[1])) for token in tokens_tagged]
+cls_tags = ["</span>" for x in range(len(tokens))]
+----
+
+Here each line describes one _complete_ operation: tokenize input text, tag tokens, generate a list of opening tags, generate a list of closing tags. I am not saying this code is really good, but at least its structure is clear and consistent. Maybe line 3 is overly long and thus allegedly harder to understand, but its context helps to figure out its purpose. Homogeneity is a good property. Consider a sentence: _"They sell apples, pears, lychee, and plums at this counter."_ Even if I don't know what is _lychee_, I can reasonably safely presume that this is a kind of fruit, since it appears inside a list of other fruit types.
+
+Black transforms the code above into the following:
+
+[source,python]
+----
+tokens = TreebankWordTokenizer().tokenize(text)
+tokens_tagged = PerceptronTagger().tag(tokens)
+op_tags = [
+	'<span class="{}">'.format(css_class_for_tag(token[1])) for token in tokens_tagged
+]
+cls_tags = ["</span>" for x in range(len(tokens))]
+----
+
+Seriously, I don't think it is _any better_. Now the third line sticks out like a sore thumb, and breaks the homogeneous "one line / one operation" sequence.
+
+If a certain line is just a bit over the limit, I unfortunately feel compelled to "fix" it by shortening variable names and using other doubtful tricks. Sometimes this might the best option indeed. In more complex situations a proper refactoring session might be necessary. I think I will write more about it next time.
+
+I also have to add that a value like "88 characters" is deceptive. Let's look at code, having a more complex structure:
+
+[source,python]
+----
+class MyClass:
+    def my_function(self):
+        def nested_function():
+            x = 1
+----
+
+Here we have a class with a class method and a nested function. The actual _algorithm_ we are writing starts after 12 spaces, which leaves us 76 characters only. Python insists that all object members must be prefixed with `.self`, so even simple expressions like `a = b + c` become `self.a = self.b + self.c`: fifteen characters are essentially wasted without any meaningful reasons.
+
+I think I will try using Black a bit more. It's annoying when the tool insists on making your code _worse_. However, I think in most cases it manages to make it _better_, so the overall balance is positive. Moreover, some people I deal with occasionally commit code having lines of 200+ characters width, so I suppose that some _enforcement_ might not be a bad idea. Black is an imperfect tool, just like any other tool around. Maybe I won't need its patronizing insistence at some later stage, but for now I will try to comply, and see how it goes.
