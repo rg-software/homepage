@@ -267,22 +267,22 @@
 <pre class="rouge highlight"><code data-lang="python"><span style="color: #888888"># Before Black
 </span><span style="color: #008800;font-weight: bold">if</span> <span style="">(</span><span style="">min_x</span> <span style="">&lt;=</span> <span style="">mouse_cursor_x</span> <span style="">&lt;=</span> <span style="">max_x</span> <span style="color: #008800">and</span>
     <span style="">min_y</span> <span style="">&lt;=</span> <span style="">mouse_cursor_y</span> <span style="">&lt;=</span> <span style="">max_y</span> <span style="color: #008800">and</span>
-	<span style="">fire_button_pressed</span><span style="">):</span>
+    <span style="">fire_button_pressed</span><span style="">):</span>
 
     <span style="">hit_the_target</span><span style="">()</span>
 
 <span style="color: #888888"># After Black
 </span><span style="color: #008800;font-weight: bold">if</span> <span style="">(</span>
-	<span style="">min_x</span> <span style="">&lt;=</span> <span style="">mouse_cursor_x</span> <span style="">&lt;=</span> <span style="">max_x</span>
-	<span style="color: #008800">and</span> <span style="">min_y</span> <span style="">&lt;=</span> <span style="">mouse_cursor_y</span> <span style="">&lt;=</span> <span style="">max_y</span>
-	<span style="color: #008800">and</span> <span style="">fire_button_pressed</span>
+    <span style="">min_x</span> <span style="">&lt;=</span> <span style="">mouse_cursor_x</span> <span style="">&lt;=</span> <span style="">max_x</span>
+    <span style="color: #008800">and</span> <span style="">min_y</span> <span style="">&lt;=</span> <span style="">mouse_cursor_y</span> <span style="">&lt;=</span> <span style="">max_y</span>
+    <span style="color: #008800">and</span> <span style="">fire_button_pressed</span>
 <span style="">):</span>
 
 	<span style="">hit_the_target</span><span style="">()</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>However, the most annoying features were strict insistence on spaces (vs tabs) and 88-character line width limit.</p>
+<p>However, the most annoying features were strict insistence on spaces (vs tabs) and an 88-character line width limit.</p>
 </div>
 <div class="paragraph">
 <p>I am aware that using spaces is recommended by PEP8, but I honestly couldn’t understand how to work with space-indented Python sources. Suppose I am working on the following fragment:</p>
@@ -326,7 +326,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Here each line describes one <em>complete</em> operation: tokenize input text, tag tokens, generate a list of opening tags, generate a list of closing tags. I am not saying this code is really good, but at least its structure is clear and consistent. Maybe line 3 is overly long and thus allegedly harder to understand, but its context helps to figure out its purpose. Homogeneity is a good property. Consider a sentence: <em>&#34;They sell apples, pears, lychees, and plums at this counter.&#34;</em> Even if I don’t know what is <em>lychees</em>, I can reasonably safely presume that this is a kind of fruit, since it appears inside a list of other fruit types.</p>
+<p>Here each line describes one <em>complete</em> operation: tokenize input text, tag tokens, generate a list of opening tags, generate a list of closing tags. I am not saying this code is really good, but at least its structure is clear and consistent. Maybe line 3 is overly long and thus allegedly harder to understand, but its context helps to figure out its purpose. Homogeneity is a good property. Consider a sentence: <em>&#34;They sell apples, pears, lychees, and plums at this counter.&#34;</em> Even if I don’t know what is <em>lychees</em>, I can reasonably safely presume that this is a kind of fruit, since it appears inside a list of other fruit names.</p>
 </div>
 <div class="paragraph">
 <p>Black transforms the code above into the following:</p>
@@ -377,7 +377,7 @@
         
         
         <script src="https://utteranc.es/client.js"
-    repo= "rg-software/homepage-comments"
+    repo= "rg-software/homepage"
     issue-term="pathname"
     
     theme="github-light"
