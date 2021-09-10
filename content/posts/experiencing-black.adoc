@@ -25,10 +25,10 @@ It's been always hard for me to be consistent in {cpp} because {cpp} world is no
 ----
 std::vector<wxString> get_labels(wxButton* b1, wxButton* b2)
 {
-	std::vector<wxString> r;
-	r.push_back(b1->GetLabel());
-	r.push_back(b2->GetLabel());
-	return r;
+    std::vector<wxString> r;
+    r.push_back(b1->GetLabel());
+    r.push_back(b2->GetLabel());
+    return r;
 }
 ----
 
@@ -73,7 +73,7 @@ result = get_user_data(server_ip_address, server_port,
 
 # After Black
 result = get_user_data(
-	server_ip_address, server_port, user_name, auth_token, timeout_sec, use_ssl=True,
+    server_ip_address, server_port, user_name, auth_token, timeout_sec, use_ssl=True,
 )
 ----
 
@@ -82,13 +82,13 @@ When the list becomes really long, Black formats it in a more reasonable way:
 [source,python]
 ----
 result = get_user_data(
-	server_ip_address,
-	server_port,
-	user_name,
-	auth_token,
-	timeout_sec,
-	use_ssl=True,
-	retries=10,
+    server_ip_address,
+    server_port,
+    user_name,
+    auth_token,
+    timeout_sec,
+    use_ssl=True,
+    retries=10,
 )
 ----
 
@@ -100,7 +100,7 @@ This approach sometimes generates quite ugly structures:
 if (min_x <= mouse_cursor_x <= max_x and
     min_y <= mouse_cursor_y <= max_y and
     fire_button_pressed):
-	
+    
     hit_the_target()
 
 # After Black
@@ -110,7 +110,7 @@ if (
     and fire_button_pressed
 ):
 
-	hit_the_target()
+    hit_the_target()
 ----
 
 However, the most annoying features were strict insistence on spaces (vs tabs) and an 88-character line width limit.
@@ -121,7 +121,7 @@ I am aware that using spaces is recommended by PEP8, but I honestly couldn't und
 ----
 for e in lst:
     if e == 0:
-	    print("zero found")
+        print("zero found")
 ----
 
 As soon as I hit `Enter` after `print()`, the cursor will be located right under `print()`. Now if I want to write something within the scope of the `for`-loop (outside `if`), I'll have delete _four spaces_. It makes no sense: in Python, a tab is a meaningful character, a part of the language grammar. No one would ever need to delete _one space_ in this context and obtain a malformed program. Thus, a reasonable response to a `Left arrow` button press would be to move the cursor four characters back, to the previous tab stop.
@@ -158,7 +158,7 @@ Black transforms the code above into the following:
 tokens = TreebankWordTokenizer().tokenize(text)
 tokens_tagged = PerceptronTagger().tag(tokens)
 op_tags = [
-	'<span class="{}">'.format(css_class_for_tag(token[1])) for token in tokens_tagged
+    '<span class="{}">'.format(css_class_for_tag(token[1])) for token in tokens_tagged
 ]
 cls_tags = ["</span>" for x in range(len(tokens))]
 ----
