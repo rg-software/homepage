@@ -6,7 +6,16 @@
     <description>Recent content on The Pro Amateur</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Sep 2021 14:47:03 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Sep 2021 15:11:43 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Experiencing Black</title>
+      <link>https://mmozgovoy.dev/posts/experiencing-black/</link>
+      <pubDate>Thu, 09 Sep 2021 15:11:43 +0900</pubDate>
+      
+      <guid>https://mmozgovoy.dev/posts/experiencing-black/</guid>
+      <description>On Code and Formatting Styles One of my long-term goals is to setup a powerful development environment that would make the most of today’s technology. As someone who grew up using QuickBasic and C++Builder, I could never understand deliberate efforts to rely on simple text editors and command-line compilers. To me, it is like claiming that the past 20 or 30 years of toolmaking gave us nothing worthy of attention.</description>
+    </item>
+    
     <item>
       <title>Managing Python with Poetry</title>
       <link>https://mmozgovoy.dev/posts/managing-python-with-poetry/</link>

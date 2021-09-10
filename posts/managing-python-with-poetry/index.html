@@ -162,7 +162,7 @@
 <p>Python is a very reasonable &#34;default&#34; language of choice for a variety of tasks. At least on desktop platforms, it makes sense to start with Python and see how it goes. Unfortunately, along its way to popularity it <a href="https://xkcd.com/1987/">lost much of the simplicity</a> that <a href="https://xkcd.com/353/">made it fun</a> in the first place. An especially egregious aspect of Python is its poor backward compatibility. In practice it means that your codebase will only reliably work with a specific version of Python interpreter.</p>
 </div>
 <div class="paragraph">
-<p>Even worse, the same holds for many popular libraries. Some Python codebase will only work with a certain library version 5.0.0 or <em>lower</em>, while another codebase requires 5.0.1 or <em>higher</em>. Thus, working with a single combination of Python interpreter and a bunch of libraries is simply not an option beyond most basic experiments.</p>
+<p>Even worse, the same holds for many popular libraries. Some Python codebase will only work with a certain library version 5.0.0 or <em>lower</em>, while another codebase requires 5.0.1 or <em>higher</em>. Thus, working with a single combination of Python interpreter and a bunch of libraries is simply not an option beyond the most basic experiments.</p>
 </div>
 <div class="paragraph">
 <p>Working with third-party code is also not straightforward. Python has an official <a href="https://pypi.org">package repository</a>, where any reasonable non-standard library is supposed to be present. Thus, code snippets found online often make no distinction between the standard library and third-party packages. For example, the following snippet will throw an exception on a freshly installed Python:</p>
@@ -184,7 +184,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>However, it simply installs the most recent version of <code>dotmap</code> globally for the current Python setup, which might cause issues with other code bases, requiring a certain different version of <code>dotmap</code>.</p>
+<p>However, it simply installs the most recent version of <code>dotmap</code> globally for the current Python interpreter, which might cause issues with other codebases, requiring a certain different version of <code>dotmap</code>.</p>
 </div>
 <div class="paragraph">
 <p>Summing up, there are <em>several separate issues</em> here:</p>
@@ -242,7 +242,7 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 <p>The most important sections are <code>[tool.poetry.dependencies]</code> listing both the <em>main</em> project dependencies and the required Python version, and <code>[tool.poetry.dev-dependencies]</code>, responsible for the <em>development</em> dependencies. The command line tool asks about dependencies, but they can be also added any time later.</p>
 </div>
 <div class="paragraph">
-<p>When adding dependencies, it might be important to set <em>constraints</em> to their version numbers. By default, Poetry suggests the most recent version from <a href="https://pypi.org">PyPi</a>, but it is also possible to add a library not listed on PyPi (such as a Git repository or a binary file). Dependency specification syntax is <a href="https://python-poetry.org/docs/dependency-specification/">quite elaborate</a>, and requires understanding of <a href="https://semver.org">semantic versioning</a> system. I would say that in most cases the default option would work fine.</p>
+<p>When adding dependencies, it might be important to set <em>constraints</em> to their version numbers. By default, Poetry suggests the most recent version from <a href="https://pypi.org">PyPi</a>, but it is also possible to add a library not listed on PyPi (such as a Git repository or a binary file). Dependency specification syntax is <a href="https://python-poetry.org/docs/dependency-specification/">quite elaborate</a>, and requires understanding of the <a href="https://semver.org">semantic versioning</a> system. I would say that in most cases the default option would work fine.</p>
 </div>
 <div class="paragraph">
 <p>Adding a new main dependency is easy:</p>
@@ -315,7 +315,7 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 <p>Technically, a virtual environment is just a directory where all environment-specific settings and libraries are stored. If it breaks for some reason, we can simply delete this directory and call <code>poetry install</code> or <code>poetry env use</code> to recreate it.</p>
 </div>
 <div class="paragraph">
-<p>By default, all virtual environment directories are kept in the user home location. It is also possible to instruct Poetry to create virtual environment right inside the respective projects by calling</p>
+<p>By default, all virtual environment directories are kept in the user home location. It is also possible to instruct Poetry to create virtual environments right inside the respective projects by calling</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -329,7 +329,7 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 <div class="sect2">
 <h3 id="_installing_dependencies">Installing Dependencies</h3>
 <div class="paragraph">
-<p>Having a <code>pyproject.toml</code> file inside the project is enough to run</p>
+<p>Having a <code>pyproject.toml</code> file inside the project is enough to be able to run</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -337,10 +337,10 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 </div>
 </div>
 <div class="paragraph">
-<p>and get all the necessary dependencies installed inside the corresponding virtual environment. As mentioned above, Poetry will also automatically create the environment if it is not present (alternatively, use <code>poetry env use</code> to choose the right Python version). Thus, this is the minimal working setup for preparing the system for an existing project: navigate to the project directory on the disk and run <code>poetry install</code>. The <code>--no-dev`</code> option instructs Poetry to skip development dependencies.</p>
+<p>and get all the necessary dependencies installed inside the corresponding virtual environment. As mentioned above, Poetry will also automatically create the environment if it is not present (alternatively, use <code>poetry env use</code> to choose the right Python version). Thus, this is the minimal working setup for preparing the system for an existing project: navigate to the project directory on the disk and run <code>poetry install</code>. The <code>--no-dev</code> option instructs Poetry to skip development dependencies.</p>
 </div>
 <div class="paragraph">
-<p>Poetry authors recommend to make one extra step, though. When Poetry installs dependencies, it writes down the <em>exact versions</em> installed into a file called <code>poetry.lock</code>. If we keep it as a part of the project (i.e., add it to version control), Poetry will make sure to install these specific versions during <code>poetry install</code>.</p>
+<p>Poetry authors recommend to make one extra step, though. When Poetry installs dependencies, it writes down their <em>exact version numbers</em>  into a file called <code>poetry.lock</code>. If we keep it as a part of the project (i.e., add it to version control), Poetry will make sure to install these specific versions during <code>poetry install</code>.</p>
 </div>
 <div class="paragraph">
 <p>Let’s consider an example. Suppose we have a project that depends on the library <code>dotmap</code>. We add it with a command</p>
