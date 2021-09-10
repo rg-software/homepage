@@ -149,7 +149,7 @@ op_tags = ['<span class="{}">'.format(css_class_for_tag(token[1])) for token in 
 cls_tags = ["</span>" for x in range(len(tokens))]
 ----
 
-Here each line describes one _complete_ operation: tokenize input text, tag tokens, generate a list of opening tags, generate a list of closing tags. I am not saying this code is really good, but at least its structure is clear and consistent. Maybe line 3 is overly long and thus allegedly harder to understand, but its context helps to figure out its purpose. Homogeneity is a good property. Consider a sentence: _"They sell apples, pears, lychee, and plums at this counter."_ Even if I don't know what is _lychee_, I can reasonably safely presume that this is a kind of fruit, since it appears inside a list of other fruit types.
+Here each line describes one _complete_ operation: tokenize input text, tag tokens, generate a list of opening tags, generate a list of closing tags. I am not saying this code is really good, but at least its structure is clear and consistent. Maybe line 3 is overly long and thus allegedly harder to understand, but its context helps to figure out its purpose. Homogeneity is a good property. Consider a sentence: _"They sell apples, pears, lychees, and plums at this counter."_ Even if I don't know what is _lychees_, I can reasonably safely presume that this is a kind of fruit, since it appears inside a list of other fruit types.
 
 Black transforms the code above into the following:
 
