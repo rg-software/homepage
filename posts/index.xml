@@ -6,7 +6,16 @@
     <description>Recent content in Posts on The Pro Amateur</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 09 Sep 2021 15:11:43 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Sep 2021 23:11:40 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Representing the World with Objects: a Telling Exercise</title>
+      <link>https://mmozgovoy.dev/posts/representing-the-world-with-objects/</link>
+      <pubDate>Sun, 12 Sep 2021 23:11:40 +0900</pubDate>
+      
+      <guid>https://mmozgovoy.dev/posts/representing-the-world-with-objects/</guid>
+      <description>The Adventure Begins I am not happy with this title, but the whole topic popped up a bit suddenly, and I decided to jot down some thoughts, while they are still fresh. It is going to be a little story about a very innocuous-looking tiny exercise that turned out to be more difficult than I anticipated, and thus made me thinking about the hardships of translating our common language into programming language concepts, say, using OOP.</description>
+    </item>
+    
     <item>
       <title>Experiencing Black</title>
       <link>https://mmozgovoy.dev/posts/experiencing-black/</link>
