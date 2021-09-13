@@ -1,0 +1,250 @@
+---
+title: "Representing the World with Objects: a Telling Exercise"
+date: 2021-09-12T23:11:40+09:00
+draft: false
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+
+== The Adventure Begins
+
+I am not happy with this title, but the whole topic popped up a bit suddenly, and I decided to jot down some thoughts, while they are still fresh. It is going to be a little story about a very innocuous-looking tiny exercise that turned out to be more difficult than I anticipated, and thus made me thinking about the hardships of translating our common language into programming language concepts, say, using OOP.
+
+The objective of the exercise is to create an extremely stripped-down version of a text-based adventure game. The game world consists of _rooms_. Each room has a name and an associated list of possible _exits_. When the user enters a certain room, the game prints its name and exits like this:
+
+[source]
+----
+You are in: Kitchen
+Exits: N, E, S
+----
+
+All you can do is just choose some exit to move into another room. Once you arrive in a certain predefined "goal room", the game is over.
+
+== A Quick Solution
+
+Let's first think how a quick and simple solution might look like. Let's presume that room names are unique, and exits are not symmetrical (so if you can move to a room to the North, it doesn't mean you can always return by moving South). The latter presumption makes sense in some cases: for example, suppose you can jump off a fence, but you can't easily climb it back from the ground. Let's also agree on a simple game map, where you have to "escape" from your house:
+
+image::game-map.png[]
+
+Here is my solution:
+
+[source,python]
+----
+game_map = {
+    "Kitchen": {"N": "Dining room", "E": "Bathroom", "W": "Street"},
+    "Bathroom": {"W": "Kitchen", "NW": "Dining room"},
+    "Dining room": {"S": "Kitchen", "SE": "Bathroom", "U": "Playroom"},
+    "Playroom": {"D": "Dining room", "S": "Bedroom"},
+    "Bedroom": {"N": "Playroom"},
+    "Street": {},
+}
+
+now = "Bedroom"
+goal = "Street"
+
+while now != goal:
+    print(f"You are in: {now}")
+    print(f"Exits: {', '.join(list(game_map[now].keys()))}")
+
+    dir = input("Where to go? ").upper()
+    if dir in game_map[now]:
+        now = game_map[now][dir]
+    else:
+        print("You can't go there.")
+
+print("Well done!")
+----
+
+Naturally, it cuts a few corners: it relies on the room-names-as-unique-IDs feature, it is hardly extensible beyond the proposed scenario, and so on. I know that. However, it shows how short and simple a solution can be if we tackle the task "holistically", in one bite. Admittedly, it's a toy example, but even here we can see how well the individual parts of the solution play together.
+
+Room names are strings. The basic data structure is a dictionary. So we can easily match rooms with their exits, consisting of exit names and exit target rooms. Since room names are strings, we can easily check the winning condition and move between the rooms. Even printing the list of exits is a simple `join()` call for a list of dictionary keys.
+
+== Moving to OOP
+
+We often treat programming as the way to model our domain on a computer. If we deal with orders and customers, our program will somehow model these entities. If we deal with processes or algorithms, the code will implement them somehow. It is a very general observation, not limited to a specific programming paradigm. I propose a simple way of thinking about this idea. Suppose we need to implement a certain feature, like "the customer should be able to optionally choose a gift wrap for a product using a list of designs we provide". A developer working on this task should be able to quickly find and modify the relevant pieces of the system. The original request is inevitably formulated in terms of our conventional language, so the code that departs from these concepts too far would be hard to maintain. In other words, "mapping" concepts from code to real world and vice versa is _work_, and it is our interest to reduce this work, unless we have very strong reasons not to do it.
+
+The solution above does not really perform any meaningful concept mapping. Instead, it relies on _coincidental_ properties of concepts described in the original task definition, and makes use of their _coincidental_ resemblance to built-in Python types, leveraging their capabilities.
+
+Now, let's try to approach the problem using _the right way_. Object-oriented programming looks like a natural choice here, because we deal with a bunch of concepts that are _bona fide_ objects or the real world: rooms and exits (corridors, if you like). We are modeling a world closely resembling the real world, so the task of concept mapping should not be very challenging.
+
+So, we have "rooms". Each room has a name and an associated list of exits. We also have "exits". Each exit is associated with a movement direction and leads to a certain target room. These observations can be translated into Python rather nicely:
+
+[source,python]
+----
+class Room:
+    def __init__(self, name, exits):
+        self._name = name
+        self._exits = exits
+
+
+class Exit:
+    def __init__(self, direction, target):
+        self._direction = direction
+        self._target = target
+----
+
+Let's represent some part of our reality:
+
+[source,python]
+----
+street = Room("Street", [])  # ok!
+bedroom = Room("Bedroom", [Exit("N", Room("Playroom", [Exit("S", bedroom)]))])  # ouch!
+----
+
+Oh no, a recursive dependency! I need "Playroom" when I define exits for "Bedroom", but I need "Bedroom" when creating "Playroom" for the same reason! So, what should we do?
+
+Obviously, it is easy to propose a variety of solutions (I started this article with a full solution, if you remember). Maybe the simplest one is to separate the processes of creating rooms and defining exits. Then we will have code like this:
+
+[source,python]
+----
+bedroom = Room("Bedroom")
+playroom = Room("Playroom")
+
+bedroom.add_exit("N", playroom)
+playroom.add_exit("S", bedroom)
+----
+
+Alternatively, we can again rely on the room-names-as-unique-IDs feature and pass room names instead of room objects when creating exits. However, that's not the point: we all know how to fix something quickly and ship it. The point is to understand why we have stumbled upon this bump at all.
+
+_There are rooms. Rooms have exits. Exits lead to other rooms_. What's wrong with our translation of this description into code? Why it works in English and does not work in Python?
+
+== World of Forms and World of Substances
+
+My current theory is simple: phrases like _"there is a room called Bedroom, and it has a North exit, leading to another room called Playroom"_ are deceptive. They sound as if we have two rooms here, but in reality I use the word "Playroom" as a reference to a "room concept" rather to an actual room. At this point I might still know nothing about Playroom beyond the fact of its mere existence. I don't know what are Playroom's exits, for example, and it's fine.
+
+When I describe a room "properly", i.e., list its exits, the concept becomes a reality. Rooms and room concepts are connected by names: when I say "Playroom (concept)", I presume that the corresponding room is named "Playroom". Concepts can exist without properly defined rooms (so we can treat them as _forward declarations_ in a sense), but each room has a corresponding concept that appears in our mental map as soon as we describe the room.
+
+Let's reflect this understanding in code. The idea is to be able to refer to room concepts using `Room.Concept(name)` calls:
+
+[source,python]
+----
+class Room:
+    _game_map = {}  # map of concepts
+
+    class _RoomConcept:
+        def __init__(self, name):
+            self._name = name
+            self._room = None
+
+        def connect_room(self, room):
+            self._room = room
+
+        @property
+        def room(self):
+            return self._room
+
+    @staticmethod
+    def Concept(name):
+        # create a concept if it is not yet in the map
+        if name not in Room._game_map:
+            Room._game_map[name] = Room._RoomConcept(name)
+        return Room._game_map[name]
+
+    def __init__(self, name, exits):
+        Room.Concept(name).connect_room(self)
+        self._name = name
+        self._exits = exits
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def exit_directions(self):
+        return [e.direction for e in self._exits]
+
+    def room_at(self, exit_direction):
+        for e in self._exits:
+            if e.direction == exit_direction:
+                return e.target
+        assert False, "Exit does not exist"
+----
+
+This code isn't stellar, but it's the best I can do without thinking too hard. The central idea here is the appearance of a hidden "concept map", a sort of Platonic https://en.wikipedia.org/wiki/Theory_of_forms["World of Forms"], where room concepts live. Every time we create a room, it is paired with the corresponding concept. Otherwise, it is a pretty straightforward `Room` class with a very unsurprising interface: get a list of exits, return a room on the other end of the exit, and so on.
+
+Now we need a simple `Exit` class:
+
+[source,python]
+----
+class Exit:
+    def __init__(self, direction, target):
+        self._direction = direction
+        self._target = target
+
+    @property
+    def direction(self):
+        return self._direction
+
+    @property
+    def target(self):
+        return self._target.room
+----
+
+Having rooms and exits, we can describe our level. We don't need to assign `Room` objects to named variables: rooms are bound to the concepts living in the global World of Forms, which keeps them protected from garbage collection.
+
+[source,python]
+----
+Room(
+    "Kitchen",
+    [
+        Exit("N", Room.Concept("Dining room")),
+        Exit("E", Room.Concept("Bathroom")),
+        Exit("W", Room.Concept("Street")),
+    ],
+)
+
+Room(
+    "Bathroom",
+    [Exit("W", Room.Concept("Kitchen")), Exit("NW", Room.Concept("Dining room"))],
+)
+
+Room(
+    "Dining room",
+    [
+        Exit("S", Room.Concept("Kitchen")),
+        Exit("SE", Room.Concept("Bathroom")),
+        Exit("U", Room.Concept("Playroom")),
+    ],
+)
+
+Room(
+    "Playroom",
+    [Exit("D", Room.Concept("Dining room")), Exit("S", Room.Concept("Bedroom"))],
+)
+
+now = Room("Bedroom", [Exit("N", Room.Concept("Playroom"))])
+
+goal = Room("Street", [])
+----
+
+Finally, we have all pieces of the puzzle ready for the final push:
+
+[source,python]
+----
+while now != goal:
+    print(f"You are in: {now.name}")
+    print(f"Exits: {', '.join(now.exit_directions)}")
+
+    dir = input("Where to go? ").upper()
+    if dir in now.exit_directions:
+        now = now.room_at(dir)
+    else:
+        print("You can't go there.")
+
+print("Well done!")
+----
+
+== Discussion
+
+Let's compare the two solutions we considered here. I can argue that the initial solution is superior almost in _every possible aspect_. It is much shorter (23 lines vs 100 lines), its game map is stored in an easily readable and serializable form, it is conceptually simple and has very few "moving parts", and it even takes room exits from a dictionary, which is faster than traversing a list. I think can make the object-oriented code simpler without sacrificing much of its "object-orientness" by acknowledging that rooms and room concepts are connected with names, so we simply can use names instead of concepts and thus reduce concept objects to mere strings. This would bring the program closer to the first version. On the other hand, I realized that everything really hinges on names only halfway through writing. It means that the room-names-as-unique-IDs feature is not coincidental after all, but it was not something obvious from the very beginning.
+
+The OOP solution looks dangerously close to the https://medium.com/@webseanhickey/the-evolution-of-a-software-engineer-db854689243[fifth year developer's _"Hello World!"_ version], so it's good to understand what are its benefits, and why we arrived here by following the usual OOP path.
+
+The potential benefit of the second version is its presumed extensibility. If we boil down the differences to something simple, it would be _the approach to designing types_. The logic in the first program is to shoehorn our types into the system of existing Python types where possible. A room has a unique name and an associated list of non-repeating elements (exits). It sounds like a string / dictionary pair, so we simply use a string and a dictionary. This approach helps us to avoid a lot of work, since built-in types are directly supported by the standard library, so we can leverage a lot of existing functionality. However, if we are unlucky, eventually this "free ride" will be over. The second program creates its types from scratch, and there is no surprise that designing stuff on our own is harder, verbose, and less elegant. I think it could have been even worse: we haven't really introduced any additional complexity that often appears when some functionality is being distributed among isolated objects and hidden behind clean interfaces. Making components independent yet compatible is also _work_, requiring effort and extra lines of code.
+
+I wouldn't blame OOP for the bloat we got. OOP has its own share of issues and awkward scenarios, where a certain kind of alien logic is required. Not this time, however. I tend to believe that the case at hand is an example of 1) deceptive simplicity and subtle ambiguity of everyday language; 2) the hidden cost of making something on your own, resulting in loss of functionality and syntactic sugar.
+
+So, I cannot conclude with any particularly insightful observation, really. For a quick prototype or a _short_ program you can employ a whole lot of trickery and leverage tons of built-in language capabilities. But be aware that the day you'll have to _extend_ your simple solution (if this day comes at all, of course) might bring unpleasant surprises, and seemingly small "extensions" might grow into their own cans of worms.
