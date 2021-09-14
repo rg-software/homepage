@@ -38,6 +38,12 @@ paginate = 10
   url = "https://www.facebook.com/maxim.mozgovoy.92/"
 
 [[params.social]]
+  name = "LinkedIn"
+  icon = "fa fa-linkedin fa-2x"
+  weight = 8
+  url = "https://www.linkedin.com/in/maxim-mozgovoy/"
+
+[[params.social]]
   name = "Github"
   icon = "fa fa-github fa-2x"
   weight = 10
