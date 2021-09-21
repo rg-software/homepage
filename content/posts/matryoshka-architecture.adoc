@@ -30,7 +30,7 @@ In practice, the "photo archive"-type dilemma is often resolved with a system of
 Just to be clear, I am trying to make a simple point here. The organization of a system as a hierarchy is not something "natural". It is a deliberate engineering decision that takes effort to implement. The benefits are clear: such systems possess tons of attractive features like simplicity, maintainability, reusability of components, etc. The costs, however, should also not be overlooked: it takes effort to make independent units compatible, and to shoehorn your problem domain into a concept of hierarchy, which might be not easy at all. One simple example of the cost of compatibility is seen in any electronic component, such as a transistor, which is 99.9% "interface" and only the rest is "implementation":
 
 .A transistor inside (Source: https://commons.wikimedia.org/wiki/File:Power_transistor.jpg[Wikipedia])
-image::transistor.jpg[width=630]
+image::transistor.jpg[]
 
 An interface is literally everything except the tiny block in the middle, and its only purpose is to enable us to hold the transistor in hands, mount it on a board and connect with other components. By eliminating this interface, we can save a lot of space and building materials, which is exactly the logic behind integrated circuits. An integrated circuit, however, is a complete _circuit_, so we have to design our system in a certain way to make it fit. It is also probable that some of the circuit's components and capabilities won't be necessary for us, turning them into a wasted resource.
 
