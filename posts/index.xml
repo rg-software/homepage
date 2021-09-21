@@ -6,7 +6,16 @@
     <description>Recent content in Posts on The Pro Amateur</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Sep 2021 23:11:40 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Sep 2021 01:06:31 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matryoshka Architecture</title>
+      <link>https://mmozgovoy.dev/posts/matryoshka-architecture/</link>
+      <pubDate>Fri, 17 Sep 2021 01:06:31 +0900</pubDate>
+      
+      <guid>https://mmozgovoy.dev/posts/matryoshka-architecture/</guid>
+      <description>One of the Faces of Complexity Today I am planning to write on a topic that is addressed literally in every book on software engineering. Yet I believe that too many projects (including my own) need more attention to some of the most basic ways of fighting complexity. Complexity is, yeah, a complex phenomenon, discussed in numerous sources, including a highly influential Brooks’s No Silver Bullet essay. Recently I wrote about Black, which insists on code made up of short lines.</description>
+    </item>
+    
     <item>
       <title>Representing the World with Objects: a Telling Exercise</title>
       <link>https://mmozgovoy.dev/posts/representing-the-world-with-objects/</link>

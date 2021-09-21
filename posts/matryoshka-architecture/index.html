@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+
+    <meta name="author" content="Maxim Mozgovoy">
+    <meta name="description" content="One of the Faces of Complexity Today I am planning to write on a topic that is addressed literally in every book on software engineering. Yet I believe that too many projects (including my own) need more attention to some of the most basic ways of fighting complexity. Complexity is, yeah, a complex phenomenon, discussed in numerous sources, including a highly influential Brooks’s No Silver Bullet essay. Recently I wrote about Black, which insists on code made up of short lines.">
+    <meta name="keywords" content="blog,developer,personal,homepage">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Matryoshka Architecture"/>
+<meta name="twitter:description" content="One of the Faces of Complexity Today I am planning to write on a topic that is addressed literally in every book on software engineering. Yet I believe that too many projects (including my own) need more attention to some of the most basic ways of fighting complexity. Complexity is, yeah, a complex phenomenon, discussed in numerous sources, including a highly influential Brooks’s No Silver Bullet essay. Recently I wrote about Black, which insists on code made up of short lines."/>
+
+    <meta property="og:title" content="Matryoshka Architecture" />
+<meta property="og:description" content="One of the Faces of Complexity Today I am planning to write on a topic that is addressed literally in every book on software engineering. Yet I believe that too many projects (including my own) need more attention to some of the most basic ways of fighting complexity. Complexity is, yeah, a complex phenomenon, discussed in numerous sources, including a highly influential Brooks’s No Silver Bullet essay. Recently I wrote about Black, which insists on code made up of short lines." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mmozgovoy.dev/posts/matryoshka-architecture/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-17T01:06:31+09:00" />
+<meta property="article:modified_time" content="2021-09-17T01:06:31+09:00" />
+
+
+
+    <title>
+  Matryoshka Architecture · The Pro Amateur
+</title>
+
+    
+      <link rel="canonical" href="https://mmozgovoy.dev/posts/matryoshka-architecture/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css" integrity="sha256-cIaG&#43;KuBdukdRPy&#43;SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="/css/admonitions.css" />
+    
+      <link rel="stylesheet" href="/css/academicons.min.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/misc/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    
+
+    <meta name="generator" content="Hugo 0.87.0" />
+  </head>
+
+  
+  
+  <body class="preload-transitions colorscheme-light"
+        onload=""
+  >
+    
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      The Pro Amateur
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/books/">Books</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/papers/">Papers</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/software/">Software</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cv/">CV</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zx/">ZX</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://mmozgovoy.dev/posts/matryoshka-architecture/">
+              Matryoshka Architecture
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-09-17T01:06:31&#43;09:00'>
+                September 17, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              16-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <div class="sect1">
+<h2 id="_one_of_the_faces_of_complexity">One of the Faces of Complexity</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Today I am planning to write on a topic that is addressed literally in every book on software engineering. Yet I believe that too many projects (including my own) need more attention to some of the most basic ways of <em>fighting complexity</em>. Complexity is, yeah, a <em>complex</em> phenomenon, discussed in numerous sources, including a highly influential Brooks’s <a href="https://en.wikipedia.org/wiki/No_Silver_Bullet">No Silver Bullet</a> essay. Recently I wrote about <a href="experiencing-black">Black</a>, which insists on code made up of <em>short</em> lines. Quite often the only viable method of shortening the lines of a certain fragment of code is to move it into a separate function or class, which means increasing their overall count. Eventually I am also going to write about keeping <a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity"><em>cyclomatic complexity</em></a> at bay, which also means having more functions and classes. This growing lists of entities needs to be organized properly, and that’s the complexity we are going to talk about here.</p>
+</div>
+<div class="paragraph">
+<p>I am aware that not all sources of complexity are of &#34;organizing your entities&#34; type. However, I think this type is incredibly pervasive: if your code grows, the number of files / classes / functions / whatever grows. If you have a lot of something, you’d better think how to keep this something in reasonable order. It all sounds trivial, as we all know that algorithms should be wrapped into functions, functions and attributes make up classes, and groups of classes and functions form modules. What’s missing in this picture, and why many multi-component systems are so hard to analyze?</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_case_of_hierarchical_systems">The Case of Hierarchical Systems</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The organization I mentioned above (functions / classes / modules) suggest a typical hierarchical structure of the system: the component A is a part of the component B, which is a part of the component C. I’d say that most reasonably complex systems we people design are created according to this scheme. A coffee machine contains separate units, such as a water tank, a coffee grinder, and a brewing unit. They, in turn, contain other elements: a water tank contains a filter; a grinder is made of an electric motor, steel blades and many other tiny parts; a brewing unit is a separate complex mechanism on its own. This approach can be considered as a variation of a (broadly understood) &#34;divide and conquer&#34; principle, here aimed to fight complexity. Much can be said about factors at work in this case, but everything mostly boils down to the possibility to treat individual units of the whole system as semi-independent structures. It opens many attractive opportunities: we can design and repair these units independently; we can reuse units elsewhere (say, the same coffee grinder unit can be found in different coffee machines); we can revise an internal structure of the unit if it doesn’t affect its external &#34;interface&#34;. Very importantly, it also reduce the number of entities we have to deal with at one time. I can work with the system made of 5 or 10 components, while a structure of, say, 200+ interconnected elements is nearly incomprehensible.</p>
+</div>
+<div class="paragraph">
+<p>I think the latter factor is the primary driver of hierarchical design: we can’t make something if we don’t understand it. Having said that, I have to add that the imposition of any specific type of design also restricts our options, and thus may lead to suboptimal solutions. Not everything we see around is hierarchical. Say, a human neocortex is a network-like structure of numerous interconnected elements, and it works reasonably well (but understanding how it works is a grand challenge). The limitations of hierarchical decomposition are known to anyone who tried, for example, to structure one’s own photo archive. One can start with a simple folder organization like this. Let’s make a folder for each relevant Year/Month, then have a separate folder inside for each place visited. These folders will simply list all the photos taken on that specific trip. However, one may want to add other types of classification, say, categorize the photos into &#34;nature&#34;, &#34;urban&#34;, &#34;people&#34; and so on. Should <code>Fido.jpg</code> be under <code>2021-05</code> <span class="icon"><i class="fa fa-caret-right"></i></span> <code>London</code> or under <code>Animals</code> <span class="icon"><i class="fa fa-caret-right"></i></span> <code>Dogs</code>?</p>
+</div>
+<div class="paragraph">
+<p>In practice, the &#34;photo archive&#34;-type dilemma is often resolved with a system of <em>tags</em>, which effectively allows placing an element into any number of independent hierarchies. I can have tags like <code>Dog</code> under the category of <code>Animals</code> and <code>London</code> under <code>Places</code>, and assign both tags to a specific photo. Then I can browse my photos using any of the hierarchies I have according to my current needs.</p>
+</div>
+<div class="paragraph">
+<p>Just to be clear, I am trying to make a simple point here. The organization of a system as a hierarchy is not something &#34;natural&#34;. It is a deliberate engineering decision that takes effort to implement. The benefits are clear: such systems possess tons of attractive features like simplicity, maintainability, reusability of components, etc. The costs, however, should also not be overlooked: it takes effort to make independent units compatible, and to shoehorn your problem domain into a concept of hierarchy, which might be not easy at all. One simple example of the cost of compatibility is seen in any electronic component, such as a transistor, which is 99.9% &#34;interface&#34; and only the rest is &#34;implementation&#34;:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="transistor.jpg" alt="transistor"/>
+</div>
+<div class="title">Figure 1. A transistor inside (Source: <a href="https://commons.wikimedia.org/wiki/File:Power_transistor.jpg">Wikipedia</a>)</div>
+</div>
+<div class="paragraph">
+<p>An interface is literally everything except the tiny block in the middle, and its only purpose is to enable us to hold the transistor in hands, mount it on a board and connect with other components. By eliminating this interface, we can save a lot of space and building materials, which is exactly the logic behind integrated circuits. An integrated circuit, however, is a complete <em>circuit</em>, so we have to design our system in a certain way to make it fit. It is also probable that some of the circuit’s components and capabilities won’t be necessary for us, turning them into a wasted resource.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_growth_of_a_system">The Growth of a System</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As the number of components in the system grows, the number of possible connections between them grows quadratically. A &#34;connection&#34; is also a kind of entity that takes space in our mental map, so we are interested in reducing both the number of components, and the number of inter-component connections. Thus, any extension of system’s functionality imposes architectural challenges. How to proceed?</p>
+</div>
+<div class="paragraph">
+<p>Let’s say I have a system made up of several connected components:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="system-growth1.png" alt="system growth1"/>
+</div>
+<div class="title">Figure 2. The original system</div>
+</div>
+<div class="paragraph">
+<p>Link directions show how communications flow. For example, <code>B</code> needs to talk to <code>A</code> and <code>C</code>, but <code>A</code> and <code>C</code> don’t have to talk back. Suppose I need some extra functionality. How can I add it into this scheme? Basically, there are two principal choices. I can spread functionality across existing components thus making some of them bigger:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="system-growth2.jpg" alt="system growth2"/>
+</div>
+<div class="title">Figure 3. Adding functionality to existing components</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, I can introduce additional components:</p>
+</div>
+<div id="img-small-components" class="imageblock">
+<div class="content">
+<img src="system-growth3.jpg" alt="system growth3"/>
+</div>
+<div class="title">Figure 4. A system of small components</div>
+</div>
+<div class="paragraph">
+<p>The first method (make the components bigger) is usually frowned upon, but it actually makes sense if used carefully. It’s easy to call this approach &#34;lazy&#34;, but it fights complexity by preserving the overall count of components and connections (at the expense of making individual components more complicated). The second approach can be seen as an opposite strategy: we keep the components small, but their count goes up, increasing the complexity of our system.</p>
+</div>
+<div class="paragraph">
+<p>If both methods are aimed to achieve the same goal, why most sources vocally support the latter option? That’s because large components are hard to simplify (so it’s a dead end eventually), while the network of small components can be transformed into a hierarchical <a href="https://en.wikipedia.org/wiki/Matryoshka_doll">Matryoshka-like</a> structure:</p>
+</div>
+<div id="img-matryoshka" class="imageblock">
+<div class="content">
+<img src="system-growth4.jpg" alt="system growth4"/>
+</div>
+<div class="title">Figure 5. A Matryoshka structure</div>
+</div>
+<div class="paragraph">
+<p>What is interesting here is that the transformed system works exactly the same as its network-like version. We use the same objects, and they communicate with each other in the same way. The only change is visibility. Most objects are hidden: I won’t see <code>D</code> until I have to figure out how <code>A</code> works. The cognitive load can be reduced tremendously.</p>
+</div>
+<div class="paragraph">
+<p>However, as anyone in the field can attest, we don’t really live in the world of &#34;tremendously reduced cognitive load&#34;. It doesn’t look like a typical codebase we have to work with is constructed in a Matryoshka-like manner. There are a few reasons for this phenomenon. For example, we can observe that some systems are not hierarchically organized and thus cannot be easily transformed into a Matryoshka architecture:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="system-growth5.jpg" alt="system growth5"/>
+</div>
+<div class="title">Figure 6. A complex network of components</div>
+</div>
+<div class="paragraph">
+<p>Probably, this last picture is very not realistic anymore, but not impossible either. Even bidirectional or circular links do occur sometimes, so we shouldn’t ignore their existence.</p>
+</div>
+<div class="paragraph">
+<p>I also have to say that even a perfectly hierarchical system isn’t without downsides. It is fine when it works correctly. When things go awry, debugging such a construction can be a pain: we peel a layer after layer off this onion and still cannot reach the the place where something is actually <em>being done</em>. There are usually many interfaces, adapters and other &#34;glue&#34; blocks that simply pass data here and there. Unit tests should help to some extent, but they aren’t 100% bullet-proof either. This architecture is also quite rigid: rewiring objects living &#34;on the surface&#34; is easy. However, if I realize that I really need to talk to an object located in another object’s private zone, things might get tricky.</p>
+</div>
+<div class="paragraph">
+<p>So it seems to me that the right goal to pursue is to keep the balance. A function of 200+ lines of code is perhaps overly long, but I wouldn’t refactor a function of 30 lines on the basis of length alone. Similarly, if I see that the object is dealing with 3-4 other objects, it feels acceptable, just don’t let this list grow too much.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_transparent_and_opaque_hierarchies">Transparent and Opaque Hierarchies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>So far, I’ve been mostly reiterating the issues most of us understand very well. Now I am coming to something different that bugs me. Let’s consider a fragment like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">X</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">pass</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">Y</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">__init__</span><span style="">(</span><span style="color: #003388">self</span><span style="">):</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitX</span> <span style="">=</span> <span style="">X</span><span style="">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Is this &#34;a network of small connected elements&#34; or a &#34;hierarchical Matryoshka architecture&#34;? It seems that most sources don’t discuss this distinction much. An instance of <code>A</code> has a private member of type <code>B</code>, so in this sense the <code>B</code>-component belongs to the <code>A</code>-component, and, therefore, it is &#34;inside&#34; <code>A</code>. It is also clear that nobody can access the <code>B</code>-component from the outside (or &#34;not supposed to access&#34; in case of Python).</p>
+</div>
+<div class="paragraph">
+<p>If someone asks me to represent the case of <a href="#img-small-components">Figure 4</a> in code, I’d do something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">A</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">__init__</span><span style="">(</span><span style="color: #003388">self</span><span style="">,</span> <span style="">d</span><span style="">):</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitD</span> <span style="">=</span> <span style="">d</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">B</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">__init__</span><span style="">(</span><span style="color: #003388">self</span><span style="">,</span> <span style="">a</span><span style="">,</span> <span style="">c</span><span style="">):</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitA</span> <span style="">=</span> <span style="">a</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitC</span> <span style="">=</span> <span style="">c</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">C</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">__init__</span><span style="">(</span><span style="color: #003388">self</span><span style="">,</span> <span style="">e</span><span style="">,</span> <span style="">g</span><span style="">):</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitE</span> <span style="">=</span> <span style="">e</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitG</span> <span style="">=</span> <span style="">g</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">D</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">__init__</span><span style="">(</span><span style="color: #003388">self</span><span style="">,</span> <span style="">f</span><span style="">):</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitF</span> <span style="">=</span> <span style="">f</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">E</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">pass</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">F</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">pass</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">G</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">pass</span>
+
+
+<span style="">g</span> <span style="">=</span> <span style="">G</span><span style="">()</span>
+<span style="">e</span> <span style="">=</span> <span style="">E</span><span style="">()</span>
+<span style="">c</span> <span style="">=</span> <span style="">C</span><span style="">(</span><span style="">e</span><span style="">,</span> <span style="">g</span><span style="">)</span>
+<span style="">f</span> <span style="">=</span> <span style="">F</span><span style="">()</span>
+<span style="">d</span> <span style="">=</span> <span style="">D</span><span style="">(</span><span style="">f</span><span style="">)</span>
+<span style="">a</span> <span style="">=</span> <span style="">A</span><span style="">(</span><span style="">d</span><span style="">)</span>
+<span style="">b</span> <span style="">=</span> <span style="">B</span><span style="">(</span><span style="">a</span><span style="">,</span> <span style="">c</span><span style="">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here we have independent global objects hooked up together so they can communicate. To transform this code into the system shown in <a href="#img-matryoshka">Figure 5</a> we need to get rid of global objects:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">A</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">__init__</span><span style="">(</span><span style="color: #003388">self</span><span style="">):</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitD</span> <span style="">=</span> <span style="">D</span><span style="">()</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">B</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">__init__</span><span style="">(</span><span style="color: #003388">self</span><span style="">):</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitA</span> <span style="">=</span> <span style="">A</span><span style="">()</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitC</span> <span style="">=</span> <span style="">C</span><span style="">()</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">C</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">__init__</span><span style="">(</span><span style="color: #003388">self</span><span style="">):</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitE</span> <span style="">=</span> <span style="">E</span><span style="">()</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitG</span> <span style="">=</span> <span style="">G</span><span style="">()</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">D</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">__init__</span><span style="">(</span><span style="color: #003388">self</span><span style="">):</span>
+        <span style="color: #003388">self</span><span style="">.</span><span style="">_UnitF</span> <span style="">=</span> <span style="">F</span><span style="">()</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">E</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">pass</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">F</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">pass</span>
+
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">G</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">pass</span>
+
+
+<span style="">b</span> <span style="">=</span> <span style="">B</span><span style="">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I think many authors stop at this point, declaring the system sufficiently decomposed. This isn’t wrong, but still leaves me dissatisfied. Yes, objects here are stored inside other objects, so the system in <em>its current form</em> is fine. However, systems develop over time, and &#34;its current form&#34; can be modified at any moment. When I see that a certain member is declared private, I treat it as a deliberate design decision, and reluctant to make it public (or pseudo-public with a getter) without serious reasons. However, all <em>types</em> are public here, so I have no idea whether a certain type, such as <code>F</code> or <code>E</code>, is designed for general use or not. Thus, I don’t really feel motivated or demotivated to use <code>F</code> or <code>E</code> in my own extensions of the system. The types are there, and that’s all I can say about them.</p>
+</div>
+<div class="paragraph">
+<p>Let’s compare it with real world systems. I said that a coffee machine contains a grinder inside, and the grinder contains an electric motor and steel blades. However, if I disassemble the machine, I won’t see them unless I also disassemble the grinder. I wouldn’t even know that there are things like blades or motors inside the system at all. Not only <em>objects</em>, but also <em>types</em> do not contaminate my mental map of reality. So, a hierarchy of a coffee machine is less transparent than of a typical software system, and imposes lower cognitive load.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_an_issue_or_a_non_issue">An Issue or a Non-Issue?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now I need to restate the basic point of this article. Overly large classes or units and overly complex functions are very common in code I have to deal with. I am sure I am not alone in my misery. Reorganizing code into small units and simple functions is a separate <em>effort</em>, requiring motivation, time, commitment and skills. If some of these factors are missing, we’ll have an overly complex system or even a <a href="http://www.laputan.org/mud/mud.html">Big Ball of Mud</a>. Tools like <a href="https://github.com/psf/black">Black</a> or <a href="https://github.com/terryyin/lizard">Lizard</a> help to keep an eye on complexity indicators, so I’d say that the &#34;early warning&#34; system is easy to setup. However, very often a codebase after refactoring doesn’t really look significantly simpler. Instead of a small collection of large objects we get a large collection of small objects. My goal is to understand why it happens, and what can be done about it.</p>
+</div>
+<div class="paragraph">
+<p>However, at this point the situation looks much less clear to me, and I am not so confident in my reasoning anymore. To begin with, the statement above is based on my personal experience, which is very biased. Every time I open a project and see a large collection of files, no matter how carefully organized into folders, I have a distinct feeling that eventually I’ll have to go through most of them to figure out what’s there, and how those pieces work. Maybe it’s worse than &#34;in average&#34;.</p>
+</div>
+<div class="paragraph">
+<p>Next, maybe I am exaggerating the issues arising due to &#34;type space contamination&#34;. It’s hard to measure them, but I have one idea that will be hopefully elaborated later: what if in addition to a conventional &#34;contamination&#34; argument we consider the &#34;robustness&#34; score? Suppose I have a system made of classes with all-public functions. I understand that some of them are logically private, and name them using <code>lowerCamelCase()</code>, while &#34;true public&#34; functions are named in <code>UpperCamelCase()</code>. Nobody prevents me from calling a &#34;private&#34; function, so I can do something undesirable directly without any modification of the system. Thus, the &#34;robustness score&#34; is zero: there is no armor to break. Now, suppose I actually declare a certain function private. In this case, to do something undesirable I need two steps: make it public again, then call it. It means the &#34;robustness score&#34; of one.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, suppose I have a class that was extracted from another class during refactoring. It is coupled with the first class, and not really designed to be used elsewhere, which means using it is plain dangerous. Since we are not doing it, the system is safe, but its &#34;robustness score&#34; is one: I can first create an instance of the extracted class, and then use it (which is undesirable). Thus, hiding such internal types makes the system more robust; it is harder to break it without a certain deliberate effort.</p>
+</div>
+<div class="paragraph">
+<p>One might ask, but aren’t we as careful about visibility of classes and types as about visibility of variables and functions? I am afraid that no. It seems that the separation of class members into public and private is well internalized, so even little code snippets in books and online blogs don’t try cut corners by omitting access modifiers. (This is less often the case for languages like Python, where non-public access is more a matter of convention than a part of the language). For comparison, let’s see, for example, how a typical text on &#34;extract class&#34; refactoring technique deals with the appearance of extra classes in the system as a result of proposed modifications.</p>
+</div>
+<div class="paragraph">
+<p>Here is <a href="https://martinfowler.com/articles/class-too-large.html">a case study</a> from Martin Fowler’s site (it’s not his article, but apparently endorsed by him), here is <a href="https://www.jetbrains.com/help/resharper/Refactorings__Extract_Class.html">an example</a> from ReSharper documentation, and here is <a href="https://makolyte.com/refactoring-the-large-class-code-smell/">blog post</a> discussing refactoring large classes. None of these articles 1) try to change the visibility of newly extracted classes (so they have the same level of visibility as the original class); 2) mention this issue at all.</p>
+</div>
+<div class="paragraph">
+<p>I don’t really know whether I’ve just hit on unrepresentative examples, or most authors do not consider the topic important, or there are some other factors at play. I’d say that the tools for class-level visibility enforcement are quite different across languages, so people might consider distracting to talk about them.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_toolset">The Toolset</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Probably, the closest mechanism for the opacity I am talking about would be an option to declare classes and types to be visible only to certain other classes. The concept of nested classes in Java/C++/C# comes close, but a nested class have access to private members of its outer class, which makes it more like a convenient way to group certain class members. In Java, the members of an outer class are even considered to be the members of its inner classes <em>as well</em>, which blurs encapsulation even further.</p>
+</div>
+<div class="paragraph">
+<p>The next best thing would be to declare a class to be &#34;package-private&#34;. This option exists in Java, but does not in C# or C++. (I am not talking about Python, because everything is &#34;public&#34; in Python, and the usual naming conventions do not differentiate between possible levels of privacy). In general, modules/packages in most mainstream languages are primarily considered as means of creating structure rather than enforcing access right. We see this decision in play on a daily basis:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code># Python
+import os.path
+
+// Java
+import java.net.Socket;
+
+// C#
+using System.Collections.Generic;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There is nothing unusual in using a nested package name such as <code>net</code> inside <code>java</code>. Thus, there is no perception that we are entering a private zone. This is the main reason for my feelings expressed before: no matter how carefully the folders / packages / whatever are organized in a system, it’s still hard to tell whether the classes declared in the <code>coffeemaker/grinder/motor</code> directory are designed for the use outside of it. Naturally, we can always come up with certain conventions and rules. For example, in Java I can suggest to make all non-API classes package-private (this is the Java default option anyway), and to communicate <em>only</em> with the classes in your immediate surroundings, i.e., declared in the outer package of the current package and in subpackages of the current package. There might be valid reasons for accessing faraway objects, but they should be treated like singletons: use sparingly and with care. However, as a user I have no idea whether such conventions are respected in the codebase I am dealing with, so not checking the code inside subdirectories is still not an option.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_closing_thoughts">Closing Thoughts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I understand this post might look like a bunch of loosely-connected notes, peppered with rants about the sorry state of object visibility enforcement rules in mainstream languages. What’s constructive here? Well, I admit I am still thinking how to approach this issue <em>in the right way</em>. What I know is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>refactoring a system of large classes into smaller classes produces too many visible object types messing around;</p>
+</li>
+<li>
+<p>typical books on refactoring mostly focus on lower-level issues (but I admit I should go through my reading list);</p>
+</li>
+<li>
+<p>language designers for whatever reasons are concerned mostly about class-level access control mechanisms, allowing to specify how class members interact with the objects of other classes (related via inheritance, aggregation, or completely unrelated).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>I can only speculate that most languages around are quite complicated already, and there is little incentive to introduce new sources of complexity. On some level naming conventions work reasonably well: modules / packages / directories named like <code>detail</code> or <code>impl</code>, are widely used, signaling their &#34;internal&#34; nature to the reader. Maybe I am missing some obvious tools, but now it seems that developing a matryoshka architecture consisting of <em>sufficiently opaque</em> objects is more challenging than one might have expected.</p>
+</div>
+</div>
+</div>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        <script src="https://utteranc.es/client.js"
+    repo= "rg-software/homepage"
+    issue-term="pathname"
+    
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2021
+         Maxim Mozgovoy 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <script data-goatcounter="https://proamateur.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+
+    
+
+    
+
+    
+  </body>
+
+</html>
