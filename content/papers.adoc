@@ -71,7 +71,13 @@ link:mozgovoy05ir.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Semantical Analyzer a
 
 == Conference Papers
 
-link:kttm21.pdf[icon:file-pdf-o[]] K.&nbsp;Kimura, Y.&nbsp;Tu, R.&nbsp;Tanji, M.&nbsp;Mozgovoy. Identifying Winning Actions in a 3D Tennis Game with Monte-Carlo Tree Search. _Proceedings of the 52nd International Conference on Control Processes and Stability_, 2021, pp.&nbsp;352-357.
+// TODO: page numbers for kttm21b
+
+link:kttm21b.pdf[icon:file-pdf-o[]] K.&nbsp;Kimura, Y.&nbsp;Tu, R.&nbsp;Tanji, M.&nbsp;Mozgovoy. Creating Adjustable Human-like AI Behavior in a 3D Tennis Game with Monte-Carlo Tree Search. _Proceedings of the 2021 IEEE Symposium Series on Computational Intelligence_, Orlando, Florida, USA, 2021.
+
+link:yktiwm21.pdf[icon:file-pdf-o[]] K.&nbsp;Yuda, S.&nbsp;Kamei, R.&nbsp;Tanji, R.&nbsp;Ito, I.&nbsp;Wakana and M.&nbsp;Mozgovoy. Identification of Play Styles in Universal Fighting Engine. _Proceedings of Game-On'2020 Conference_, Aveiro, Portugal, 2021, pp.&nbsp;72-75. 
+
+link:kttm21a.pdf[icon:file-pdf-o[]] K.&nbsp;Kimura, Y.&nbsp;Tu, R.&nbsp;Tanji, M.&nbsp;Mozgovoy. Identifying Winning Actions in a 3D Tennis Game with Monte-Carlo Tree Search. _Proceedings of the 52nd International Conference on Control Processes and Stability_, 2021, pp.&nbsp;352-357.
 
 link:yoiwtkm21.pdf[icon:file-pdf-o[]] K.&nbsp;Yuda, K.&nbsp;Otomo, R.&nbsp;Ito, I.&nbsp;Wakana, R.&nbsp;Tanji, S.&nbsp;Kamei, M.&nbsp;Mozgovoy. Behavior Similarity Between Human Players and Built-in AI Characters in Universal Fighting Engine. _Proceedings of the 52nd International Conference on Control Processes and Stability_, 2021, pp.&nbsp;392-396.
 
