@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mmozgovoy.dev/posts/</loc>
-    <lastmod>2021-10-07T10:11:43+09:00</lastmod>
+    <lastmod>2021-10-10T10:11:50+09:00</lastmod>
   </url><url>
     <loc>https://mmozgovoy.dev/</loc>
-    <lastmod>2021-10-07T10:11:43+09:00</lastmod>
+    <lastmod>2021-10-10T10:11:50+09:00</lastmod>
+  </url><url>
+    <loc>https://mmozgovoy.dev/posts/vs-code-python-setup/</loc>
+    <lastmod>2021-10-10T10:11:50+09:00</lastmod>
   </url><url>
     <loc>https://mmozgovoy.dev/posts/vs-code-setup/</loc>
     <lastmod>2021-10-07T10:11:43+09:00</lastmod>
