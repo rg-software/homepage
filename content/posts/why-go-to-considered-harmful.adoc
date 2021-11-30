@@ -1,6 +1,6 @@
 ---
 title: "Why Go To Statement Considered Harmful?"
-date: 2021-12-01T10:12:40+09:00
+date: 2021-11-30T10:13:40+09:00
 draft: false
 ---
 
