@@ -214,34 +214,49 @@
 <p>Obviously, in this case I simply need to set a breakpoint at line 3 to end up in the same state as before. In other words, it is sufficient to point out exactly one location in code.</p>
 </div>
 <div class="paragraph">
-<p>Branching does not bring any changes into this picture. To arrive at <code>print()</code> call again, I set a breakpoint there and restart the debugger.</p>
+<p>Branching does not bring any changes into this picture. To arrive at the <code>print()</code> call in the next example, I set a breakpoint there and restart the debugger:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span style="">a</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">5</span>
+<pre class="rouge highlight"><code data-lang="python"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span style="">a</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">5</span>
 <span style="">b</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">15</span>
 <span style="">c</span> <span style="">=</span> <span style="">a</span> <span style="">+</span> <span style="">b</span>
 <span style="color: #008800;font-weight: bold">if</span> <span style="">c</span> <span style="">==</span> <span style="color: #0000dd;font-weight: bold">20</span><span style="">:</span>
     <span style="color: #008800;font-weight: bold">print</span><span style="">(</span><span style="">c</span><span style="">)</span> <span style="color: #888888"># we are here
 </span><span style="color: #008800;font-weight: bold">else</span><span style="">:</span>
-    <span style="color: #008800;font-weight: bold">pass</span></code></pre>
+    <span style="color: #008800;font-weight: bold">pass</span>
+</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>What does make the difference is function calls. Consider the following example:</p>
+<p>What does make the difference is function calls. Consider the following fragment:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">f</span><span style="">()</span>
-	<span style="">a</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">5</span>
+<pre class="rouge highlight"><code data-lang="python"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">f</span><span style="">(</span><span style="">a</span><span style="">)</span>
+	<span style="">c</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">5</span> <span style="">+</span> <span style="">a</span>
 	<span style="color: #008800;font-weight: bold">print</span><span style="">(</span><span style="">c</span><span style="">)</span> <span style="color: #888888"># we are here
 </span>
-<span style="">f</span><span style="">()</span>
-<span style="">f</span><span style="">()</span></code></pre>
+<span style="">f</span><span style="">(</span><span style="color: #0000dd;font-weight: bold">5</span><span style="">)</span>
+<span style="">f</span><span style="">(</span><span style="color: #0000dd;font-weight: bold">7</span><span style="">)</span>
+</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>It is not enough to know that the current instruction is <code>print()</code> anymore. We also need to figure out whether we are dealing with the first or with the second call of <code>f()</code>. In other words, we need to know the complete <em>call stack</em>.</p>
+<p>It is not enough to know that the current instruction is <code>print()</code> anymore. We also need to figure out whether we are dealing with the first or with the second call of <code>f()</code>. Thus, we need to know the complete <em>call stack</em>.</p>
 </div>
 <div class="paragraph">
 <p>Similarly, we need to know the current iteration number when dealing with loops.</p>
@@ -252,13 +267,13 @@
 <h2 id="_why_go_to_is_harmful">Why Go To is Harmful</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>By now it is presumably clear that we need these elements (instruction pointers, call stacks, iteration counters) to understand what’s going on in the code. Dijkstra emphasizes that their values are <em>beyond our control</em>. Say, we can choose to create or not to create a function, but once it is available, it is expected to appear in a variety of contexts. Thus, we simply have to accept the presence of such <em>coordinates</em> (this is the word used in the original paper) and learn to track their values.</p>
+<p>By now it is presumably clear that we need these elements (instruction pointers, call stacks, iteration counters) to understand what’s going on in the code. Dijkstra emphasizes that their values are <em>beyond our control</em>. Say, we can choose whether to create or not to create a function, but once it is available, it is expected to appear in a variety of contexts. Thus, we simply have to accept the presence of such <em>coordinates</em> (this is the word used in the original paper instead of &#34;elements&#34;) and learn to track their values.</p>
 </div>
 <div class="paragraph">
 <p>The next observation is simple: with <code>go to</code> <em>&#34;it becomes terribly hard to find a meaningful set of coordinates in which to describe the process progress&#34;</em>. In other words, with numerous <code>go to</code> jumps across the program it’s hard to find out how exactly we are supposed to keep track of code execution logic.</p>
 </div>
 <div class="paragraph">
-<p>I would not say this argument is based on rock-hard evidence, but there is probably no need for it anyway. Even if such &#34;coordinates&#34; exist, they are arguably hard to imagine and hard to use. Dijkstra’s own conclusion is that <code>go to</code> is simply too primitive: we can navigate something that has a structure, but the ability to &#34;teleport&#34; anywhere breaks the structure immediately.</p>
+<p>I would not say this argument is based on rock-hard evidence, but there is probably no need for it anyway. Even if such &#34;coordinates&#34; exist, they are arguably hard to imagine and hard to use. Dijkstra’s own conclusion is that <code>go to</code> is <em>&#34;just too primitive&#34;</em>: we can navigate something that has a structure, but the ability to &#34;teleport&#34; anywhere breaks this structure immediately.</p>
 </div>
 </div>
 </div>
