@@ -59,7 +59,7 @@ What does make the difference is function calls. Consider the following fragment
 
 [source%linenums,python,linenums]
 ----
-def f(a)
+def f(a):
 	c = 5 + a
 	print(c) # we are here
 
