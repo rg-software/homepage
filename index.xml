@@ -14,7 +14,7 @@
       
       <guid>https://mmozgovoy.dev/posts/why-go-to-considered-harmful/</guid>
       <description>A Quick Intro I needed to cite Dijkstra’s famous 1968 letter the other day, and finally had an easy chance to read it through. It would have been shame not to do it, given its modest size.
- There are many &amp;#34;folk beliefs&amp;#34; in our trade, as Bossavit’s book shows, that turn out to have quite a weak foundation. The &amp;#34;`go to` debate&amp;#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available).</description>
+ There are many &amp;#34;folk beliefs&amp;#34; in our trade, as Bossavit’s book shows, that turn out to have quite a weak foundation. Currently, the &amp;#34;go to debate&amp;#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available).</description>
     </item>
     
     <item>

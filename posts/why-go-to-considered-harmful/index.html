@@ -11,17 +11,17 @@
 
     <meta name="author" content="Maxim Mozgovoy">
     <meta name="description" content="A Quick Intro I needed to cite Dijkstra’s famous 1968 letter the other day, and finally had an easy chance to read it through. It would have been shame not to do it, given its modest size.
- There are many &#34;folk beliefs&#34; in our trade, as Bossavit’s book shows, that turn out to have quite a weak foundation. The &#34;`go to` debate&#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available).">
+ There are many &#34;folk beliefs&#34; in our trade, as Bossavit’s book shows, that turn out to have quite a weak foundation. Currently, the &#34;go to debate&#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available).">
     <meta name="keywords" content="blog,developer,personal,homepage">
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Why Go To Statement Considered Harmful?"/>
 <meta name="twitter:description" content="A Quick Intro I needed to cite Dijkstra’s famous 1968 letter the other day, and finally had an easy chance to read it through. It would have been shame not to do it, given its modest size.
- There are many &#34;folk beliefs&#34; in our trade, as Bossavit’s book shows, that turn out to have quite a weak foundation. The &#34;`go to` debate&#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available)."/>
+ There are many &#34;folk beliefs&#34; in our trade, as Bossavit’s book shows, that turn out to have quite a weak foundation. Currently, the &#34;go to debate&#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available)."/>
 
     <meta property="og:title" content="Why Go To Statement Considered Harmful?" />
 <meta property="og:description" content="A Quick Intro I needed to cite Dijkstra’s famous 1968 letter the other day, and finally had an easy chance to read it through. It would have been shame not to do it, given its modest size.
- There are many &#34;folk beliefs&#34; in our trade, as Bossavit’s book shows, that turn out to have quite a weak foundation. The &#34;`go to` debate&#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available)." />
+ There are many &#34;folk beliefs&#34; in our trade, as Bossavit’s book shows, that turn out to have quite a weak foundation. Currently, the &#34;go to debate&#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mmozgovoy.dev/posts/why-go-to-considered-harmful/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-30T10:13:40+09:00" />
@@ -165,10 +165,10 @@
 <p>I needed to cite Dijkstra’s <a href="https://dl.acm.org/doi/pdf/10.1145/362929.362947">famous 1968 letter</a> the other day, and finally had an easy chance to read it through. It would have been shame not to do it, given its modest size.</p>
 </div>
 <div class="paragraph">
-<p>There are many &#34;folk beliefs&#34; in our trade, as <a href="https://leanpub.com/leprechauns">Bossavit’s book</a> shows, that turn out to have quite a weak foundation. The &#34;`go to` debate&#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available). Still, I was curious how exactly Dijkstra tried to make his point. It turned out to be quite an interesting reading. Since Dijkstra’s thinking isn’t always easy to follow, I decided to expand it here, using a somewhat longer and hopefully simpler explanation.</p>
+<p>There are many &#34;folk beliefs&#34; in our trade, as <a href="https://leanpub.com/leprechauns">Bossavit’s book</a> shows, that turn out to have quite a weak foundation. Currently, the &#34;<code><code>go to</code></code> debate&#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available). Still, I was curious how exactly Dijkstra tried to make his point. It turned out to be quite an interesting reading. Since Dijkstra’s thinking isn’t always easy to follow, I decided to expand it here, using a somewhat longer and hopefully simpler language.</p>
 </div>
 <div class="paragraph">
-<p>It should be noted that &#34;Go To Statement Considered Harmful&#34; is a <em>letter to the editor</em>. It is not a formal research paper, and does not have to be very rigorous. Actually, reading the &#34;letters&#34; section can be quite fun. Most letters are short notes representing comments, curious findings, corrections of earlier papers, and responses to other authors. Occasionally, these notes can be rather peculiar. For example, <a href="https://dl.acm.org/doi/pdf/10.1145/364096.364106">one author</a> was unhappy with the fact that hexadecimal digits overlap with our conventional decimal characters, and proposed his own set of digits that looks like this:</p>
+<p>It should be noted that &#34;Go To Statement Considered Harmful&#34; is a <em>letter to the editor</em>. It is not a formal research paper, and does not have to be very rigorous. Actually, reading the &#34;letters&#34; section can be quite fun. Most letters are short notes representing comments, interesting findings, corrections of earlier papers, and responses to other authors. Occasionally, these notes can be rather peculiar. For example, <a href="https://dl.acm.org/doi/pdf/10.1145/364096.364106">one author</a> was unhappy with the fact that hexadecimal digits overlap with our conventional decimal characters, and proposed his own set of digits that looks like this:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -192,14 +192,19 @@
 <h2 id="_how_to_trace">How to Trace</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Let’s consider some piece of code that executes in the same order as it is written:</p>
+<p>Let’s consider some piece of code that executes in the same order as it is spread in space:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span style="">a</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">5</span>
+<pre class="rouge highlight"><code data-lang="python"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span style="">a</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">5</span>
 <span style="">b</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">15</span>
 <span style="">c</span> <span style="">=</span> <span style="">a</span> <span style="">+</span> <span style="">b</span> <span style="color: #888888"># we are here
-</span><span style="color: #008800;font-weight: bold">print</span><span style="">(</span><span style="">c</span><span style="">)</span></code></pre>
+</span><span style="color: #008800;font-weight: bold">print</span><span style="">(</span><span style="">c</span><span style="">)</span>
+</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 <div class="paragraph">
