@@ -42,9 +42,9 @@ Suppose I am tracing this code in a debugger, and currently I am about to execut
 
 Obviously, in this case I simply need to set a breakpoint at line 3 to end up in the same state as before. In other words, it is sufficient to point out exactly one location in code.
 
-Branching does not bring any changes into this picture. To arrive at `print()` call again, I set a breakpoint there and restart the debugger.
+Branching does not bring any changes into this picture. To arrive at the `print()` call in the next example, I set a breakpoint there and restart the debugger:
 
-[source,python]
+[source%linenums,python,linenums]
 ----
 a = 5
 b = 15
@@ -55,26 +55,26 @@ else:
     pass
 ----
 
-What does make the difference is function calls. Consider the following example:
+What does make the difference is function calls. Consider the following fragment:
 
-[source,python]
+[source%linenums,python,linenums]
 ----
-def f()
-	a = 5
+def f(a)
+	c = 5 + a
 	print(c) # we are here
 
-f()
-f()
+f(5)
+f(7)
 ----
 
-It is not enough to know that the current instruction is `print()` anymore. We also need to figure out whether we are dealing with the first or with the second call of `f()`. In other words, we need to know the complete _call stack_.
+It is not enough to know that the current instruction is `print()` anymore. We also need to figure out whether we are dealing with the first or with the second call of `f()`. Thus, we need to know the complete _call stack_.
 
 Similarly, we need to know the current iteration number when dealing with loops.
 
 == Why Go To is Harmful
 
-By now it is presumably clear that we need these elements (instruction pointers, call stacks, iteration counters) to understand what's going on in the code. Dijkstra emphasizes that their values are _beyond our control_. Say, we can choose to create or not to create a function, but once it is available, it is expected to appear in a variety of contexts. Thus, we simply have to accept the presence of such _coordinates_ (this is the word used in the original paper) and learn to track their values.
+By now it is presumably clear that we need these elements (instruction pointers, call stacks, iteration counters) to understand what's going on in the code. Dijkstra emphasizes that their values are _beyond our control_. Say, we can choose whether to create or not to create a function, but once it is available, it is expected to appear in a variety of contexts. Thus, we simply have to accept the presence of such _coordinates_ (this is the word used in the original paper instead of "elements") and learn to track their values.
 
 The next observation is simple: with `go to` _"it becomes terribly hard to find a meaningful set of coordinates in which to describe the process progress"_. In other words, with numerous `go to` jumps across the program it's hard to find out how exactly we are supposed to keep track of code execution logic.
 
-I would not say this argument is based on rock-hard evidence, but there is probably no need for it anyway. Even if such "coordinates" exist, they are arguably hard to imagine and hard to use. Dijkstra's own conclusion is that `go to` is simply too primitive: we can navigate something that has a structure, but the ability to "teleport" anywhere breaks the structure immediately.
+I would not say this argument is based on rock-hard evidence, but there is probably no need for it anyway. Even if such "coordinates" exist, they are arguably hard to imagine and hard to use. Dijkstra's own conclusion is that `go to` is _"just too primitive"_: we can navigate something that has a structure, but the ability to "teleport" anywhere breaks this structure immediately.
