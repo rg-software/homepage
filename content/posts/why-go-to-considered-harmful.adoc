@@ -14,9 +14,9 @@ draft: false
 
 I needed to cite Dijkstra's https://dl.acm.org/doi/pdf/10.1145/362929.362947[famous 1968 letter] the other day, and finally had an easy chance to read it through. It would have been shame not to do it, given its modest size.
 
-There are many "folk beliefs" in our trade, as https://leanpub.com/leprechauns[Bossavit's book] shows, that turn out to have quite a weak foundation. The "`go to` debate" is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available). Still, I was curious how exactly Dijkstra tried to make his point. It turned out to be quite an interesting reading. Since Dijkstra's thinking isn't always easy to follow, I decided to expand it here, using a somewhat longer and hopefully simpler explanation.
+There are many "folk beliefs" in our trade, as https://leanpub.com/leprechauns[Bossavit's book] shows, that turn out to have quite a weak foundation. Currently, the "```go to``` debate" is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available). Still, I was curious how exactly Dijkstra tried to make his point. It turned out to be quite an interesting reading. Since Dijkstra's thinking isn't always easy to follow, I decided to expand it here, using a somewhat longer and hopefully simpler language.
 
-It should be noted that "Go To Statement Considered Harmful" is a _letter to the editor_. It is not a formal research paper, and does not have to be very rigorous. Actually, reading the "letters" section can be quite fun. Most letters are short notes representing comments, curious findings, corrections of earlier papers, and responses to other authors. Occasionally, these notes can be rather peculiar. For example, https://dl.acm.org/doi/pdf/10.1145/364096.364106[one author] was unhappy with the fact that hexadecimal digits overlap with our conventional decimal characters, and proposed his own set of digits that looks like this:
+It should be noted that "Go To Statement Considered Harmful" is a _letter to the editor_. It is not a formal research paper, and does not have to be very rigorous. Actually, reading the "letters" section can be quite fun. Most letters are short notes representing comments, interesting findings, corrections of earlier papers, and responses to other authors. Occasionally, these notes can be rather peculiar. For example, https://dl.acm.org/doi/pdf/10.1145/364096.364106[one author] was unhappy with the fact that hexadecimal digits overlap with our conventional decimal characters, and proposed his own set of digits that looks like this:
 
 image::new-hex.png[]
 
@@ -28,9 +28,9 @@ First, Dijkstra notes that a computer program exists both _in space_ and _in tim
 
 == How to Trace
 
-Let's consider some piece of code that executes in the same order as it is written:
+Let's consider some piece of code that executes in the same order as it is spread in space:
 
-[source,python]
+[source%linenums,python,linenums]
 ----
 a = 5
 b = 15
