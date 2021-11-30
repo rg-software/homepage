@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+
+    <meta name="author" content="Maxim Mozgovoy">
+    <meta name="description" content="A Quick Intro I needed to cite Dijkstra’s famous 1968 letter the other day, and finally had an easy chance to read it through. It would have been shame not to do it, given its modest size.
+ There are many &#34;folk beliefs&#34; in our trade, as Bossavit’s book shows, that turn out to have quite a weak foundation. The &#34;`go to` debate&#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available).">
+    <meta name="keywords" content="blog,developer,personal,homepage">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Why Go To Statement Considered Harmful?"/>
+<meta name="twitter:description" content="A Quick Intro I needed to cite Dijkstra’s famous 1968 letter the other day, and finally had an easy chance to read it through. It would have been shame not to do it, given its modest size.
+ There are many &#34;folk beliefs&#34; in our trade, as Bossavit’s book shows, that turn out to have quite a weak foundation. The &#34;`go to` debate&#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available)."/>
+
+    <meta property="og:title" content="Why Go To Statement Considered Harmful?" />
+<meta property="og:description" content="A Quick Intro I needed to cite Dijkstra’s famous 1968 letter the other day, and finally had an easy chance to read it through. It would have been shame not to do it, given its modest size.
+ There are many &#34;folk beliefs&#34; in our trade, as Bossavit’s book shows, that turn out to have quite a weak foundation. The &#34;`go to` debate&#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mmozgovoy.dev/posts/why-go-to-considered-harmful/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-30T10:13:40+09:00" />
+<meta property="article:modified_time" content="2021-11-30T10:13:40+09:00" />
+
+
+
+    <title>
+  Why Go To Statement Considered Harmful? · The Pro Amateur
+</title>
+
+    
+      <link rel="canonical" href="https://mmozgovoy.dev/posts/why-go-to-considered-harmful/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css" integrity="sha256-cIaG&#43;KuBdukdRPy&#43;SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="/css/admonitions.css" />
+    
+      <link rel="stylesheet" href="/css/academicons.min.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/misc/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    
+
+    <meta name="generator" content="Hugo 0.87.0" />
+  </head>
+
+  
+  
+  <body class="preload-transitions colorscheme-light"
+        onload=""
+  >
+    
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      The Pro Amateur
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/books/">Books</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/papers/">Papers</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/software/">Software</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cv/">CV</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zx/">ZX</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://mmozgovoy.dev/posts/why-go-to-considered-harmful/">
+              Why Go To Statement Considered Harmful?
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-11-30T10:13:40&#43;09:00'>
+                November 30, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <div class="sect1">
+<h2 id="_a_quick_intro">A Quick Intro</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I needed to cite Dijkstra’s <a href="https://dl.acm.org/doi/pdf/10.1145/362929.362947">famous 1968 letter</a> the other day, and finally had an easy chance to read it through. It would have been shame not to do it, given its modest size.</p>
+</div>
+<div class="paragraph">
+<p>There are many &#34;folk beliefs&#34; in our trade, as <a href="https://leanpub.com/leprechauns">Bossavit’s book</a> shows, that turn out to have quite a weak foundation. The &#34;`go to` debate&#34; is not on the table at all, as most modern languages have abandoned this operation (and it is used very sparingly anyway even when it is available). Still, I was curious how exactly Dijkstra tried to make his point. It turned out to be quite an interesting reading. Since Dijkstra’s thinking isn’t always easy to follow, I decided to expand it here, using a somewhat longer and hopefully simpler explanation.</p>
+</div>
+<div class="paragraph">
+<p>It should be noted that &#34;Go To Statement Considered Harmful&#34; is a <em>letter to the editor</em>. It is not a formal research paper, and does not have to be very rigorous. Actually, reading the &#34;letters&#34; section can be quite fun. Most letters are short notes representing comments, curious findings, corrections of earlier papers, and responses to other authors. Occasionally, these notes can be rather peculiar. For example, <a href="https://dl.acm.org/doi/pdf/10.1145/364096.364106">one author</a> was unhappy with the fact that hexadecimal digits overlap with our conventional decimal characters, and proposed his own set of digits that looks like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="new-hex.png" alt="new hex"/>
+</div>
+</div>
+<div class="paragraph">
+<p>I feel I should explore this &#34;blogosphere&#34; of yesteryear a bit more, but for now let’s get back to Dijkstra’s argument.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_matters_of_space_and_time">The Matters of Space and Time</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>First, Dijkstra notes that a computer program exists both <em>in space</em> and <em>in time</em>. When we write code, we see it as a text spanning across some screen space. In contrast, when we run code, its spatial organization is not relevant anymore: instructions are executed in order, only partially resembling the original textual sequence. Next, the author suggests that mentally tracing operations in time is not easy, so it would be beneficial to reduce the conceptual gap between these worlds of &#34;spatial code&#34; and &#34;temporal code&#34;.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_trace">How to Trace</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let’s consider some piece of code that executes in the same order as it is written:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span style="">a</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">5</span>
+<span style="">b</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">15</span>
+<span style="">c</span> <span style="">=</span> <span style="">a</span> <span style="">+</span> <span style="">b</span> <span style="color: #888888"># we are here
+</span><span style="color: #008800;font-weight: bold">print</span><span style="">(</span><span style="">c</span><span style="">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Suppose I am tracing this code in a debugger, and currently I am about to execute the third line. How much information do I need to recreate this situation if I have to restart the program?</p>
+</div>
+<div class="paragraph">
+<p>Obviously, in this case I simply need to set a breakpoint at line 3 to end up in the same state as before. In other words, it is sufficient to point out exactly one location in code.</p>
+</div>
+<div class="paragraph">
+<p>Branching does not bring any changes into this picture. To arrive at <code>print()</code> call again, I set a breakpoint there and restart the debugger.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span style="">a</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">5</span>
+<span style="">b</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">15</span>
+<span style="">c</span> <span style="">=</span> <span style="">a</span> <span style="">+</span> <span style="">b</span>
+<span style="color: #008800;font-weight: bold">if</span> <span style="">c</span> <span style="">==</span> <span style="color: #0000dd;font-weight: bold">20</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">print</span><span style="">(</span><span style="">c</span><span style="">)</span> <span style="color: #888888"># we are here
+</span><span style="color: #008800;font-weight: bold">else</span><span style="">:</span>
+    <span style="color: #008800;font-weight: bold">pass</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>What does make the difference is function calls. Consider the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">f</span><span style="">()</span>
+	<span style="">a</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">5</span>
+	<span style="color: #008800;font-weight: bold">print</span><span style="">(</span><span style="">c</span><span style="">)</span> <span style="color: #888888"># we are here
+</span>
+<span style="">f</span><span style="">()</span>
+<span style="">f</span><span style="">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is not enough to know that the current instruction is <code>print()</code> anymore. We also need to figure out whether we are dealing with the first or with the second call of <code>f()</code>. In other words, we need to know the complete <em>call stack</em>.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, we need to know the current iteration number when dealing with loops.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why_go_to_is_harmful">Why Go To is Harmful</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By now it is presumably clear that we need these elements (instruction pointers, call stacks, iteration counters) to understand what’s going on in the code. Dijkstra emphasizes that their values are <em>beyond our control</em>. Say, we can choose to create or not to create a function, but once it is available, it is expected to appear in a variety of contexts. Thus, we simply have to accept the presence of such <em>coordinates</em> (this is the word used in the original paper) and learn to track their values.</p>
+</div>
+<div class="paragraph">
+<p>The next observation is simple: with <code>go to</code> <em>&#34;it becomes terribly hard to find a meaningful set of coordinates in which to describe the process progress&#34;</em>. In other words, with numerous <code>go to</code> jumps across the program it’s hard to find out how exactly we are supposed to keep track of code execution logic.</p>
+</div>
+<div class="paragraph">
+<p>I would not say this argument is based on rock-hard evidence, but there is probably no need for it anyway. Even if such &#34;coordinates&#34; exist, they are arguably hard to imagine and hard to use. Dijkstra’s own conclusion is that <code>go to</code> is simply too primitive: we can navigate something that has a structure, but the ability to &#34;teleport&#34; anywhere breaks the structure immediately.</p>
+</div>
+</div>
+</div>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        <script src="https://utteranc.es/client.js"
+    repo= "rg-software/homepage"
+    issue-term="pathname"
+    
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2021
+         Maxim Mozgovoy 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <script data-goatcounter="https://proamateur.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+
+    
+
+    
+
+    
+  </body>
+
+</html>
