@@ -71,7 +71,12 @@ link:mozgovoy05ir.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Semantical Analyzer a
 
 == Conference Papers
 
-// TODO: page numbers for kttm21b
+// TODO: page numbers for kttm21b and nbm21b, mbm21
+
+// link:mbm21.pdf[icon:file-pdf-o[]] G.&nbsp;Mola Bogdan, M.&nbsp;Mozgovoy. Identification of Distinctive Behavior Patterns of Bots and Human Teams in Soccer. _Big Data Analytics in Science and Engineering (LNCS???)
+
+link:nbm21b.pdf[icon:file-pdf-o[]] A.&nbsp;Nicholas, J.&nbsp;Blake, M.&nbsp;Mozgovoy. EFL Learners and English Email Writing: Developing a
+Computerised Diagnostic Language Assessment. _EuroCALL_, 2021.
 
 link:kttm21b.pdf[icon:file-pdf-o[]] K.&nbsp;Kimura, Y.&nbsp;Tu, R.&nbsp;Tanji, M.&nbsp;Mozgovoy. Creating Adjustable Human-like AI Behavior in a 3D Tennis Game with Monte-Carlo Tree Search. _Proceedings of the 2021 IEEE Symposium Series on Computational Intelligence_, Orlando, Florida, USA, 2021.
 
@@ -200,6 +205,8 @@ link:mozgovoy06thes.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Context-oriented Th
 
 
 == Keynote and Invited Speeches
+
+link:talk_gameon21.pptx[icon:file-powerpoint-o[]] M.&nbsp;Mozgovoy. AI at Heart: Experiences of a Mobile Game Developer. _Game-On'2021 Conference_, Aveiro, Portugal, 2021.
 
 https://youtu.be/xpUgbzcYyH8[icon:youtube-play[]] M.&nbsp;Mozgovoy. Building a Small-Scale Multiplatform Automated Software Testing Facility (Tutorial). _The 15th International Conference on Software Engineering Advances (ICSEA 2020)_, Porto, Portugal, 2020.
 
