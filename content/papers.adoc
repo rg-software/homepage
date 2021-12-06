@@ -212,7 +212,7 @@ https://youtu.be/xpUgbzcYyH8[icon:youtube-play[]] M.&nbsp;Mozgovoy. Building a S
 
 https://youtu.be/sT83Jtm0t8c[icon:youtube-play[]] M.&nbsp;Mozgovoy. The Highs and Lows of Natural Language Learning Gamification. _Game-On'2020 Conference_, Aveiro, Portugal, 2020.
 
-M.&nbsp;Mozgovoy. Multiplatform Automated Software Testing: Personal Experience. _4th International Conference and Workshops on Recent Advances and Innovations in Engineering (ICRAIE 2019)_, Kedah, Malaysia, 2019.
+link:talk_icraie19.pptx[icon:file-powerpoint-o[]] M.&nbsp;Mozgovoy. Multiplatform Automated Software Testing: Personal Experience. _4th International Conference and Workshops on Recent Advances and Innovations in Engineering (ICRAIE 2019)_, Kedah, Malaysia, 2019.
 
 E.&nbsp;Pyshkin, M.&nbsp;Mozgovoy. Mobile Software Testing: Challenges and Pragmatic Solutions. _APSCIT Annual Meeting-2018_, Sapporo, Japan, 2018.
 
