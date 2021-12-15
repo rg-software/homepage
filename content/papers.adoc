@@ -76,7 +76,7 @@ link:mozgovoy05ir.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Semantical Analyzer a
 // link:mbm21.pdf[icon:file-pdf-o[]] G.&nbsp;Mola Bogdan, M.&nbsp;Mozgovoy. Identification of Distinctive Behavior Patterns of Bots and Human Teams in Soccer. _Big Data Analytics in Science and Engineering (LNCS???)
 
 link:nbm21b.pdf[icon:file-pdf-o[]] A.&nbsp;Nicholas, J.&nbsp;Blake, M.&nbsp;Mozgovoy. EFL Learners and English Email Writing: Developing a
-Computerised Diagnostic Language Assessment. _EuroCALL_, 2021.
+Computerised Diagnostic Language Assessment. _CALL and Professionalisation: Short Papers from EUROCALL 2021_, 2021, pp.&nbsp;238-242.
 
 link:kttm21b.pdf[icon:file-pdf-o[]] K.&nbsp;Kimura, Y.&nbsp;Tu, R.&nbsp;Tanji, M.&nbsp;Mozgovoy. Creating Adjustable Human-like AI Behavior in a 3D Tennis Game with Monte-Carlo Tree Search. _Proceedings of the 2021 IEEE Symposium Series on Computational Intelligence_, Orlando, Florida, USA, 2021.
 
