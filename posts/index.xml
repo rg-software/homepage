@@ -6,7 +6,16 @@
     <description>Recent content in Posts on The Pro Amateur</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 27 Dec 2021 11:13:40 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Feb 2022 13:13:40 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🎤 Some Reflections on War and Future</title>
+      <link>https://mmozgovoy.dev/posts/some-reflections-on-war-and-future/</link>
+      <pubDate>Sat, 26 Feb 2022 13:13:40 +0900</pubDate>
+      
+      <guid>https://mmozgovoy.dev/posts/some-reflections-on-war-and-future/</guid>
+      <description>A vague title of this piece is deliberate: there is no single clear message I am going to send, but I think I am ought to express some feelings and share my thoughts on the ongoing events. In most cases I am inclined to let the things settle down and discuss them later, as I am quite a slow thinker, and it takes time for any consistent picture to form in my head.</description>
+    </item>
+    
     <item>
       <title>🧪 The Art of Titles</title>
       <link>https://mmozgovoy.dev/posts/the-art-of-titles/</link>
@@ -17,7 +26,7 @@
     </item>
     
     <item>
-      <title>DIY Minesweeper Board Game</title>
+      <title>🔧 DIY Minesweeper Board Game</title>
       <link>https://mmozgovoy.dev/posts/diy-minesweeper/</link>
       <pubDate>Sun, 05 Dec 2021 15:11:50 +0900</pubDate>
       
@@ -27,7 +36,7 @@
     </item>
     
     <item>
-      <title>Why Go To Statement Considered Harmful?</title>
+      <title>🧪 Why Go To Statement Considered Harmful?</title>
       <link>https://mmozgovoy.dev/posts/why-go-to-considered-harmful/</link>
       <pubDate>Tue, 30 Nov 2021 10:13:40 +0900</pubDate>
       
@@ -37,7 +46,7 @@
     </item>
     
     <item>
-      <title>Visual Studio Code: Python Setup</title>
+      <title>⚙️ Visual Studio Code: Python Setup</title>
       <link>https://mmozgovoy.dev/posts/vs-code-python-setup/</link>
       <pubDate>Sun, 10 Oct 2021 10:11:50 +0900</pubDate>
       
@@ -46,7 +55,7 @@
     </item>
     
     <item>
-      <title>Visual Studio Code Setup</title>
+      <title>⚙️ Visual Studio Code Setup</title>
       <link>https://mmozgovoy.dev/posts/vs-code-setup/</link>
       <pubDate>Thu, 07 Oct 2021 10:11:43 +0900</pubDate>
       
@@ -55,7 +64,7 @@
     </item>
     
     <item>
-      <title>Matryoshka Architecture</title>
+      <title>💡 Matryoshka Architecture</title>
       <link>https://mmozgovoy.dev/posts/matryoshka-architecture/</link>
       <pubDate>Tue, 21 Sep 2021 01:06:31 +0900</pubDate>
       
@@ -64,7 +73,7 @@
     </item>
     
     <item>
-      <title>Representing the World with Objects: a Telling Exercise</title>
+      <title>💡 Representing the World with Objects: a Telling Exercise</title>
       <link>https://mmozgovoy.dev/posts/representing-the-world-with-objects/</link>
       <pubDate>Sun, 12 Sep 2021 23:11:40 +0900</pubDate>
       
@@ -73,7 +82,7 @@
     </item>
     
     <item>
-      <title>Experiencing Black</title>
+      <title>⚙️ Experiencing Black</title>
       <link>https://mmozgovoy.dev/posts/experiencing-black/</link>
       <pubDate>Thu, 09 Sep 2021 15:11:43 +0900</pubDate>
       
@@ -82,7 +91,7 @@
     </item>
     
     <item>
-      <title>Managing Python with Poetry</title>
+      <title>⚙️ Managing Python with Poetry</title>
       <link>https://mmozgovoy.dev/posts/managing-python-with-poetry/</link>
       <pubDate>Mon, 06 Sep 2021 14:47:03 +0900</pubDate>
       
