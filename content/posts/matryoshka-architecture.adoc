@@ -1,5 +1,5 @@
 ---
-title: "Matryoshka Architecture"
+title: "💡 Matryoshka Architecture"
 date: 2021-09-21T01:06:31+09:00
 draft: false
 ---

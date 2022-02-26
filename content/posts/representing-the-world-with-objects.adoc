@@ -1,5 +1,5 @@
 ---
-title: "Representing the World with Objects: a Telling Exercise"
+title: "💡 Representing the World with Objects: a Telling Exercise"
 date: 2021-09-12T23:11:40+09:00
 draft: false
 ---

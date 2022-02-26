@@ -1,5 +1,5 @@
 ---
-title: "Visual Studio Code: Python Setup"
+title: "⚙️ Visual Studio Code: Python Setup"
 date: 2021-10-10T10:11:50+09:00
 draft: false
 ---

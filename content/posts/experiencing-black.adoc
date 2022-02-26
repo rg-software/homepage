@@ -1,5 +1,5 @@
 ---
-title: "Experiencing Black"
+title: "⚙️ Experiencing Black"
 date: 2021-09-09T15:11:43+09:00
 draft: false
 ---
