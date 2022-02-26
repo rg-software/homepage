@@ -1,5 +1,5 @@
 ---
-title: "icon:flask[] The Art of Titles"
+title: ":(fas fa-exclamation-triangle fa-fw): The Art of Titles"
 date: 2021-12-27T11:13:40+09:00
 draft: false
 ---
