@@ -6,7 +6,17 @@
     <description>Recent content in Posts on The Pro Amateur</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Feb 2022 13:13:40 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Mar 2022 01:06:30 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🧪 How Classifiers Misclassify</title>
+      <link>https://mmozgovoy.dev/posts/how-classifiers-misclassify/</link>
+      <pubDate>Wed, 02 Mar 2022 01:06:30 +0900</pubDate>
+      
+      <guid>https://mmozgovoy.dev/posts/how-classifiers-misclassify/</guid>
+      <description>Recently I’ve been watching a talk by Vint Cerf on the topic of AI vs human intelligence. One part of this talk reminded me of an anecdote from my own experience, which I am going to share today.
+ The relevant video fragment starts at 20:54, where Dr. Cerf explains adversarial neural networks and how they trick image classifiers into mistaking kittens for firetrucks or making other unbelievably dumb recognitions. His basic point is simple: each entity in a network is represented with an N-dimensional vector, and the job of the algorithm is to make sure that similar vectors appear nearby, so we can reliably separate the clusters of different object types.</description>
+    </item>
+    
     <item>
       <title>🎤 Some Reflections on War and Future</title>
       <link>https://mmozgovoy.dev/posts/some-reflections-on-war-and-future/</link>
