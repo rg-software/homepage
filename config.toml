@@ -5,7 +5,7 @@ title = 'The Pro Amateur'
 theme = 'hugo-coder'
 enableEmoji = true
 rssLimit = 40
-paginate = 10
+paginate = 100
 
 [params.utterances]
   repo = "rg-software/homepage"
