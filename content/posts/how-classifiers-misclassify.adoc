@@ -1,0 +1,23 @@
+---
+title: "🧪 How Classifiers Misclassify"
+date: 2022-03-02T01:06:30+09:00
+draft: false
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+:xrefstyle: short
+
+Recently I've been watching https://youtu.be/J63mKverb8w[a talk by Vint Cerf] on the topic of AI vs human intelligence. One part of this talk reminded me of an anecdote from my own experience, which I am going to share today.
+
+The relevant video fragment starts at 20:54, where Dr. Cerf explains adversarial neural networks and how they trick image classifiers into mistaking kittens for firetrucks or making other unbelievably dumb recognitions. His basic point is simple: each entity in a network is represented with an N-dimensional vector, and the job of the algorithm is to make sure that similar vectors appear nearby, so we can reliably separate the clusters of different object types. However, this separation is artificial in a sense that different vector elements do not necessarily correspond to the features we perceive as semantically meaningful. There can be 10000 numeric elements in such a vector, so it's really impossible to tell what is their actual meaning (or whether they have _any_ reasonable meaning). Anyway, by modifying some of these elements in a certain way it is very easy to jump accidentally into the center of a completely unrelated cluster of objects.
+
+All these issues are known in the field of modern AI and are discussed within the context of neural networks, deep learning, adversarial networks and other buzzwordy advanced topics. However, I witnessed exactly the same phenomenon in a much simpler system. Here is the story.
+
+Almost 25 years ago as a student I was working on a system able to markup vowels under stress in Russian words. The problem is that Russian (much like English) has no simple rules for identifying the position of a stressed syllable: basically, you need a consult a dictionary. A small change even in a  _word form_ can shift the position of a stress mark.
+
+We had a small dictionary, but it was not sufficient, and anyway, only the basic word forms were listed there. Thus, we had to employ a heuristic: we programmed a simple distance function (as I recall it was, simpler than https://en.wikipedia.org/wiki/Levenshtein_distance[Levenshtein distance]) to identify the "closest" word in a dictionary and set the stress mark in our word accordingly.
+
+Naturally, this approach was very crude, and often made mistakes. Still, it was sufficient for our needs, and sometimes we played with the system asking to process this or that arcane word. Once a buddy of mine named Taras decided to check what the system thinks about his name. So he entered "Taras" and got a correct answer: "Tarás". Of course, this word has just two vowels, so even a random guess would give us a 50% chance of a right answer. Still, it had quite a "wow" effect. We looked into the system to find out which word was used as a base, and realized it was "tarélka", meaning "a dish" or "a plate", and having the second syllable under stress.
