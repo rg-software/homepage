@@ -98,6 +98,8 @@ link:km20a.pdf[icon:file-pdf-o[]] V.&nbsp;Khaustov, M.&nbsp;Mozgovoy. Learning B
 
 link:mozgovoy19.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Multiplatform Automated Software Testing: Personal Experience of a Maintainer. _Proceedings of the 4th International Conference and Workshops on Recent Advances And Innovations in Engineering (ICRAIE 2019)_, Kedah, Malaysia, 2019.
 
+link:wmp19.pdf[icon:file-pdf-o[]] M.&nbsp;Ward, M.&nbsp;Mozgovoy, M.&nbsp;Purgina. A Green Approach for an Irish App (Refactor, Reuse and Keeping it Real). _Proceedings of the Celtic Language Technology Workshop_, Dublin, Ireland, 2019, pp.&nbsp;80-88.
+
 link:mbm19b.pdf[icon:file-pdf-o[]] G.&nbsp;Mola Bogdan, M.&nbsp;Mozgovoy. Similar Situations Identification for the Game of Soccer. _Proceedings of the 51st ISCIE International Symposium on Stochastic Systems Theory and Its Applications (SSS'19)_, Aizu-Wakamatsu, Japan, 2019.
 
 link:mbm19a.pdf[icon:file-pdf-o[]] G.&nbsp;Mola Bogdan, M.&nbsp;Mozgovoy. Towards Case-based Reasoning with k-d Trees for a Computer Game of Soccer. _Proceedings of the 18th IEEE International Conference on Ubiquitous Computing and Communications_, Shenyang, China, 2019, pp.&nbsp;570-572.
