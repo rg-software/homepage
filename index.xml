@@ -6,7 +6,17 @@
     <description>Recent content on The Pro Amateur</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Mar 2022 01:06:30 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 May 2022 01:06:31 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>💡 Static Methods are Rarely Static</title>
+      <link>https://mmozgovoy.dev/posts/static-methods-are-rarely-static/</link>
+      <pubDate>Mon, 30 May 2022 01:06:31 +0900</pubDate>
+      
+      <guid>https://mmozgovoy.dev/posts/static-methods-are-rarely-static/</guid>
+      <description>To Mark or Not to Mark In today’s short note I want to reflect a bit on my (former?) habit of marking member functions static if they do not access instance data. For me it was the same as marking them const (in case of C++) if they do not modify anything inside their objects. Now I believe these scenarios are different and should be approached differently.
+ The difference between const and non-const functions is rooted in the fundamental idea of command-query separation.</description>
+    </item>
+    
     <item>
       <title>🧪 How Classifiers Misclassify</title>
       <link>https://mmozgovoy.dev/posts/how-classifiers-misclassify/</link>

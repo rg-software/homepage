@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+
+    <meta name="author" content="Maxim Mozgovoy">
+    <meta name="description" content="To Mark or Not to Mark In today’s short note I want to reflect a bit on my (former?) habit of marking member functions static if they do not access instance data. For me it was the same as marking them const (in case of C&#43;&#43;) if they do not modify anything inside their objects. Now I believe these scenarios are different and should be approached differently.
+ The difference between const and non-const functions is rooted in the fundamental idea of command-query separation.">
+    <meta name="keywords" content="blog,developer,personal,homepage">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="💡 Static Methods are Rarely Static"/>
+<meta name="twitter:description" content="To Mark or Not to Mark In today’s short note I want to reflect a bit on my (former?) habit of marking member functions static if they do not access instance data. For me it was the same as marking them const (in case of C&#43;&#43;) if they do not modify anything inside their objects. Now I believe these scenarios are different and should be approached differently.
+ The difference between const and non-const functions is rooted in the fundamental idea of command-query separation."/>
+
+    <meta property="og:title" content="💡 Static Methods are Rarely Static" />
+<meta property="og:description" content="To Mark or Not to Mark In today’s short note I want to reflect a bit on my (former?) habit of marking member functions static if they do not access instance data. For me it was the same as marking them const (in case of C&#43;&#43;) if they do not modify anything inside their objects. Now I believe these scenarios are different and should be approached differently.
+ The difference between const and non-const functions is rooted in the fundamental idea of command-query separation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mmozgovoy.dev/posts/static-methods-are-rarely-static/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-30T01:06:31+09:00" />
+<meta property="article:modified_time" content="2022-05-30T01:06:31+09:00" />
+
+
+
+    <title>
+  💡 Static Methods are Rarely Static · The Pro Amateur
+</title>
+
+    
+      <link rel="canonical" href="https://mmozgovoy.dev/posts/static-methods-are-rarely-static/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css" integrity="sha256-cIaG&#43;KuBdukdRPy&#43;SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="/css/admonitions.css" />
+    
+      <link rel="stylesheet" href="/css/academicons.min.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/misc/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    
+
+    <meta name="generator" content="Hugo 0.87.0" />
+  </head>
+
+  
+  
+  <body class="preload-transitions colorscheme-light"
+        onload=""
+  >
+    
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      The Pro Amateur
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/books/">Books</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/papers/">Papers</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/software/">Software</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cv/">CV</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zx/">ZX</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://mmozgovoy.dev/posts/static-methods-are-rarely-static/">
+              💡 Static Methods are Rarely Static
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2022-05-30T01:06:31&#43;09:00'>
+                May 30, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              8-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <div class="sect1">
+<h2 id="_to_mark_or_not_to_mark">To Mark or Not to Mark</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In today’s short note I want to reflect a bit on my (former?) habit of marking member functions <code>static</code> if they do not access instance data. For me it was the same as marking them <code>const</code> (in case of C++) if they do not modify anything inside their objects. Now I believe these scenarios are different and should be approached differently.</p>
+</div>
+<div class="paragraph">
+<p>The difference between <code>const</code> and non-<code>const</code> functions is rooted in the fundamental idea of <a href="https://martinfowler.com/bliki/CommandQuerySeparation.html">command-query separation</a>. Non-modifying functions are <em>queries</em> whereas modifying functions are <em>commands</em> (or <em>modifiers</em>, as Fowler calls them). Thus, there is a merit both in <em>thinking</em> in terms of commands and queries, and in <em>marking</em> queries explicitly. A <code>const</code> function does not simply &#34;happen&#34; to be a query; it should be, in principle, designed this way.</p>
+</div>
+<div class="paragraph">
+<p>In contrast, the differences between <code>static</code> and non-<code>static</code> functions can lie both in deliberate design and pure happenstance. My previous theory was not to give it a second thought because marking a function <code>static</code> in either case brings additional benefit to the user: if (by sheer luck) I can access certain functionality without having to create an object, why should I abandon this possibility?</p>
+</div>
+<div class="paragraph">
+<p>My current doubts are due to recent Python experience: as a relatively novice Python user, I am compelled to consider the suggestions of <a href="/posts/experiencing-black">Pylint</a>, which always notes that a certain &#34;method could be a function&#34; if it does not access <code>self</code>. At the same time, I hardly believe that an extensive use of <code>@staticmethod</code> decorator (or any other decorator) can be a &#34;core&#34; everyday technique for writing a typical class.</p>
+</div>
+<div class="paragraph">
+<p>At this point I want to steer away from a couple of quite specialized discussions that would distract us from the main topic.</p>
+</div>
+<div class="paragraph">
+<p>One such discussion addresses the differences between <code>@classmethod</code> and <code>@staticmethod</code>, and is entirely Python-specific. It can be argued that <a href="https://www.webucator.com/article/when-to-use-static-methods-in-python-never/">static methods are bad while class methods are OK</a>, but their differences are not relevant for us now. I should note, however, that Pylint does not suggest to change anything in the fragment</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span style="">@</span><span style="color: #003388">classmethod</span>
+<span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">myfun</span><span style="">(</span><span style="">cls</span><span style="">):</span>
+    <span style="color: #008800;font-weight: bold">pass</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I think it’s odd: <code>myfun()</code> does not access <code>cls</code>, and yet no comments are made about it.</p>
+</div>
+<div class="paragraph">
+<p>Another discussion is related to the use of class or static functions <em>in general</em>. For example, sec. 3.2 of Yegor Bugayenko’s <a href="https://www.amazon.com/gp/product/1519166915">Elegant Objects, vol. 1</a> is called &#34;Don’t use static methods&#34;. He believes that static methods go against the general philosophy of OOP and thus should be avoided at all. No function should be designed as static, and, therefore, no function should be marked as <code>static</code> either. Obviously, this line of reasoning goes far deeper than I want here, so we will just presume that there might be legitimate reasons to want static functions, and thus the &#34;never mark functions as <code>static</code>&#34; option won’t work for us.</p>
+</div>
+<div class="paragraph">
+<p>The main questions I have now are quite different: a) can <em>de-facto</em> static functions be static by mere coincidence, and b) should I mark them as static explicitly?</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_case_of_accidental_static">The Case of Accidental Static</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I have checked my recent projects to see where I actually use <code>static</code> or <code>@staticmethod</code> attributes. Here are some common examples:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Static factory methods</strong>. When I write <code>MyClass.create()</code> instead of <code>new MyClass()</code>, I rely on static method <code>create()</code>.</p>
+</li>
+<li>
+<p><strong>Singleton pattern and its relatives</strong>. Sometimes I have to deal with subsystems like event managers or Django models. They reside in the global space, so I don’t need any class members to access them. A simpler example of the same kind is the built-in random generator. It is a <em>singleton</em>, after all, so a function modeling a coin toss can easily be static.</p>
+</li>
+<li>
+<p><strong>Functions interfacing external systems</strong>. Suppose we have a class <code>File</code> that provides an object-oriented interface to a file on a disk. We can create, read/write, and delete files. While there is a <em>logical</em> connection between <code>File</code> objects and actual files, a compiler cannot see it. If I delete a <code>File</code> object, sooner or later I will have to call the global function <code>remove()</code> to delete the physical file. If this call is wrapped into my own function for some reason, it is going to be static.</p>
+</li>
+<li>
+<p><strong>Private utility functions</strong>. A wide range of functions used internally by other class members to read data in a certain format, calculate formulas, etc. They live inside classes simply because they are needed only there. This category is seemingly the largest one, and may include functions from the previous categories as well. For example, a wrapper for the system function <code>remove()</code> can itself be a private utility.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>There are also, of course, static <em>data members</em> responsible for class configuration, but their role is clear and well defined.</p>
+</div>
+<div class="paragraph">
+<p>Naturally, I design static factories to be <em>static</em>, and my singletons are there because of <em>my</em> decisions. However, functions from other categories often just <em>happen</em> to be independent from their objects. Private utilities form a diverse group, so I can’t characterize them all in the same way, but their important common trait is <em>invisibility to the user</em>. They are not included into the user API, and thus can be treated in a special manner.</p>
+</div>
+<div class="paragraph">
+<p>In any case, I am not interested in a precise taxonomy of reasons for functions being <em>de-facto</em> static: it is enough to realize that such functions sometimes appear accidentally, and the real question is what to do with them.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_it_looks_like_not_to_mark">It Looks Like Not to Mark</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I hope the situation is starting to get clearer. If a public function is <em>designed</em> to be static, it should be marked as such. In my code, this is almost always due to a factory method pattern or some related functionality. The same can be said about private static functions, serving, for example, as internal helpers for factory methods. When certain authors claim that &#34;static functions are evil&#34;, they usually mean that legitimate cases for such designs are rare.</p>
+</div>
+<div class="paragraph">
+<p>The appearance of an accidental public function may indicate the use of a singleton or a loosely coupled external resource. Singletons are <a href="https://gameprogrammingpatterns.com/singleton.html">generally discouraged</a> nowadays, and I agree with this recommendation. Sometimes, however, singleton-like solutions are deeply rooted in our system architecture, and we are ready to put up with their presence.</p>
+</div>
+<div class="paragraph">
+<p>For example, Django offers an easy way to store objects in a database (let’s not discuss here whether this idea is a good one). Technically, a database is a singleton that stores objects&#39; internals in a centralized way. Thus, both save and retrieve operations inevitably end up being calls to the singleton, and often don’t need any access to other class members.</p>
+</div>
+<div class="paragraph">
+<p>I can invent more innocuous examples like these:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">Coin</span><span style="">:</span>
+    <span style="">@</span><span style="color: #003388">staticmethod</span>
+    <span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">sides</span><span style="">():</span>
+        <span style="color: #008800;font-weight: bold">return</span> <span style="color: #0000dd;font-weight: bold">2</span>
+
+<span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">SixDie</span><span style="">:</span>
+    <span style="">@</span><span style="color: #003388">staticmethod</span>
+    <span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">sides</span><span style="">():</span>
+        <span style="color: #008800;font-weight: bold">return</span> <span style="color: #0000dd;font-weight: bold">6</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I think the principal question here is whether we want to give the users the ability to make calls like <code>Coin.sides()</code>. If the answer is &#34;yes&#34;, then we have a deliberate &#34;static&#34; design, and we should notify the user by marking the corresponding function accordingly. If the answer is &#34;no&#34;, it might be better to refrain from unnecessary promises. Indeed, a static function is a <em>promise</em> that the user can call it without creating an object, which is convenient. However, as we have seen, this promise is often based on a dubious foundation such as a singleton. If we mark an accidental static function as static explicitly, we make this promise <em>official</em> and, therefore, make it harder to change the foundation later.</p>
+</div>
+<div class="paragraph">
+<p>While we are here, I don’t really know whether it is OK for the user to call <code>Coin.sides()</code>. I tend to believe that yes, and then it becomes a yet another example of an acceptable &#34;static&#34; design. Let’s consider the opposite situation, though:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span style="color: #008800;font-weight: bold">class</span> <span style="color: #bb0066;font-weight: bold">Board</span><span style="">:</span>
+    <span style="">_Width</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">4</span>
+    <span style="">_Height</span> <span style="">=</span> <span style="color: #0000dd;font-weight: bold">4</span>
+
+    <span style="">@</span><span style="color: #003388">staticmethod</span>
+    <span style="color: #008800;font-weight: bold">def</span> <span style="color: #0066bb;font-weight: bold">on_board</span><span style="">(</span><span style="">r</span><span style="">,</span> <span style="">c</span><span style="">):</span>
+        <span style="color: #008800;font-weight: bold">return</span> <span style="">r</span> <span style="color: #008800">in</span> <span style="color: #003388">range</span><span style="">(</span><span style="">Board</span><span style="">.</span><span style="">_Height</span><span style="">)</span> <span style="color: #008800">and</span> <span style="">c</span> <span style="color: #008800">in</span> <span style="color: #003388">range</span><span style="">(</span><span style="">Board</span><span style="">.</span><span style="">_Width</span><span style="">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example I have code that works for a 4 × 4 board. For some reason, I had no need or wish to generalize this functionality for other board sizes, so the present size values are fixed for all <code>Board</code> objects. Still, they are private, and the users should not depend on them, as I might reconsider and make the class more general. Unfortunately, <code>on_board()</code> turns the current design into an explicit promise: we can make a call <code>Board.on_board()</code>, which means that all boards in our system need to be of the same size. Thus, in this case I think it’s better to avoid making such promises.</p>
+</div>
+<div class="paragraph">
+<p>As noted above, private functions are special in a sense that they do not constitute user API, so the cost of a bad decision is much lower here. Still, what are the factors to consider?</p>
+</div>
+<div class="paragraph">
+<p>I’d say that the most common type of an accidental private static function is some utility used by one or two <em>non-static</em> public functions. Thus, marking them as static won’t really make any difference: the user will still have to create an object to access their services. Therefore, it makes sense to think again in terms of promises and knowledge transfer: by marking such function as static, I proclaim that it needs no object data, and <em>this is done intentionally</em>.</p>
+</div>
+<div class="paragraph">
+<p>It is also possible to argue for the opposite decision: even if a function simply <em>happened</em> to be static, by marking it as such we indicate that this function is basically free, and we can move it elsewhere if needed, or call it from another static function. This was my former logic, but now I tend to believe that such a message is rarely helpful, and thus the final recommendation should be to mark functions as static if and only if <em>they are deliberately designed to be static</em>.</p>
+</div>
+</div>
+</div>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        <script src="https://utteranc.es/client.js"
+    repo= "rg-software/homepage"
+    issue-term="pathname"
+    
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2022
+         Maxim Mozgovoy 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <script data-goatcounter="https://proamateur.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+
+    
+
+    
+
+    
+  </body>
+
+</html>
