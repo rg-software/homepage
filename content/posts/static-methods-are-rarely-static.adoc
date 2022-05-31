@@ -1,0 +1,99 @@
+---
+title: "💡 Static Methods are Rarely Static"
+date: 2022-05-30T01:06:31+09:00
+draft: false
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+:xrefstyle: short
+
+== To Mark or Not to Mark
+
+In today's short note I want to reflect a bit on my (former?) habit of marking member functions `static` if they do not access instance data. For me it was the same as marking them `const` (in case of C++) if they do not modify anything inside their objects. Now I believe these scenarios are different and should be approached differently.
+
+The difference between `const` and non-`const` functions is rooted in the fundamental idea of https://martinfowler.com/bliki/CommandQuerySeparation.html[command-query separation]. Non-modifying functions are _queries_ whereas modifying functions are _commands_ (or _modifiers_, as Fowler calls them). Thus, there is a merit both in _thinking_ in terms of commands and queries, and in _marking_ queries explicitly. A `const` function does not simply "happen" to be a query; it should be, in principle, designed this way. 
+
+In contrast, the differences between `static` and non-`static` functions can lie both in deliberate design and pure happenstance. My previous theory was not to give it a second thought because marking a function `static` in either case brings additional benefit to the user: if (by sheer luck) I can access certain functionality without having to create an object, why should I abandon this possibility?
+
+My current doubts are due to recent Python experience: as a relatively novice Python user, I am compelled to consider the suggestions of link:/posts/experiencing-black[Pylint], which always notes that a certain "method could be a function" if it does not access `self`. At the same time, I hardly believe that an extensive use of `@staticmethod` decorator (or any other decorator) can be a "core" everyday technique for writing a typical class.
+
+At this point I want to steer away from a couple of quite specialized discussions that would distract us from the main topic.
+
+One such discussion addresses the differences between `@classmethod` and `@staticmethod`, and is entirely Python-specific. It can be argued that https://www.webucator.com/article/when-to-use-static-methods-in-python-never/[static methods are bad while class methods are OK], but their differences are not relevant for us now. I should note, however, that Pylint does not suggest to change anything in the fragment
+
+[source,python]
+----
+@classmethod
+def myfun(cls):
+    pass
+----
+
+I think it's odd: `myfun()` does not access `cls`, and yet no comments are made about it.
+
+Another discussion is related to the use of class or static functions _in general_. For example, sec. 3.2 of Yegor Bugayenko's https://www.amazon.com/gp/product/1519166915[Elegant Objects, vol. 1] is called "Don't use static methods". He believes that static methods go against the general philosophy of OOP and thus should be avoided at all. No function should be designed as static, and, therefore, no function should be marked as `static` either. Obviously, this line of reasoning goes far deeper than I want here, so we will just presume that there might be legitimate reasons to want static functions, and thus the "never mark functions as ``static``" option won't work for us.
+
+The main questions I have now are quite different: a) can _de-facto_ static functions be static by mere coincidence, and b) should I mark them as static explicitly?
+
+== The Case of Accidental Static
+
+I have checked my recent projects to see where I actually use `static` or `@staticmethod` attributes. Here are some common examples:
+
+. **Static factory methods**. When I write `MyClass.create()` instead of `new MyClass()`, I rely on static method `create()`.
+. **Singleton pattern and its relatives**. Sometimes I have to deal with subsystems like event managers or Django models. They reside in the global space, so I don't need any class members to access them. A simpler example of the same kind is the built-in random generator. It is a _singleton_, after all, so a function modeling a coin toss can easily be static.
+. **Functions interfacing external systems**. Suppose we have a class `File` that provides an object-oriented interface to a file on a disk. We can create, read/write, and delete files. While there is a _logical_ connection between `File` objects and actual files, a compiler cannot see it. If I delete a `File` object, sooner or later I will have to call the global function `remove()` to delete the physical file. If this call is wrapped into my own function for some reason, it is going to be static.
+. **Private utility functions**. A wide range of functions used internally by other class members to read data in a certain format, calculate formulas, etc. They live inside classes simply because they are needed only there. This category is seemingly the largest one, and may include functions from the previous categories as well. For example, a wrapper for the system function `remove()` can itself be a private utility.
+
+There are also, of course, static _data members_ responsible for class configuration, but their role is clear and well defined.
+
+Naturally, I design static factories to be _static_, and my singletons are there because of _my_ decisions. However, functions from other categories often just _happen_ to be independent from their objects. Private utilities form a diverse group, so I can't characterize them all in the same way, but their important common trait is _invisibility to the user_. They are not included into the user API, and thus can be treated in a special manner.
+
+In any case, I am not interested in a precise taxonomy of reasons for functions being _de-facto_ static: it is enough to realize that such functions sometimes appear accidentally, and the real question is what to do with them.
+
+== It Looks Like Not to Mark
+
+I hope the situation is starting to get clearer. If a public function is _designed_ to be static, it should be marked as such. In my code, this is almost always due to a factory method pattern or some related functionality. The same can be said about private static functions, serving, for example, as internal helpers for factory methods. When certain authors claim that "static functions are evil", they usually mean that legitimate cases for such designs are rare.
+
+The appearance of an accidental public function may indicate the use of a singleton or a loosely coupled external resource. Singletons are https://gameprogrammingpatterns.com/singleton.html[generally discouraged] nowadays, and I agree with this recommendation. Sometimes, however, singleton-like solutions are deeply rooted in our system architecture, and we are ready to put up with their presence.
+
+For example, Django offers an easy way to store objects in a database (let's not discuss here whether this idea is a good one). Technically, a database is a singleton that stores objects' internals in a centralized way. Thus, both save and retrieve operations inevitably end up being calls to the singleton, and often don't need any access to other class members.
+
+I can invent more innocuous examples like these: 
+
+[source,python]
+----
+class Coin:
+    @staticmethod
+    def sides():
+        return 2
+
+class SixDie:
+    @staticmethod
+    def sides():
+        return 6
+----
+
+I think the principal question here is whether we want to give the users the ability to make calls like `Coin.sides()`. If the answer is "yes", then we have a deliberate "static" design, and we should notify the user by marking the corresponding function accordingly. If the answer is "no", it might be better to refrain from unnecessary promises. Indeed, a static function is a _promise_ that the user can call it without creating an object, which is convenient. However, as we have seen, this promise is often based on a dubious foundation such as a singleton. If we mark an accidental static function as static explicitly, we make this promise _official_ and, therefore, make it harder to change the foundation later.
+
+While we are here, I don't really know whether it is OK for the user to call `Coin.sides()`. I tend to believe that yes, and then it becomes a yet another example of an acceptable "static" design. Let's consider the opposite situation, though:
+
+[source,python]
+----
+class Board:
+    _Width = 4
+    _Height = 4
+    
+    @staticmethod
+    def on_board(r, c):
+        return r in range(Board._Height) and c in range(Board._Width)
+----
+
+In this example I have code that works for a 4 &times; 4 board. For some reason, I had no need or wish to generalize this functionality for other board sizes, so the present size values are fixed for all `Board` objects. Still, they are private, and the users should not depend on them, as I might reconsider and make the class more general. Unfortunately, `on_board()` turns the current design into an explicit promise: we can make a call `Board.on_board()`, which means that all boards in our system need to be of the same size. Thus, in this case I think it's better to avoid making such promises.
+
+As noted above, private functions are special in a sense that they do not constitute user API, so the cost of a bad decision is much lower here. Still, what are the factors to consider?
+
+I'd say that the most common type of an accidental private static function is some utility used by one or two _non-static_ public functions. Thus, marking them as static won't really make any difference: the user will still have to create an object to access their services. Therefore, it makes sense to think again in terms of promises and knowledge transfer: by marking such function as static, I proclaim that it needs no object data, and _this is done intentionally_.
+
+It is also possible to argue for the opposite decision: even if a function simply _happened_ to be static, by marking it as such we indicate that this function is basically free, and we can move it elsewhere if needed, or call it from another static function. This was my former logic, but now I tend to believe that such a message is rarely helpful, and thus the final recommendation should be to mark functions as static if and only if _they are deliberately designed to be static_.
