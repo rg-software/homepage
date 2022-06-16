@@ -16,6 +16,11 @@ link:km12.pdf[icon:file-pdf-o[]] T.&nbsp;Kakkonen, M.&nbsp;Mozgovoy. Students' C
 
 == Journal Papers
 
+// TODO: fix this paper
+link:pswmb22b.pdf[icon:file-pdf-o[]] M.&nbsp;Poudel, R.&nbsp;P.&nbsp;Sarode, Y.&nbsp;Watanobe, M.&nbsp;Mozgovoy, S.&nbsp;Bhalla. A Survey of Big Data Archives in Time-domain Astronomy. _Applied Sciences_, 2022, vol.&nbsp;?(?), ?. DOI:&nbsp;https://doi.org/?[?].
+
+link:pswmb22a.pdf[icon:file-pdf-o[]] M.&nbsp;Poudel, R.&nbsp;P.&nbsp;Sarode, Y.&nbsp;Watanobe, M.&nbsp;Mozgovoy, S.&nbsp;Bhalla. Processing Analytical Queries over Polystore System for a Large Astronomy Data Repository. _Applied Sciences_, 2022, vol.&nbsp;12(5), 2663. DOI:&nbsp;https://doi.org/10.3390/app12052663[10.3390/app12052663].
+
 link:mpb21.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, M.&nbsp;Preuss, R.&nbsp;Bidarra. Team Sports for Game AI Benchmarking Revisited. _International Journal of Computer Games Technology_, 2021, vol.&nbsp;2021. DOI:&nbsp;https://doi.org/10.1155/2021/5521877[10.1155/2021/5521877].
 
 link:km20b.pdf[icon:file-pdf-o[]] V.&nbsp;Khaustov, M.&nbsp;Mozgovoy. Recognizing Events in Spatiotemporal Soccer Data. _Applied Sciences_, 2020, vol.&nbsp;10(22), 8046. DOI:&nbsp;https://doi.org/10.3390/app10228046[10.3390/app10228046].
