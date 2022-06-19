@@ -16,10 +16,13 @@ link:km12.pdf[icon:file-pdf-o[]] T.&nbsp;Kakkonen, M.&nbsp;Mozgovoy. Students' C
 
 == Journal Papers
 
-// TODO: fix this paper
-link:pswmb22b.pdf[icon:file-pdf-o[]] M.&nbsp;Poudel, R.&nbsp;P.&nbsp;Sarode, Y.&nbsp;Watanobe, M.&nbsp;Mozgovoy, S.&nbsp;Bhalla. A Survey of Big Data Archives in Time-domain Astronomy. _Applied Sciences_, 2022, vol.&nbsp;?(?), ?. DOI:&nbsp;https://doi.org/?[?].
+// Nicholas, A., Blake, J., Mozgovoy, M. and Perkins, J. (2022). Investigating pragmatic failure in L2 English email writing among Japanese university EFL learners: A learner corpus approach. Register Studies. 
+
+link:pswmb22b.pdf[icon:file-pdf-o[]] M.&nbsp;Poudel, R.&nbsp;P.&nbsp;Sarode, Y.&nbsp;Watanobe, M.&nbsp;Mozgovoy, S.&nbsp;Bhalla. A Survey of Big Data Archives in Time-domain Astronomy. _Applied Sciences_, 2022, vol.&nbsp;12, 6202. DOI:&nbsp;https://doi.org/10.3390/app12126202[10.3390/app12126202].
 
 link:pswmb22a.pdf[icon:file-pdf-o[]] M.&nbsp;Poudel, R.&nbsp;P.&nbsp;Sarode, Y.&nbsp;Watanobe, M.&nbsp;Mozgovoy, S.&nbsp;Bhalla. Processing Analytical Queries over Polystore System for a Large Astronomy Data Repository. _Applied Sciences_, 2022, vol.&nbsp;12(5), 2663. DOI:&nbsp;https://doi.org/10.3390/app12052663[10.3390/app12052663].
+
+link:mbm22.pdf[icon:file-pdf-o[]] G.&nbsp;Mola Bogdan, M.&nbsp;Mozgovoy. Identification of Distinctive Behavior Patterns of Bots and Human Teams in Soccer. _Lecture Notes in Computer Science_, 2022, vol.&nbsp;13167, pp.&nbsp;83-92. DOI:&nbsp;https://doi.org/10.1007/978-3-030-96600-3_7[10.1007/978-3-030-96600-3_7].
 
 link:mpb21.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, M.&nbsp;Preuss, R.&nbsp;Bidarra. Team Sports for Game AI Benchmarking Revisited. _International Journal of Computer Games Technology_, 2021, vol.&nbsp;2021. DOI:&nbsp;https://doi.org/10.1155/2021/5521877[10.1155/2021/5521877].
 
@@ -76,9 +79,7 @@ link:mozgovoy05ir.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Semantical Analyzer a
 
 == Conference Papers
 
-// TODO: page numbers for kttm21b and nbm21b, mbm21
-
-// link:mbm21.pdf[icon:file-pdf-o[]] G.&nbsp;Mola Bogdan, M.&nbsp;Mozgovoy. Identification of Distinctive Behavior Patterns of Bots and Human Teams in Soccer. _Big Data Analytics in Science and Engineering (LNCS???)
+// TODO: page numbers for kttm21b
 
 link:nbm21b.pdf[icon:file-pdf-o[]] A.&nbsp;Nicholas, J.&nbsp;Blake, M.&nbsp;Mozgovoy. EFL Learners and English Email Writing: Developing a
 Computerised Diagnostic Language Assessment. _CALL and Professionalisation: Short Papers from EUROCALL 2021_, 2021, pp.&nbsp;238-242.
