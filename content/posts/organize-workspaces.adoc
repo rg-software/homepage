@@ -1,6 +1,6 @@
 ---
 title: "💡 How to Organize Workspaces"
-date: 2022-06-30T10:11:00+09:00
+date: 2022-07-02T10:11:00+09:00
 draft: false
 ---
 
