@@ -79,7 +79,9 @@ link:mozgovoy05ir.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Semantical Analyzer a
 
 == Conference Papers
 
-// TODO: page numbers for kttm21b
+// TODO: page numbers for kttm21b, mp22
+
+link:mp22.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, M.&nbsp;Purgina. Designing Programming Exercises from Board Games. _Proceedings of Game-On'2022 Conference_, Lisbon, Portugal, 2022, pp.&nbsp;?-?.
 
 link:nbm21b.pdf[icon:file-pdf-o[]] A.&nbsp;Nicholas, J.&nbsp;Blake, M.&nbsp;Mozgovoy. EFL Learners and English Email Writing: Developing a
 Computerised Diagnostic Language Assessment. _CALL and Professionalisation: Short Papers from EUROCALL 2021_, 2021, pp.&nbsp;238-242.
