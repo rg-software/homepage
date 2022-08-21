@@ -3,7 +3,7 @@ title: "Selected Projects"
 ---
 :icons: font
 
-https://www.worldoftennis.com[icon:gamepad[]] *World of Tennis: Roaring '20s.* A great online tennis game, featured multiple times on iOS App Store, Google Play! and Windows Store.
+https://www.worldoftennis.com[icon:gamepad[]] *World of Tennis: Roaring '20s* and *Tennis Arena.* Great online tennis games, featured multiple times on Google Play! and iOS App Store.
 
 https://github.com/rg-software/joe-blade-3-remake[icon:gamepad[]] *Joe Blade 3 Remake.* A modern remake of ZX Spectrum game Joe Blade 3.
 
