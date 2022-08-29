@@ -6,7 +6,17 @@
     <description>Recent content on The Pro Amateur</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 02 Jul 2022 10:11:00 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Aug 2022 10:11:40 +0000</lastBuildDate><atom:link href="https://mmozgovoy.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🧪 Winograd Schemas</title>
+      <link>https://mmozgovoy.dev/posts/winograd-schemas/</link>
+      <pubDate>Sun, 28 Aug 2022 10:11:40 +0000</pubDate>
+      
+      <guid>https://mmozgovoy.dev/posts/winograd-schemas/</guid>
+      <description>Today’s little essay has no goal other than to be mildly amusing and somewhat informative. We’ll talk about Winograd schemas and other challenges related to the evaluation of computer’s ability to understand natural language texts.
+ Let me state first that I belong to a somewhat &amp;#34;lower excitement&amp;#34; camp of AI enthusiasts. I tend to believe there is no other-worldly magic in human intelligence, and eventually we’ll be able to build something resembling our brains and even surpassing them.</description>
+    </item>
+    
     <item>
       <title>💡 How to Organize Workspaces</title>
       <link>https://mmozgovoy.dev/posts/organize-workspaces/</link>
