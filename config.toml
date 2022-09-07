@@ -7,11 +7,11 @@ enableEmoji = true
 rssLimit = 40
 paginate = 100
 
-[params.utterances]
-  repo = "rg-software/homepage"
-  issueTerm = "pathname"
-# label = "" # https://utteranc.es/#heading-issue-label # optional
-  theme = "github-light"
+#[params.utterances]
+#  repo = "rg-software/homepage"
+#  issueTerm = "pathname"
+## label = "" # https://utteranc.es/#heading-issue-label # optional
+#  theme = "github-light"
 
 [params]
   author = "Maxim Mozgovoy"
