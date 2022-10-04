@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+
+    <meta name="author" content="Maxim Mozgovoy">
+    <meta name="description" content="Intro One of the projects I hope to start soon is a game-like environment for teaching and learning concurrent programming. It has a very vague relation to an earlier system CPV, which I created for my graduation thesis around 2002. While collecting notes for the upcoming project, I thought it’s a good chance to review CPV to recall how it actually works, make sure it can be run on a modern computer, and possibly recycle some code.">
+    <meta name="keywords" content="blog,developer,personal,homepage">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="💡 Upgrading a Java Project After 20 Years"/>
+<meta name="twitter:description" content="Intro One of the projects I hope to start soon is a game-like environment for teaching and learning concurrent programming. It has a very vague relation to an earlier system CPV, which I created for my graduation thesis around 2002. While collecting notes for the upcoming project, I thought it’s a good chance to review CPV to recall how it actually works, make sure it can be run on a modern computer, and possibly recycle some code."/>
+
+    <meta property="og:title" content="💡 Upgrading a Java Project After 20 Years" />
+<meta property="og:description" content="Intro One of the projects I hope to start soon is a game-like environment for teaching and learning concurrent programming. It has a very vague relation to an earlier system CPV, which I created for my graduation thesis around 2002. While collecting notes for the upcoming project, I thought it’s a good chance to review CPV to recall how it actually works, make sure it can be run on a modern computer, and possibly recycle some code." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mmozgovoy.dev/posts/upgrading-java-project/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-04T14:56:20+09:00" />
+<meta property="article:modified_time" content="2022-10-04T14:56:20+09:00" />
+
+
+
+    <title>
+  💡 Upgrading a Java Project After 20 Years · The Pro Amateur
+</title>
+
+    
+      <link rel="canonical" href="https://mmozgovoy.dev/posts/upgrading-java-project/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css" integrity="sha256-cIaG&#43;KuBdukdRPy&#43;SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="/css/admonitions.css" />
+    
+      <link rel="stylesheet" href="/css/academicons.min.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/misc/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    
+
+    <meta name="generator" content="Hugo 0.87.0" />
+  </head>
+
+  
+  
+  <body class="preload-transitions colorscheme-light"
+        onload=""
+  >
+    
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      The Pro Amateur
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/books/">Books</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/papers/">Papers</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/software/">Software</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cv/">CV</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zx/">ZX</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://mmozgovoy.dev/posts/upgrading-java-project/">
+              💡 Upgrading a Java Project After 20 Years
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2022-10-04T14:56:20&#43;09:00'>
+                October 4, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              8-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <div class="sect1">
+<h2 id="_intro">Intro</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>One of the projects I hope to start soon is a game-like environment for teaching and learning concurrent programming. It has a very vague relation to an earlier system <a href="https://github.com/rg-software/cpv">CPV</a>, which I created for my graduation thesis around 2002. While collecting notes for the upcoming project, I thought it’s a good chance to review CPV to recall how it actually works, make sure it can be run on a modern computer, and possibly recycle some code.</p>
+</div>
+<div class="paragraph">
+<p>CPV was developed for Java 1.4, and (surprisingly) still works fine under OpenJDK 17. However, the original project cannot be compiled anymore due to some incompatibilities between a third-party library <code>JGraph</code> I used and a later revision of the standard <code>Swing</code> package. Since neither <code>JGraph</code> nor <code>Swing</code> are longer developed, a proper upgrade would require some nontrivial steps. However, my objective is much more modest: I am only willing to be able to use the modern toolset, so I was curious to find out how much effort I would need to invest in practice. The main goal of today’s post is a case study: I want to understand what to expect in similar situations, presuming that CPV represents an average one-person project made in early 2000s.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_about_cpv">About CPV</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CPV is a tool for understanding concurrent programs. Very briefly speaking, it lets the user to create <em>flowcharts</em> of processes and visualize possible execution scenarios. This way, the user can check whether the code produces desired results in any case (i.e., there are no <a href="https://en.wikipedia.org/wiki/Race_condition">race conditions</a> or <a href="https://en.wikipedia.org/wiki/Deadlock">deadlocks</a>).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="cpv.png" alt="cpv"/>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_about_jgraph">About JGraph</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>JGraph is a third-party component for displaying <em>editable</em> graphs on <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/JPanel.html">Swing panels</a>. It was quite powerful and flexible even in 2002, when I used its 2.1 version. The main JGraph branch was discontinued in 2009, and its final version 5 is <a href="https://github.com/jgraph/legacy-jgraph5">still available</a>. Later the project was rewritten from scratch and rebranded as <a href="https://github.com/jgraph/jgraphx">JGraphX</a>, which was also discontinued in 2020. The people behind it, however, managed to start a well-known spin-off <a href="https://www.diagrams.net">diagrams.net</a> (formerly <em>draw.io</em>, formerly <em>diagram.ly</em>).</p>
+</div>
+<div class="paragraph">
+<p>From the very beginning of my upgrade endeavor I thought to move to JGraph 5. It looks like a straightforward successor of JGraph 2.1, so I expected a relatively painless process. It turned out to be largely true, but not without unexpected difficulties.</p>
+</div>
+<div class="paragraph">
+<p>JGraph is a big part of CPV. Basically, it made my job of designing user interface much easier. I was lucky to have it available in 2002, and fortunately I had enough patience and understanding to investigate the available options before resorting to a self-authored solution</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_about_swing">About Swing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Since JGraph was designed for <a href="https://en.wikipedia.org/wiki/Swing_(Java)">Swing</a>, I had to use Swing. It is still being maintained, but there is also an official successor called <a href="https://en.wikipedia.org/wiki/JavaFX">JavaFX</a>. It means it’s better to use JavaFX or other modern toolkits for new applications, but Swing is more than adequate for existing codebases.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_big_upgrade">The Big Upgrade</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It took me three (incomplete) days to make a rough but adequate upgrade effort. I also used my chance to do some cleanup here and there, and this is what I can tell about the whole process:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Java generic collections make code so much cleaner! I remember I hated all these endless parentheses: you put something into a <code>Vector</code> or a <code>Hashtable</code>, and then retrieve a plain <code>Object</code> that has to be typecast. If you have a hashtable of vectors, you’ll have to do typecasting twice. Unfortunately, even JGraph 5 is still based on non-generic collections, so don’t expect to get rid of typecasts completely when dealing with old libraries.</p>
+</li>
+<li>
+<p>Same can be said about Java’s &#34;foreach&#34; version. No more index variables when you don’t need them.</p>
+</li>
+<li>
+<p>Small library cleanups can be annoying. JGraph 2.1 used <code>java.awt.Point</code> objects to represent 2D points. This is a concrete class providing integer precision, which is probably accurate within the context of GUI. However, later JGraph revisions opt for the abstract <code>java.awt.geom.Point2D</code> class, which serves as a façade for points with different precisions. While it might be a reasonable decision, such a change requires massive cascade type replacements and minor code fixes. <code>Point</code> has fields <code>x</code> and <code>y</code>, while <code>Point2D</code> has only methods <code>getX()</code> and <code>getY()</code>. <code>Point</code> is a subclass of <code>Point2D</code>, so if some function returns <code>Point2D</code> instead of <code>Point</code> now, I have to fix its calls everywhere, because I can’t assign its return value to <code>Point</code> anymore.</p>
+</li>
+<li>
+<p>Default Swing &#34;metal&#34; theme looks quite ugly and archaic now. Well, it had never been good, but applications used to look rather diversely back in the day, so &#34;metal&#34; wasn’t much more annoying than many other designs we had to deal with daily. Fortunately, Swing supports custom themes (&#34;look and feel&#34; schemes), so it is theoretically easy to make GUI look modern. However, there aren’t many ready-to-use themes around. One popular choice is <a href="https://www.formdev.com/flatlaf/">FlatLaf</a>. I am not really a fan of flat interfaces, but FlatLaf is very easy to use and looks good.</p>
+</li>
+<li>
+<p>Inheritance can be the source of the most annoying bugs, and I don’t really know what kind of architecture can prevent them without bringing other annoyances. In case of JGraph, the same kind of issue pops up everywhere. Suppose JGraph needs an object implementing a certain interface <code>Foo</code>. Graph elements tend to be quite complex, so for every interface <code>Foo</code> JGraph provides a default implementation <code>DefaultFoo</code>.</p>
+<div class="paragraph">
+<p>If I need just a <em>slight</em> modification of <code>DefaultFoo</code>, it is very tempting to create a subclass of <code>DefaultFoo</code> and override some methods. Now, suppose <code>DefaultFoo</code> implements a method <code>bar(x)</code>, and I override it in a subclass. Newer JGraph version makes <code>bar(x)</code> more powerful or generic, so it becomes <code>bar(x, y)</code>. Unfortunately, it is still <code>bar(x)</code> in my code, and everything still compiles perfectly, because I inherit <code>bar(x, y)</code> from <code>DefaultFoo</code>. As a result, I see that the program does not work right, but it is not easy to figure out why. It turns out that I need to check every class I derived from a certain JGraph class, review its methods and understand which ones should override something in the parent.</p>
+</div>
+<div class="paragraph">
+<p>Eclipse highlights overriding methods, so if I know that a method is supposed to override its parent, I can quickly see whether it happens in reality. Java 1.5 introduced the <code>@Override</code> annotation specifically for the purpose of documenting overriding intent, but it is optional even now, and does not exist in older codebases.</p>
+</div>
+</li>
+<li>
+<p>JGraph and/or Swing look bad (pixelated or blurry) on high DPI displays. I think many of us remember this awkward period some time ago when many good applications suddenly started to look ugly on newer displays until their authors provided updates. I don’t have much knowledge about this issue, but the general idea is simple.</p>
+<div class="paragraph">
+<p>Older monitors used to have a low density of fewer than 100 pixels per inch, and it was generally the same across devices. A programmer could decide, for example, that a box of 10 pixels wide is large enough for a checkbox because it would have a reasonable physical size in millimeters on a screen. On newer high-density monitors the same 10-pixel wide checkbox looks tiny because there are more pixels per inch now. An operating system can compensate this effect by rescaling the application window, but it won’t look too good, especially if it displays vector graphics.</p>
+</div>
+<div class="paragraph">
+<p>JGraph displays graphs, consisting of geometrical shapes, arrows, and textual labels. However, for the operating system all of them are just pixels on a drawing surface, and they look bad after scaling.</p>
+</div>
+<div class="paragraph">
+<p>There are ways to switch off scaling if you believe that small interface is better than blurry interface. In general, the problem can’t be fixed &#34;properly&#34; without proper library support of high DPI displays. I decided to set this problem aside for the time being, but checking out the newest JGraphX might worth a try (I have no idea how large are incompatibilities between JGraph and JGraphX, however).</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion">Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Summing up, I can say that the compatibility of my old CPV code is quite high. Being a larger project, JGraph also had just several minor incompatibilities with later Swing revisions (at least, this is how I understood what was going on). My biggest challenge was to upgrade to JGraph 5, which is not entirely compatible with JGraph 2.1, but this, naturally, has nothing to do with Java per se. Even legacy technologies like Swing are maintained fairly well. There are breaking changes like high-DPI displays, but such things are inevitable. I won’t be surprised to find out that some old APIs actually supported high DPI modes, but the odds are that the developers ignored them anyway. In case of Swing, it seems that you actually need newer Java to support new displays. However, old JGraph would still produce pixelated graphics, and I have no idea whether JGraphX is any different.</p>
+</div>
+<div class="paragraph">
+<p>Method overriding has turned out to be the source of the most annoying errors, as they can’t be caught at compile time, and they are not visible at the first sight. I had to play for a while with the diagrams to make sure that all the shapes, arrows and anchor points look and behave correctly. Some of them were not, and I had hard time figuring out why perfectly reasonable code doesn’t produce the desired output. With a little help from the debugger, I realized that the code in question is not called at all, which means it doesn’t override its parent class functionality. After this initial confusion I knew where to search.</p>
+</div>
+<div class="paragraph">
+<p>However, all the things considered, it’s been a rather fun experience with an additional bonus of realizing that my old code looks <em>not too bad even now</em>. There are some features I had no time to implement (their prototypes are commented out), and I vaguely remember they weren’t tough, but required some time for tinkering, and I had finish the project in time. Maybe I should give it another look in the next 20 years or so.</p>
+</div>
+</div>
+</div>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2022
+         Maxim Mozgovoy 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <script data-goatcounter="https://proamateur.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+
+    
+
+    
+
+    
+  </body>
+
+</html>

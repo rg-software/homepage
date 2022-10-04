@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mmozgovoy.dev/posts/</loc>
-    <lastmod>2022-10-02T14:56:20+09:00</lastmod>
+    <lastmod>2022-10-04T14:56:20+09:00</lastmod>
   </url><url>
     <loc>https://mmozgovoy.dev/</loc>
-    <lastmod>2022-10-02T14:56:20+09:00</lastmod>
+    <lastmod>2022-10-04T14:56:20+09:00</lastmod>
+  </url><url>
+    <loc>https://mmozgovoy.dev/posts/upgrading-java-project/</loc>
+    <lastmod>2022-10-04T14:56:20+09:00</lastmod>
   </url><url>
     <loc>https://mmozgovoy.dev/posts/autumn-mood/</loc>
     <lastmod>2022-10-02T14:56:20+09:00</lastmod>

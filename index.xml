@@ -6,7 +6,16 @@
     <description>Recent content on The Pro Amateur</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Oct 2022 14:56:20 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Oct 2022 14:56:20 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>💡 Upgrading a Java Project After 20 Years</title>
+      <link>https://mmozgovoy.dev/posts/upgrading-java-project/</link>
+      <pubDate>Tue, 04 Oct 2022 14:56:20 +0900</pubDate>
+      
+      <guid>https://mmozgovoy.dev/posts/upgrading-java-project/</guid>
+      <description>Intro One of the projects I hope to start soon is a game-like environment for teaching and learning concurrent programming. It has a very vague relation to an earlier system CPV, which I created for my graduation thesis around 2002. While collecting notes for the upcoming project, I thought it’s a good chance to review CPV to recall how it actually works, make sure it can be run on a modern computer, and possibly recycle some code.</description>
+    </item>
+    
     <item>
       <title>🎤 Autumn Mood</title>
       <link>https://mmozgovoy.dev/posts/autumn-mood/</link>
@@ -16,7 +25,7 @@
       <description>Хорошо, что нет Царя. Хорошо, что нет России. Хорошо, что Бога нет.
  Только желтая заря, Только звезды ледяные, Только миллионы лет.
  Хорошо — что никого, Хорошо — что ничего, Так черно и так мертво,
- Что мертвее быть не может И чернее не бывать, Что никто нам не поможет И не надо помогать.
+ Что мертвее быть не может И чернее не бывать, Что никто нам не поможет. И не надо помогать.
  Георгий Иванов, 1930 г.
  </description>
     </item>
