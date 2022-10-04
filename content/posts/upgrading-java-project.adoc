@@ -1,0 +1,68 @@
+---
+title: "💡 Upgrading a Java Project After 20 Years"
+date: 2022-10-04T14:56:20+09:00
+draft: false
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+
+== Intro
+
+One of the projects I hope to start soon is a game-like environment for teaching and learning concurrent programming. It has a very vague relation to an earlier system https://github.com/rg-software/cpv[CPV], which I created for my graduation thesis around 2002. While collecting notes for the upcoming project, I thought it's a good chance to review CPV to recall how it actually works, make sure it can be run on a modern computer, and possibly recycle some code.
+
+CPV was developed for Java 1.4, and (surprisingly) still works fine under OpenJDK 17. However, the original project cannot be compiled anymore due to some incompatibilities between a third-party library `JGraph` I used and a later revision of the standard `Swing` package. Since neither `JGraph` nor `Swing` are longer developed, a proper upgrade would require some nontrivial steps. However, my objective is much more modest: I am only willing to be able to use the modern toolset, so I was curious to find out how much effort I would need to invest in practice. The main goal of today's post is a case study: I want to understand what to expect in similar situations, presuming that CPV represents an average one-person project made in early 2000s.
+
+== About CPV
+
+CPV is a tool for understanding concurrent programs. Very briefly speaking, it lets the user to create _flowcharts_ of processes and visualize possible execution scenarios. This way, the user can check whether the code produces desired results in any case (i.e., there are no https://en.wikipedia.org/wiki/Race_condition[race conditions] or https://en.wikipedia.org/wiki/Deadlock[deadlocks]).
+
+image::cpv.png[]
+
+== About JGraph
+
+JGraph is a third-party component for displaying _editable_ graphs on https://docs.oracle.com/javase/8/docs/api/javax/swing/JPanel.html[Swing panels]. It was quite powerful and flexible even in 2002, when I used its 2.1 version. The main JGraph branch was discontinued in 2009, and its final version 5 is https://github.com/jgraph/legacy-jgraph5[still available]. Later the project was rewritten from scratch and rebranded as https://github.com/jgraph/jgraphx[JGraphX], which was also discontinued in 2020. The people behind it, however, managed to start a well-known spin-off https://www.diagrams.net[diagrams.net] (formerly _draw.io_, formerly _diagram.ly_).
+
+From the very beginning of my upgrade endeavor I thought to move to JGraph 5. It looks like a straightforward successor of JGraph 2.1, so I expected a relatively painless process. It turned out to be largely true, but not without unexpected difficulties. 
+
+JGraph is a big part of CPV. Basically, it made my job of designing user interface much easier. I was lucky to have it available in 2002, and fortunately I had enough patience and understanding to investigate the available options before resorting to a self-authored solution
+
+== About Swing
+
+Since JGraph was designed for https://en.wikipedia.org/wiki/Swing_(Java)[Swing], I had to use Swing. It is still being maintained, but there is also an official successor called https://en.wikipedia.org/wiki/JavaFX[JavaFX]. It means it's better to use JavaFX or other modern toolkits for new applications, but Swing is more than adequate for existing codebases.
+
+== The Big Upgrade
+
+It took me three (incomplete) days to make a rough but adequate upgrade effort. I also used my chance to do some cleanup here and there, and this is what I can tell about the whole process:
+
+1. Java generic collections make code so much cleaner! I remember I hated all these endless parentheses: you put something into a `Vector` or a `Hashtable`, and then retrieve a plain `Object` that has to be typecast. If you have a hashtable of vectors, you'll have to do typecasting twice. Unfortunately, even JGraph 5 is still based on non-generic collections, so don't expect to get rid of typecasts completely when dealing with old libraries.
+
+2. Same can be said about Java's "foreach" version. No more index variables when you don't need them.
+
+3. Small library cleanups can be annoying. JGraph 2.1 used `java.awt.Point` objects to represent 2D points. This is a concrete class providing integer precision, which is probably accurate within the context of GUI. However, later JGraph revisions opt for the abstract `java.awt.geom.Point2D` class, which serves as a façade for points with different precisions. While it might be a reasonable decision, such a change requires massive cascade type replacements and minor code fixes. `Point` has fields `x` and `y`, while `Point2D` has only methods `getX()` and `getY()`. `Point` is a subclass of `Point2D`, so if some function returns `Point2D` instead of `Point` now, I have to fix its calls everywhere, because I can't assign its return value to `Point` anymore.
+
+4. Default Swing "metal" theme looks quite ugly and archaic now. Well, it had never been good, but applications used to look rather diversely back in the day, so "metal" wasn't much more annoying than many other designs we had to deal with daily. Fortunately, Swing supports custom themes ("look and feel" schemes), so it is theoretically easy to make GUI look modern. However, there aren't many ready-to-use themes around. One popular choice is https://www.formdev.com/flatlaf/[FlatLaf]. I am not really a fan of flat interfaces, but FlatLaf is very easy to use and looks good.
+
+5. Inheritance can be the source of the most annoying bugs, and I don't really know what kind of architecture can prevent them without bringing other annoyances. In case of JGraph, the same kind of issue pops up everywhere. Suppose JGraph needs an object implementing a certain interface `Foo`. Graph elements tend to be quite complex, so for every interface `Foo` JGraph provides a default implementation `DefaultFoo`.
++
+If I need just a _slight_ modification of `DefaultFoo`, it is very tempting to create a subclass of `DefaultFoo` and override some methods. Now, suppose `DefaultFoo` implements a method `bar(x)`, and I override it in a subclass. Newer JGraph version makes `bar(x)` more powerful or generic, so it becomes `bar(x, y)`. Unfortunately, it is still `bar(x)` in my code, and everything still compiles perfectly, because I inherit `bar(x, y)` from `DefaultFoo`. As a result, I see that the program does not work right, but it is not easy to figure out why. It turns out that I need to check every class I derived from a certain JGraph class, review its methods and understand which ones should override something in the parent.
++
+Eclipse highlights overriding methods, so if I know that a method is supposed to override its parent, I can quickly see whether it happens in reality. Java 1.5 introduced the `@Override` annotation specifically for the purpose of documenting overriding intent, but it is optional even now, and does not exist in older codebases. 
+
+6. JGraph and/or Swing look bad (pixelated or blurry) on high DPI displays. I think many of us remember this awkward period some time ago when many good applications suddenly started to look ugly on newer displays until their authors provided updates. I don't have much knowledge about this issue, but the general idea is simple.
++
+Older monitors used to have a low density of fewer than 100 pixels per inch, and it was generally the same across devices. A programmer could decide, for example, that a box of 10 pixels wide is large enough for a checkbox because it would have a reasonable physical size in millimeters on a screen. On newer high-density monitors the same 10-pixel wide checkbox looks tiny because there are more pixels per inch now. An operating system can compensate this effect by rescaling the application window, but it won't look too good, especially if it displays vector graphics.
++
+JGraph displays graphs, consisting of geometrical shapes, arrows, and textual labels. However, for the operating system all of them are just pixels on a drawing surface, and they look bad after scaling.
++
+There are ways to switch off scaling if you believe that small interface is better than blurry interface. In general, the problem can't be fixed "properly" without proper library support of high DPI displays. I decided to set this problem aside for the time being, but checking out the newest JGraphX might worth a try (I have no idea how large are incompatibilities between JGraph and JGraphX, however).
+
+== Conclusion
+
+Summing up, I can say that the compatibility of my old CPV code is quite high. Being a larger project, JGraph also had just several minor incompatibilities with later Swing revisions (at least, this is how I understood what was going on). My biggest challenge was to upgrade to JGraph 5, which is not entirely compatible with JGraph 2.1, but this, naturally, has nothing to do with Java per se. Even legacy technologies like Swing are maintained fairly well. There are breaking changes like high-DPI displays, but such things are inevitable. I won't be surprised to find out that some old APIs actually supported high DPI modes, but the odds are that the developers ignored them anyway. In case of Swing, it seems that you actually need newer Java to support new displays. However, old JGraph would still produce pixelated graphics, and I have no idea whether JGraphX is any different.
+
+Method overriding has turned out to be the source of the most annoying errors, as they can't be caught at compile time, and they are not visible at the first sight. I had to play for a while with the diagrams to make sure that all the shapes, arrows and anchor points look and behave correctly. Some of them were not, and I had hard time figuring out why perfectly reasonable code doesn't produce the desired output. With a little help from the debugger, I realized that the code in question is not called at all, which means it doesn't override its parent class functionality. After this initial confusion I knew where to search.
+
+However, all the things considered, it's been a rather fun experience with an additional bonus of realizing that my old code looks _not too bad even now_. There are some features I had no time to implement (their prototypes are commented out), and I vaguely remember they weren't tough, but required some time for tinkering, and I had finish the project in time. Maybe I should give it another look in the next 20 years or so.
