@@ -19,6 +19,10 @@ https://github.com/rg-software/weblibrary[icon:wrench[]] *WebLibrary.* An offlin
 
 https://www.softmaker.de/softmaker-office[icon:cog[]] *OMML Renderer.* An Office MathML math expressions renderer for SoftMaker Office.
 
+https://github.com/rg-software/board-games[icon:flask[]] *Simple Board Games.* A collection of board game projects suitable as programming exercises.
+
+https://github.com/rg-software/grading-cat[icon:flask[]] *Grading Cat.* A user-friendly source code plagiarism detection system.
+
 https://github.com/rg-software/cpv[icon:flask[]] *Concurrent Program Verifier.* An educational tool for understanding concurrent programming.
 
 // TODO
