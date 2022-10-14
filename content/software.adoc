@@ -11,6 +11,8 @@ https://github.com/rg-software/zxrecolor[icon:gamepad[]] *ZX Recoloring Project.
 
 https://github.com/rg-software/zx-keytrain[icon:gamepad[]] *Keyboard Trainer.* A touch typing training game written for ZX Spectrum ca. 1997.
 
+https://github.com/rg-software/wlx-edge-viewer[icon:wrench[]] *Wlx-edge-viewer.* An AsciiDoc, Markdown, and HTML lister plugin for Total Commander.
+
 https://github.com/rg-software/wlx-markdown-viewer[icon:wrench[]] *Wlx-markdown-viewer.* A markdown lister plugin for Total Commander.
 
 https://github.com/rg-software/wcx-audioconverter[icon:wrench[]] *Wcx-audioconverter.* An audioconverter packer plugin for Total Commander.
