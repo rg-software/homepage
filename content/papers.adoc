@@ -25,7 +25,9 @@ link:km12.pdf[icon:file-pdf-o[]] T.&nbsp;Kakkonen, M.&nbsp;Mozgovoy. Students' C
 
 == Journal Papers
 
-// Nicholas, A., Blake, J., Mozgovoy, M. and Perkins, J. (2022). Investigating pragmatic failure in L2 English email writing among Japanese university EFL learners: A learner corpus approach. Register Studies. 
+// TODO: vol/issue/pages for nbmp22.pdf 
+
+link:nbmp22.pdf[icon:file-pdf-o[]] A.&nbsp;Nicholas, J.&nbsp;Blake, M.&nbsp;Mozgovoy, J.&nbsp;Perkins. Investigating Pragmatic Failure in L2 English Email Writing Among Japanese University EFL Learners: A Learner Corpus Approach. _Register Studies_, 2022. DOI:&nbsp;https://doi.org/10.1075/rs.20016.nic
 
 link:pswmb22b.pdf[icon:file-pdf-o[]] M.&nbsp;Poudel, R.&nbsp;P.&nbsp;Sarode, Y.&nbsp;Watanobe, M.&nbsp;Mozgovoy, S.&nbsp;Bhalla. A Survey of Big Data Archives in Time-domain Astronomy. _Applied Sciences_, 2022, vol.&nbsp;12, 6202. DOI:&nbsp;https://doi.org/10.3390/app12126202[10.3390/app12126202].
 
