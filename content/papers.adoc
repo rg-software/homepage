@@ -90,7 +90,10 @@ link:mozgovoy05ir.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Semantical Analyzer a
 
 == Conference Papers
 
-// TODO: page numbers for kttm21b, mp22
+// TODO: page numbers for kttm21b, mp22, mpbpl2022
+
+link:mpbpl2022.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, E.&nbsp;Pyshkin, J.&nbsp;Blake, A.&nbsp;Leung. Teacher-Oriented Source Code Similarity Detection
+and Visualization for Programming Assignments. _Proceedings of the 13th International Congress on Advanced Applied Informatics_, Phuket, Thailand, 2022, pp.&nbsp;?-?.
 
 link:mp22.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, M.&nbsp;Purgina. Designing Programming Exercises from Board Games. _Proceedings of Game-On'2022 Conference_, Lisbon, Portugal, 2022, pp.&nbsp;?-?.
 
@@ -239,6 +242,8 @@ E.&nbsp;Pyshkin, M.&nbsp;Mozgovoy. Mobile Software Testing: Challenges and Pragm
 
 
 == Oral Presentations
+
+A.&nbsp;Nicholas, J.&nbsp;Blake, M.&nbsp;Mozgovoy. Computerized Diagnostic Language Assessment: Evaluating Japanese EFL Learners' L2 English Email Writing. _The 57th RELC International Conference_, Singapore, 2023.
 
 A.&nbsp;Nicholas, J.&nbsp;Blake, M.&nbsp;Mozgovoy. Development of a Computerized Diagnostic Language Assessment Platform for Second Language Email Writing. _International Conference on Technology-enhanced Language Learning and Teaching & Corpus-based Language Learning and Teaching_, Hong Kong, 2021.
 
