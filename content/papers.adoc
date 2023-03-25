@@ -25,11 +25,11 @@ link:km12.pdf[icon:file-pdf-o[]] T.&nbsp;Kakkonen, M.&nbsp;Mozgovoy. Students' C
 
 == Journal Papers
 
-link:mpbpl22.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, E.&nbsp;Pyshkin, J.&nbsp;Blake, M.&nbsp;Purgina, A.&nbsp;Leung. Teacher-oriented Source Code Similarity Detection and Visualization for Programming Assignments, _IIAI Letters on Informatics and Interdisciplinary Research_, vol.&nbsp;2, 2022, DOI:&nbsp;https://doi.org/10.52731/liir.v002.082[10.52731/liir.v002.082].
+link:mpbpl22.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, E.&nbsp;Pyshkin, J.&nbsp;Blake, M.&nbsp;Purgina, A.&nbsp;Leung. Teacher-oriented Source Code Similarity Detection and Visualization for Programming Assignments, _IIAI Letters on Informatics and Interdisciplinary Research_, vol.&nbsp;2, 2022. DOI:&nbsp;https://doi.org/10.52731/liir.v002.082[10.52731/liir.v002.082].
 
 // TODO: vol/issue/pages for nbmp22.pdf 
 
-link:nbmp22.pdf[icon:file-pdf-o[]] A.&nbsp;Nicholas, J.&nbsp;Blake, M.&nbsp;Mozgovoy, J.&nbsp;Perkins. Investigating Pragmatic Failure in L2 English Email Writing Among Japanese University EFL Learners: A Learner Corpus Approach. _Register Studies_, 2022. DOI:&nbsp;https://doi.org/10.1075/rs.20016.nic
+link:nbmp22.pdf[icon:file-pdf-o[]] A.&nbsp;Nicholas, J.&nbsp;Blake, M.&nbsp;Mozgovoy, J.&nbsp;Perkins. Investigating Pragmatic Failure in L2 English Email Writing Among Japanese University EFL Learners: A Learner Corpus Approach. _Register Studies_, 2022. DOI:&nbsp;https://doi.org/10.1075/rs.20016.nic[10.1075/rs.20016.nic].
 
 link:pswmb22b.pdf[icon:file-pdf-o[]] M.&nbsp;Poudel, R.&nbsp;P.&nbsp;Sarode, Y.&nbsp;Watanobe, M.&nbsp;Mozgovoy, S.&nbsp;Bhalla. A Survey of Big Data Archives in Time-domain Astronomy. _Applied Sciences_, 2022, vol.&nbsp;12, 6202. DOI:&nbsp;https://doi.org/10.3390/app12126202[10.3390/app12126202].
 
