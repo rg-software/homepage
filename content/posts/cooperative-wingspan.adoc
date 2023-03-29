@@ -1,0 +1,40 @@
+---
+title: "💡Cooperative Wingspan"
+date: 2023-03-27T15:10:20+09:00
+draft: false
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+
+Today's note is inspired by my short experience with a https://boardgamegeek.com/filepage/211318/wingspan-co-operative-fan-variant-rules[cooperative variant] of the board game https://stonemaiergames.com/games/wingspan/[Wingspan]. Wingspan is designed as a competitive game, where each player tries to score as many points as possible by collecting certain combinations of bird cards. In order to build a combination, the player needs to spend various resources that can be obtained on each turn. By adding new birds to the current combination, the player also becomes more efficient in obtaining resources, so resources will buy you more birds, and birds will buy you even more resources.
+
+There are no direct player-player clashes, but one may "steal" a bird card or a resource that another player needs. There is also a concept of "round winners", who score more than their opponents by collecting a better-scoring hand according to each round's objectives.
+
+Such a weak level of explicit hostility between the players made possible to create "cooperative rules", where the group strives to maximize its overall score, with minimal changes to the core game process. The most important changes include: 1) the possibility to swap resources between the players (trading); 2) the adjustment of "round winners" concept: now the players must cooperate so that each of them meets the next round objective with the same score (which in practice often means aiming for the lowest passing score).
+
+If was fun to watch how this game, designed, let me remind, to be competitive, behaves in a cooperative setup. It reminds me the following piece from Smullyan's essay https://www.mit.edu/people/dpolicar/writing/prose/text/godTaoist.html[Is God a Taoist?]:
+
+____
+**Mortal**:
+   What! You mean to say you did not choose to give us free will?
+
+**God**:
+   My dear fellow, I could no more choose to give you free will than I could choose to make an equilateral triangle equiangular. I could choose to make or not to make an equilateral triangle in the first place, but having chosen to make one, I would then have no choice but to make it equiangular.
+____
+
+Basically, Wingspan models something like https://en.wikipedia.org/wiki/Tragedy_of_the_commons[the tragedy of the commons] and especially the concept of https://en.wikipedia.org/wiki/Comparative_advantage[comparative advantage]. The players take whatever food resources and bird cards from the common source, which often causes troubles to others. (Strictly speaking, there is no resource depletion, as food is infinite and birds are numerous; however, a concrete type of a food item or a bird card of a particular profile might not show up for a while). The players also have to balance their hands to be able to gather more items of different kinds (birds/eggs/food), meaning that they usually cannot afford to target just one kind of resource and become really good in obtaining it.
+
+These effects are hard to notice in a conventional game, because they are always there. Once you turn cooperative, they disappear, and you see an immediate productivity jump. When trading is possible, you can always buy a missing resource from another player. You can also focus on becoming especially good in obtaining one or two specific kinds of items and trade excess supply to your partners.
+
+In a regular game with experienced participants a winner might score 85-90 points and have 10 bird cards on the board. At least, people mention these numbers online; my scores are usually lower. In a cooperative mode it is suggested to strive for 100 points and 12 bird cards (which means having a fully covered board) for _each_ player, and this is quite achievable.
+
+I doubt the authors thought about something like that, but they implemented several basic "cause-effect" chains, and these chains started living on their own. Now we can easily confirm that cooperation and labor division is much more profitable for everyone than isolation and complete self-reliance. _That's why there is so much cooperation and so little hostility in the world now._ 
+
+Speaking of the tragedy of the commons, I remember my university teacher mentioned a game he was toying with back in the day. There was a pond, where fish was reproducing according to some actual law, taken from a book. The players knew the amount of fish in the pond on the current turn, and they had to secretly choose the number of units they were going to catch. The player with the largest catch after `N` turns was declared a winner.
+
+Unfortunately, it turned out that a typical game session under such conditions ends quickly with no fish left in the pond. Someone manages to catch more than the others, but the end results aren't stellar. An easy way to remedy the situation is to enforce quotas: everyone is allowed to catch no more than a certain units of fish per turn, and if this number is chosen correctly, everyone has a lot of fish at the end of the game, and the fish feels happy, too.
+
+If I remember that talk correctly, the teacher said he felt really ashamed after his first play session. He didn't expect everyone (including himself) to be so greedy and near-sighted. He learned his lesson, though, and we should do the same.
