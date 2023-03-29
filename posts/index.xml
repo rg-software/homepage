@@ -6,7 +6,16 @@
     <description>Recent content in Posts on The Pro Amateur</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 04 Oct 2022 14:56:20 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Mar 2023 15:10:20 +0900</lastBuildDate><atom:link href="https://mmozgovoy.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>💡Cooperative Wingspan</title>
+      <link>https://mmozgovoy.dev/posts/cooperative-wingspan/</link>
+      <pubDate>Mon, 27 Mar 2023 15:10:20 +0900</pubDate>
+      
+      <guid>https://mmozgovoy.dev/posts/cooperative-wingspan/</guid>
+      <description>Today’s note is inspired by my short experience with a cooperative variant of the board game Wingspan. Wingspan is designed as a competitive game, where each player tries to score as many points as possible by collecting certain combinations of bird cards. In order to build a combination, the player needs to spend various resources that can be obtained on each turn. By adding new birds to the current combination, the player also becomes more efficient in obtaining resources, so resources will buy you more birds, and birds will buy you even more resources.</description>
+    </item>
+    
     <item>
       <title>💡 Upgrading a Java Project After 20 Years</title>
       <link>https://mmozgovoy.dev/posts/upgrading-java-project/</link>
