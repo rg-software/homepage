@@ -1,0 +1,34 @@
+---
+title: "🎤 Lorenzo vs Michelangelo"
+date: 2023-04-01T10:10:20+09:00
+draft: false
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+
+It's interesting to watch both the development of modern AI instruments like ChatGPT or Midjourney and human reaction to this process. Most commenters tend to discuss wide implications for our economy, society, job market, etc. I think many of these talks are highly speculative, but it is completely normal to try forecasting the future, even when the grounds for such predictions are shaky.
+
+It's fun to read such opinion pieces and imagine ourselves being somehow involved in certain tectonic processes (whether they are going to happen any time soon or not). Yet, the real question for each of us is how we personally would feel living in this projected future. Not all large-scale changes are equally visible on the individual level. Say, if alcohol consumption is going up, it might be a problem for a society, but it doesn't necessarily makes us feel personally compelled to start drinking. On the other hand, rising unemployment might also mean no job for any of us.
+
+Here I am going to focus on my own little reality. Personally I don't believe that AI will revolutionize what I primarily do &mdash; developing software, doing research, and teaching computer science. However, there is nothing to discuss in this case, as the future is going to be just like the present, maybe a little better or worse.
+
+Thus, let's imagine that we have a super-strong AI that is able to write code, draw pictures, translate texts, create 3D models, etc. on the near-professional level. How would living in such a world be different _for me_? (Let's also presume that the rest of the world is somehow running, and I don't need a shotgun to get bread for my lunch). At least now I tend to believe that the changes in this case are going to be positive and not as substantial as one might expect.
+
+How would I feel about working with an AI system that works faster, better, and cheaper than me? Let's try to imagine how https://en.wikipedia.org/wiki/Lorenzo_de%27_Medici[Lorenzo Medici] felt being surrounded by the likes of Michelangelo, Leonardo, and Botticelli. For our purposes it is enough to recall that he _worked actively_ to form such a circle, and his patronage meant considerable financial difficulties for him. Lorenzo apparently enjoyed making art himself, even if his talent was not a match for the great artists around him. So, why would I treat my situation differently? If I want to achieve something, I can do it myself or delegate the work to someone else. If I can delegate more work cheaply and reliably, I can achieve more &mdash; it is that simple. Furthermore, I don't think that having a high-quality worker at your disposal would kill the enjoyment of doing something yourself.
+
+The crucial point for me lies in the interplay of "ends" and "means". An AI system firmly belongs to "means", giving me a tool to make a thing I want to make. However, it won't remove any "ends": why would I stop _wanting_ to make something? 
+
+Here I have to step back and admit that it's much more fun to be Lorenzo, who keeps busy a bunch of Leonardos and Michelangelos, rather than to be Michelangelo, who turned out to be not so good as a hired employee anymore. This scenario is very worthy of discussion, but I feel it is quite an offtopic here, where _my_ experience is in the focus. Thus, I will only mention in passing that in my view the "average Joe's" problems would be money, self-esteem, and excessive free time. In a world, where AI can do work for us, money (resources) should not be an issue. Two other problems also seem solvable: humankind has a long history of class societies, where large groups of people had nothing else to do apart from finding the ways to feel great and important, and entertain themselves.
+
+Returning to the previous point of "ends" and "means", I'd propose that the value I bring to the world is not underpinned by my technical ability to do this or that: I am good, but I am not that good to sell my skills for large money. I'd propose that my value is in my own pet collection of ideas I work to see implemented. Other people have other ideas, which makes everyone unique and valuable (unless the ideas are destructive, of course). Looking from this perspective, it does not matter what tools are used to bring my ideas to life.
+
+As a university teacher, I usually hear that either AI will be able to teach better than me or that the system of essays and exams is obsolete because AI can score better than an average student.
+
+I am okay with someone (or _something_) teaching better than me. There are any many lecturers on Youtube who teach better than me, and there are countless books, manuals, blogs, and tutorials to learn from. In other words, there is no shortage of information around. My goal is to process this information, take the bits and pieces that _I_ consider important and present them in a form _I_ consider appropriate. This makes teaching (even lectures) a kind of a social activity where the students come to listen to my _opinion piece_. Obviously, many students don't take it that seriously: al they want is to go through the system with as little hassle as possible and receive their degrees. I am not sure how their situation is going to change, but apparently current employers tend to believe that people who managed to go through the educational system do possess some valuable qualities.
+
+I am also not very much concerned with "AI passing tests". On an unrelated note, I doubt that such tests are good benchmarks for the "true intelligence" of AI. Their goal is to provide a score that can serve as a basis for _extrapolation_ of human expertise. When a 7-year old child is asked to read a paragraph of text aloud, it is presumed that fluent reading requires a wide range of well-developed cognitive abilities. A text-to-speech program can also read aloud fluently, but it's hard to extrapolate anything from this achievement. Back to the tests: it is true that I will probably have hard time figuring out whether a particular piece of code or an essay is written by a student or by a chatbot. I am quite persistent in catching cheaters, but at the end of the day it's the case of _"I deceived a train conductor today: I bought a ticked, but didn't ride"_. Yes, you are free to cheat on us, but ultimately who do you deceive? The point of an exercise is to train one's skills; if you don't want to train them, I won't insist.
+
+I guess there are many other facets of this topic worthy of further discussion, but let's leave them to some other day.
