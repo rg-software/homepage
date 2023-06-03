@@ -92,6 +92,10 @@ link:mozgovoy05ir.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Semantical Analyzer a
 
 == Conference Papers
 
+// link:tm23a.pdf[icon:file-pdf-o[]] Y.&nbsp;Tu, M.&nbsp;Mozgovoy. Interactive Horror Gaming: Integrating Facial Expression Recognition to Enhance Player Engagement and Immersion. _Proceedings of the 14th International Congress on Advanced Applied Informatics_, Koriyama, Japan, 2023.
+
+// link:mp23a.pdf[icon:file-pdf-o[]] M.&nbsp;Purgina, M.&nbsp;Mozgovoy. Designing Interactive Visualizations for Teaching Concurrent Programming. _Proceedings of the 14th International Congress on Advanced Applied Informatics_, Koriyama, Japan, 2023.
+
 link:mp22.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, M.&nbsp;Purgina. Designing Programming Exercises from Board Games. _Proceedings of Game-On'2022 Conference_, Lisbon, Portugal, 2022, pp.&nbsp;89-92.
 
 link:nbm21b.pdf[icon:file-pdf-o[]] A.&nbsp;Nicholas, J.&nbsp;Blake, M.&nbsp;Mozgovoy. EFL Learners and English Email Writing: Developing a
