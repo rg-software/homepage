@@ -1,0 +1,88 @@
+---
+title: "🎤On Unity Debacle"
+date: 2023-09-19T15:10:20+09:00
+draft: false
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+
+I prefer writing about tech stuff rather than comment ongoing news, but thinking about tech takes time and spare brain power, and I am short on both these months. On the other hand, my blog break is becoming uncomfortably long, and I thought I'd jump at the chance to pen this quick piece just for fun, or maybe as a way to evaluate my talents at predicting the future. Let's see whether my judgement holds up in a few years time.
+
+
+== Quick Intro
+
+Unity is a widely popular game engine. Around a week ago they have introduced new, radically different pricing policies. They represent not only the departure from their own previous rules, but also an entirely new approach to pricing for the whole industry. I believe it is not likely they will be able to get away with it in the long run, and it might be the beginning of Unity's demise. This news is a hot topic among game developers, but have little mainstream coverage so far.
+
+== What is a Game Engine
+
+A typical computer game is made up of very diverse components responsible for the UI, physics, animation, 3D rendering, sound, networking and so on. One can write everything from scratch, which is not really feasible nowadays: it is just too much work. In the good old days it was possible to accomplish a certain technical feat and build the whole game around it. I don't have good examples at hand, but maybe https://www.chroniclogic.com/pontifex.htm[Pontifex] is relevant. There are many "bridge building" games now, but in early 2000s you couldn't just try out making a bridge building game without developing the whole realtime physics engine first. Apparently, Pontifex is made possible by the engine created specifically for Pontifex.
+
+Writing stuff from scratch is especially challenging in games because the of tight memory and performance constraints. There are people whose _whole careers_ are devoted to fast algorithms of matrix multiplication or solving differential equations. Doing it in a straightforward manner is easy, making it production-ready is a completely different story.
+
+It is certainly possible to rely on third-party libraries, especially in our age of open source. However, many games consist of roughly the same subsystems connected in roughly the same manner, so it makes perfect sense to unite a bunch of libraries under the name of "game engine" and make the developer's life easier.
+
+Early engines like https://www.libsdl.org[SDL] provided convenient uniform wrappers for typical functionality needed in a typical game. I enjoyed working with SDL, because it really reduced my cognitive load. Needed to draw a bitmap on the screen? Initialize graphics system, load a bitmap, draw a bitmap, done. Need to play a sound? Initialize sound system, load a sound file, play sound, done. It is simple, straightforward and well organized.
+
+Modern engines take this idea to the next level by providing the whole environments for designing game worlds. Say, in Unity you can edit properties of a ball to make it metallic and bouncy, and the ball will look correctly when lighted, and will fall down and bounce if placed in mid-air. Each advanced engine provides a ton of its own unique capabilities, and also takes care of platform differences. A good engine would let you build the same project for a selection of desktop and mobile platforms, which is really not something you can do on your own.
+
+To make a long story short, the majority of games rely on some kind of engine. Exceptions can be found at the ends of the market: some old established studios have their own engines that evolved gradually over years; hobby developers have fun by figuring out how things work and don't need advanced capabilities for their projects.
+
+https://en.wikipedia.org/wiki/List_of_game_engines[Wikipedia] suggests there are numerous options for an engine, but this is not really so. Most engines are either outdated / poorly supported or target very specific scenarios such as "2D role-playing games for desktops". Any studio wanting to make modern games (which at least means showing what's good in having a good video card), and especially interested in both desktop and mobile platforms, has little choice. There is https://www.unrealengine.com/[Unreal], there is https://unity.com/[Unity]. Other engines _might_ be good as well, but it's going to be a risky bet. You'll never know whether "any other engine" is hardware-efficient enough or how fast it would implement a random requirement from Apple due next month.
+
+== The Case of Unity
+
+Historical split between "the big two" engines is very clear. Unreal positioned itself as a pro instrument for pro developers. It uses C++, and is shipped with full source code, so a studio can adjust it for its needs. Some really do it, so it might be said that there are numerous games with customized Unreal engines under the hood. Unity started as a beginner-friendly tool where you can go quite far without writing a single line of code. I'd say it is even _too_ beginner-friendly for my taste, and ditches some important principles of good architecture for the sake of simplicity. For example, it encourages the use of public variables in classes, and you have to make certain efforts all the time to keep the code clean. Likewise, it sees no trouble in media files randomly scattered across project locations. Unity can find your `png` file by its name regardless of its location, so many people indeed don't bother organizing their folders. There are "special" folders with "special" behavior and other counterproductive ideas of this sort. And yet Unity creators managed to gradually improve their engine and implement enough advanced capabilities to make us treat those "dumb" sides as mere annoyances. The company supported independent creators, who can sell their work at https://assetstore.unity.com[Unity asset store], implemented advanced graphical pipelines and added C# to {cpp} translations to achieve top code performance.
+
+Thus, frankly speaking, unless you aim for wow-top graphics, there is no need to look any further, especially on a mobile platform. For these reasons, Unity is used also by large studios, and I guess by nearly all professional mobile developers. According to https://steamdb.info/tech/[SteamDB], the number of Unity games on Steam is almost 4 times bigger than the the number of Unreal games, while the rest of the engines are much less popular. (Oddly enough, the #3 is https://gamemaker.io/[GameMaker], which is the epitome of "2D hobby development" for me.)
+
+In a sense it means that Unity has no real competitors in its niche of "default engine of choice". I think its position is somewhat similar to Git: if you want to compete with Git directly, you'll eventually end up with a system having roughly the same features, so why bother.
+
+A major attraction of Unity was its pricing policy. Unless you earn enough money, you can use it for free. After that you'll have to buy a relatively affordable yearly subscription (especially if you earn enough money...) You can also buy subscription to replace the default Unity loading screen with your own, and that's it. In contrast, Unreal lives on royalties: if you earn enough money, there is a 5% royalty on earnings above 1 mln USD. Perhaps I should note how unusual this system is. You don't really expect to pay royalties for Visual Studio or MS Word, but apparently some products can get away with it. (There are also some less popular engines that take the same approach.)
+
+== The Big News
+
+A week ago or so an announcement from Unity caused quite a stir. In a nutshell, they want to 1) take a little fixed price per game install above some user base and earnings threshold; 2) remove the middle subscription tier and leave only the free basic and quite expensive pro; 3) apply new rules _retroactively_ to all existing games out there. According to their logic, a small or hobby developer would not even reach those thresholds (1 mln installs and 1 mln USD earned to date), and those who reach, won't be affected much, because a price like $0.15 per new install for a game that costs at least several dollars isn't overly tough. In reality, the system is a bit more complex than I describe here, and there are "clarifications" and "exemptions" of various sorts, but the general picture is quite accurate.
+
+== The Uproar
+
+Here I will be deliberately short, since covering the current news isn't my goal. Suffice to say that many developers are vocal on Unity forums and Reddit, and their reaction is well covered in https://arstechnica.com/gaming/2023/09/wait-is-unity-allowed-to-just-change-its-fee-structure-like-that/[tech news] and some https://www.forbes.com/sites/paultassi/2023/09/13/the-entire-gaming-industry-unites-against-unitys-baffling-pricing-change[general media]. There are many points of criticism, but the most obvious are:
+
+- dealbreaking changes for free-to-play and ad-supported games, having large install base and low per-user income;
+- impossibility to track installs with any accuracy;
+- unpredictable payments for reinstalls and unauthorized (pirate) installs;
+- retroactive changes to the rules.
+
+It's hard to say whether these voices are representative. This is one of numerous cases when we hear the "vocal minority" and are trying to extrapolate its collective opinion on the rest. In addition, let's note that the majority of active posters are hobby developers with little stake in the question (apart from reasonable emotional reaction.) Thus, it is quite difficult to assess the impact of this "wave of rage". At least, it seems that Unity management is more or less nonchalant, and their recent https://kotaku.com/unity-runtime-fee-news-twitter-developers-godot-unreal-1850848538["apology" ] does not sound like a full course reversal.
+
+== My Predictions
+
+This part should be fun, but I guess it's going to be rather boring and devoid of surprises. However, life is full of surprises, so I am wondering how boring predictions hold up :)
+
+I am writing this piece in part because I have a stake in mobile game development myself, and in any case the destiny of #1 instrument in game development would have large implications for our field.
+
+The most baffling thing for me is the sheer audacity of this decision. I am wondering whether they expected the reaction that followed. If not, what kind of management is that? If yes, do they believe that the voices of their typical users (_non-paying users_, let's remember that) are simply not important?
+
+In any case it means either 1) unbelievable incompetence of people in charge; 2) my inability to assess the situation correctly (after all, these directors are professionals, and I am merely an amateur); 3) their desperation to do something for the free-falling company.
+
+Every option looks bad. Unity is not profitable due to aggressive but unsuccessful expansion strategy after the IPO in 2020, so the company clearly needs money, and had they better strategy, they would have followed it.
+
+I believe the current plan has too many holes, and it is completely unacceptable for some sectors of the industry. The most obvious action would be to "fix it up" somehow. They will probably introduce a similar income-sharing scheme (based on self-reported installs or revenue) just less awful.
+
+Tracking installs and paying merely on the basis of install count is simply not an option, so I think they will fix it unless they want to bankrupt numerous small mobile companies _en masse_. They might improve their current fee waiver plans, but I doubt it's going to work.
+
+Personally I hope they will walk away from any "install count based" metric, switching to revenue sharing instead. I wouldn't bet on it, however. After all, they came up with this insane plan, so they apparently believe in it.
+
+The idea to apply _anything_ retroactively is simply appalling. They believe the fees can be reconsidered under the current and even the previous "Terms and conditions" document, but being within their rights won't help: I doubt anyone would happily work with the company that might suddenly decide to start billing you 10 years after the release. I guess they'll remove this clause and apply whatever they want to apply to newly released games only.
+
+Summing up, I don't believe in quick management resignation (that's what many speakers are call for); I don't think they'll keep "install tracking": probably, they will turn to revenue sharing or self-reported installs instead; I can't imagine keeping the current fees, so they will do something specifically for free-to-play developers (revenue sharing works, but it can be something more subtle.)
+
+Maybe it's an overstatement that everyone is unhappy, but clearly nobody is happy. The current developers are stuck with Unity like fish in a tank: only a simple game can be easily ported to a different game engine. Hobbyists might do it, but they are not the primary target anyway. Even people who develop PC games to be sold at relatively high prices, and who are barely affected with these changes, should not like the "retroactive" part.
+
+It all means that Unity decided to squeeze whatever money their current users have and be ready for a radical decrease of newcomers. This can't be a sustainable business, really. I said Unity has no perfect replacement, but _partial_ replacements are certainly possible, and most surviving companies would probably finish their current projects and try to migrate as quickly as possible.
+
+Thus, my bet for the most likely outcome is this. In the short run, Unity will manage to increase its revenue by their new pricing scheme. In the longer run (5 years or so) the number of new Unity games will diminish radically, not even as a result of worse conditions, but as a response to Unity's dangerous business practice. It will turn into a nostalgic legacy technology just like Borland Delphi. A much less likely outcome is the complete resignation of the current management so that another team gets a chance to reset everything and introduce new fees in a more civilized manner. Maybe it will happen eventually, when it is simply too late.
+
+This is a very important time moment not only for the game developers, but also for the educators, students, and hobbyists who are only at the point of choosing the right technology for them. A month ago Unity looked like a very reasonable option. Not anymore.
