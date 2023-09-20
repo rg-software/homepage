@@ -7,7 +7,7 @@ title: "My CV"
 |===
 |image:photo-tnh.jpg[]
 |*Maxim Mozgovoy* +
-Associate professor at https://www.u-aizu.ac.jp/en/[The University of Aizu] +
+Senior associate professor at https://www.u-aizu.ac.jp/en/[The University of Aizu] +
 Technical director at https://helium9games.com/[Helium9 Games] +
 link:mailto:mozgovoy@u-aizu.ac.jp[mozgovoy@u-aizu.ac.jp]
 |===
