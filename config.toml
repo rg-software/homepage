@@ -82,7 +82,7 @@ enableEmoji = true
 
 [[params.social]]
   name = "Google Scholar"
-  icon = "ai ai-google-scholar"
+  icon = "ai ai-google-scholar-square ai-2x"
   weight = 23
   url = "https://scholar.google.com/citations?user=XlMbkRsAAAAJ/"
 
@@ -94,13 +94,13 @@ enableEmoji = true
 
 [[params.social]]
   name = "Habr"
-  icon = "fa fa-comments-o fa-2x"
+  icon = "fa fa-square-h fa-2x"
   weight = 27
   url = "https://habr.com/users/rg_software/"
 
 [[params.social]]
   name = "RSS"
-  icon = "fa fa-rss"
+  icon = "fa fa-rss fa-2x"
   weight = 28
   url = "posts/index.xml"
   rel = "alternate"
