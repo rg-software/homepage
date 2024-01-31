@@ -1,11 +1,13 @@
 baseURL = 'https://mmozgovoy.dev' # https://rg-software.github.io/homepage/'
-languageCode = 'en'
-defaultContentLanguage = 'en'
+languageCode = "en"
+defaultContentLanguage = "en"
 title = 'The Pro Amateur'
-theme = 'hugo-coder'
-enableEmoji = true
-rssLimit = 40
+theme = "hugo-coder"
 paginate = 100
+rssLimit = 40
+enableEmoji = true
+# Enable Disqus comments
+# disqusShortname = "yourdiscussshortname"
 
 # [params.utterances]
 #  repo = "rg-software/homepage"
@@ -13,17 +15,34 @@ paginate = 100
 #  # label = "" # https://utteranc.es/#heading-issue-label # optional
 #  theme = "github-light"
 
+# [markup.highlight]
+# noClasses = false
+
 [params]
   author = "Maxim Mozgovoy"
+  # license = '<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0</a>'
   info = ["Researcher and software developer"]
-  customCSS = ["css/admonitions.css", "css/academicons.min.css"]
+  customCSS = ["css/academicons.min.css", "css/admonitions.css"]
   description = "The Home of Maxim Mozgovoy"
   keywords = "blog,developer,personal,homepage"
   avatarURL = "misc/dizzy-dtr.gif"
   favicon_32 = "misc/favicon.png"
-  # footerContent = "Hi, I am footer"
-  hideColorSchemeToggle = true # NOTE: doesn't work; why?
-  
+  rtl = false
+  colorScheme = "auto"
+
+  #gravatar = "john.doe@example.com"
+  #dateFormat = "January 2, 2006"
+  #since = 2019
+  # Git Commit in Footer, uncomment the line below to enable it
+  #commit = "https://github.com/luizdepra/hugo-coder/tree/"
+  # Hide the toggle button, along with the associated vertical divider
+  hideColorSchemeToggle = false
+  # Series see also post count
+  maxSeeAlsoItems = 5
+
+  customJS = []
+  customRemoteJS = []
+
 
 [[params.social]]
   name = "Mail"
@@ -99,6 +118,7 @@ paginate = 100
   weight = 40
   url = "https://creativecommons.org/licenses/by/4.0/"
 
+
 [[menu.main]]
   name = "Blog"
   weight = 10
@@ -134,13 +154,14 @@ paginate = 100
   weight = 50
   url = "about/"
 
-#[markup]
-#  [markup.asciidocExt]
-#    extensions = ['asciidoctor-diagram']
-#    workingFolderCurrent = true
+[markup]
+  [markup.highlight]
+    style = "pastie"
+
 
 [params.goatCounter]
   code = "proamateur" # Account page: https://[code].goatcounter.com
+
 
 [security]
   enableInlineShortcodes = false
@@ -154,3 +175,28 @@ paginate = 100
   [security.http]
     methods = ['(?i)GET|POST']
     urls = ['.*']
+
+
+# If you want to implement a Content-Security-Policy, add this section
+# [params.csp]
+# childsrc = ["'self'"]
+# fontsrc = ["'self'", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net/"]
+# formaction = ["'self'"]
+# framesrc = ["'self'", "https://www.youtube.com"]
+# imgsrc = ["'self'"]
+# objectsrc = ["'none'"]
+# stylesrc = [
+#   "'self'",
+#   "'unsafe-inline'",
+#   "https://fonts.googleapis.com/",
+#   "https://cdn.jsdelivr.net/",
+# ]
+# scriptsrc = [
+#   "'self'",
+#   "'unsafe-inline'",
+#   "https://www.google-analytics.com",
+#   "https://cdn.jsdelivr.net/",
+# ]
+# prefetchsrc = ["'self'"]
+# # connect-src directive – defines valid targets for to XMLHttpRequest (AJAX), WebSockets or EventSource
+# connectsrc = ["'self'", "https://www.google-analytics.com"]

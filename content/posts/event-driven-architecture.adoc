@@ -1,0 +1,178 @@
+---
+title: "💡 Event-Driven Architecture"
+date: 2024-01-31T10:10:20+09:00
+draft: false
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+
+== Objects as Building Blocks
+
+Not sure whether we are already past the era of holywars like "objects vs functions". The typical response to a holywarish statement of this kind today seems to be "it depends on the task", which is both correct and boringly trivial, lacking much insight. Programming languages do converge, adopting interesting tools from any source, and we can't say anymore that classes is a signature of an OOP language while lambdas are found in functional languages only. This way, the choice of a paradigm is often reduced to a choice of tools from the same toolbox, and do not require painful decisions.
+
+I believe that OOP is still the most adequate tool from this toolbox for thinking about the system "at large". Admittedly, I have much less experience with other approaches, but thinking about the general architecture of system as a collection of interconnected "boxed" subsystems feels natural and corresponds to the daily experience.
+
+Narrow definitions of OOP may include quite specific requirements, for example, in relation to inheritance. However, the general idea is to facilitate the creation of versatile building blocks, exhibiting well defined behaviors. As a quick note, I'd add that the focus on behavior rather than data seems to be an important paradigm shift in thinking. Traditional views treated these parts as equals (recall the title of Wirth's 1976 book "Algorithms + Data Structures = Programs"). Now data is mentioned when it has a merit or a function on its own (like in "data science" or "database"), but in OOP a data field is merely an implementation detail: it is important how the object works, not how it is designed internally.
+
+Objects, classes, and even class hierarchies work fine at the level of individual components. Standard libraries of C# or Java consist of classes, and incorporate a great diversity of tools. Things like algorithms are somewhat shoehorned into this "OOP worldview", but it feels like a minor inconvenience. The approach shines when the task is to design a collection of isolated (or semi-isolated, belonging to the same hierarchy) components to be used "as is" in the final system. It is more challenging to put these components together in the right way.
+
+== From Methods to Events
+
+Clearly, making bricks is not the same kind of challenge as assembling buildings. One necessary goal here is to manage growing complexity, which I already link:/posts/matryoshka-architecture[discussed] to some extent. The growing number of components causes a quadratic growth of the number of possible connections between them. Thus, layered architecture is beneficial even when the component count does not seem to be high.  
+
+The goal of my today's note is to discuss the benefits and limitations of another instrument in the anti-complexity toolbox: _events_. Layered architecture is easy to connect with basic OOP topics: an object is made up of individual elements, and these elements can be objects as well, forming layers or dependency trees. Events attack the different source of complexity: the connections between the objects rather than the objects themselves.
+
+Such kind of tools belong to patterns of software design rather than core OOP elements or inbuilt programming language features. Yet conceptually object-object connections is one of the fundamental sources of complexity, and deserves at least the same level of attention.
+
+Basic OOP guides often emphasize the principles of good object design. This normally means creating "reasonable" objects having reasonable range of responsibilities. In turn, it means the objects are sufficiently compact (rather than all-encompassing "god objects"), and their interfaces are well designed. The most important part of the object interface is its set of public methods, callable from the outside.
+
+While "calling methods" is not the same as "sending messages" (the term used in Smalltalk), method invocation can still be conceptually treated as sending a parameterized message and receiving a reply. Thus,
+
+[source,python]
+----
+r = myShape.area()
+----
+
+in OO-speak means "send the message `area` to the object `myShape`, and store the obtained reply in ``r``". The trouble with this system becomes evident as the amount of correspondents of an object grows. If `sender` sends messages to `receiver` explicitly, then `sender` is coupled with `receiver`. Coupling is generally bad: `receiver` cannot be removed or reorganized without making sure `sender` still works as expected. In addition, there are cases when the list of correspondents grows with code updates, meaning the definition of `sender` must be revised every time it happens.
+
+This situation is especially common in GUI programming. When the user selects another interface language in the dropdown list, all the text-containing elements in the current view have to be updated. A naive approach would be to update them explicitly:
+
+[source,python]
+----
+appWindowHeader.update()
+langListCaption.update()
+...
+----
+
+Obviously, this is incredibly brittle, since such lists will have to be revised every time we change anything in the GUI. That's why we have _events_.
+
+== Breaking the Dependencies
+
+The basic idea for breaking these kind of dependencies is simple. An object that triggers updates elsewhere has to keep a list of "subscribers", where any object can register itself. Update trigger goes through this list and sends a message to each subscriber (i.e., calls its certain method). This method removes explicit calls to specific objects:
+
+[source,python]
+----
+UPDATE = 1 # event code
+
+class LanguageDropDown:
+	def __init__(self):
+		self.subscribers = []
+	
+	def register(self, event_type, receiver):
+		self.subscribers.append((event_type, receiver))
+
+	def notify(self, event_type):
+		for r in (r for (e, r) in self.subscribers if e == event_type):
+			r()
+
+ldd = LanguageDropDown()
+
+# call on appWindowHeader creation
+ldd.register(UPDATE, appWindowHeader.update)
+
+# call on langListCaption creation
+ldd.register(UPDATE, langListCaption.update)
+
+...
+# notify subscribers of UPDATE when ldd needs to be updated
+ldd.notify(UPDATE)
+----
+
+This basic technique is, of course, well known, but personally I had to deal with it in this form quite recently. I believe most developers face events primarily when working on GUI apps, and in this case it is the job of the GUI framework to provide a wrapper of a higher level.
+
+Framework docs typically mention "mechanisms" like signals and slots or event tables, and "patterns" like model-view-controller or model-view-viewmodel. In my understanding, it is not something the _developers_ are advised to do. It is something the framework _itself_ implements, and developers are better to use properly rather than fight with. Say, widgets are "views", and attempts to store actual model data there is a bad idea. "Controllers" can be implemented in (hopefully short) functions of widget subclasses.
+
+The plain subscribe/notify pattern is still too low-level for a typical GUI framework where every component belong to the same class hierarchy and reacts to the same events. In addition, there are system events it _has_ to react to. Basically, widgets come with certain predefined functionality (including event handling), and the developer has to extend/modify rather than implement it. For example, each widget is normally subscribed to the "repaint yourself" event, and the only question is what code is going to be executed in this situation. Similarly, a button may provide a method that is called when the button is pressed, and custom functionality is provided by overriding this method in a subclass.
+
+Thus, while technically we are dealing with the same subscribe/notify technique, it is often already activated. If one component needs to react to the events of another component, it has to be subscribed manually, just like described above. Subscription is usually made right after object construction. This approach is quite robust: make an object, then immediately subscribe it to all the events it might be interested it.
+
+== Issues and Limitations
+
+First, let's note that the dependences are not completely broken this way. The objects still need to know who generates events they subscribe to. If something has to be initiated upon "Go" button click, every interested object has to call the button's `register()` function or its analog.
+
+It might sound like an obvious and perfectly reasonable requirement, and yet it is not always clear how to organize this access. In a typical GUI app, the widgets sitting on the same form are represented as member variables of the same parent form class. Even if they belong to different groups or embedded into different tabs/pages or whatever hierarchal system, they are siblings for the parent form. Therefore, any widget is directly visible to any other widget on the form in this setup.
+
+The parent form class _will_ get long and messy, but it is often autogenerated by a visual designer tool, so the mess is well hidden and doesn't bother anyone. If, however, one needs to repaint form A as a result of a form B's button press event, the visibility/dependency issue reappears: form A must access the button on form B to subscribe to its events. In this scenario a visual designer tool won't help, it will be the programmer's job to ensure component visibility and initiate subscription.
+
+One possible way to reduce component-component links is to compose a list of high-level global events. Instead of reacting to a "button press", we can react to events like "playback stopped" or "advanced to the next frame". In this case, a global dispatcher object would serve as a single point of contact for communicating objects. Any interested object would subscribe to the dispatcher, and each message sender would send its events to the dispatcher, in turn broadcasting it to the subscribed receivers.
+
+In any case, I think this issue is relatively minor, and not hard to deal with. It is far more challenging to make the code robust to the _order_ of incoming events. Calling event response methods directly isn't viable in an application of any realistic size, but at least it is clear what is going on here:
+
+[source,python]
+----
+appWindowHeader.update() # called first
+langListCaption.update() # called afterwards
+...
+----
+
+In an event-based architecture, a button press fires an event that is delivered to subscribers in an _unspecified_ order. In this situation, `langListCaption.update()` doesn't know whether `appWindowHeader` is going to react to the same event, and if yes, whether it is going to happen before or afterwards.
+
+It is best to design the code in a way that the order doesn't matter. In architectural patterns like MVC the "model" is supposed to be updated in response to the commands initiated from view-bound controllers. Updated model, in turn, notifies anyone interested about its state change. Thus, "views" do not notify each other directly. For example, a change of the current city in a a drop-down list won't directly enable or disable available package delivery options in the second drop-down list. Instead, the first dropdown list would notify the model about its new state, the model would be updated accordingly, with all the interested parties (including both drop-down lists) notified.
+
+Therefore, in theory, event-driven architecture works best if it is possible to represent interaction with the "model" as a series of atomic operations, preserving the consistency of the model. In this case, it does not really matter in which order the events are triggered: the end result should be the same. The challenge is to pay reasonable price for such a design. In the "city/delivery" example any model change triggers the "update" event, delivered to all the visual elements that might need to be updated. However, some updates (like drop-down list repopulation) are computationally costly, and only a fraction of model changes might affect a particular widget. Should we repopulate and repaint the drop-down list with supported interface languages every time the user changes the current delivery option, and it not, how to avoid it?
+
+I don't think there are general recommendations for this kind of optimization, but some tricks may help. A certain widget might cache its previous value and avoid repainting if the cache is still valid after model update. A single "update" event might be replaced with a system of local updates, such as "update_delivery_options", "update_city", etc. In the latter case it becomes harder to figure out which events to subscribe to, avoid intersecting events (when a certain command triggers two or more events), and multiple notifications of the same receiver.
+
+Careless design might easily produce cascading events (event A triggers event B, which triggers event C) or even recursion (A triggers B, which ultimately triggers C). I used the word "careless", but in reality it is more like "not careful enough", since it is unfortunately quite easy to arrive in this situation. It is of course the developer's job to be careful, meticulous, and so on, but it is still irritating to realize that all these issues are a product of a certain approach devised to _make our lives easier_. 
+
+It is also not hard to arrive in a situation where the order of events matters. Imagine you are developing a character-oriented 3D animation editor. The user can move between animation frames and change the character's pose. So here we have a slider for setting the current frame, and a scene window.
+
+When the user changes the character's pose, the `Character` class triggers the `update` event, which is handled by the scene window to understand when to update its content:
+
+{{<mermaid>}}
+graph LR;
+    A(user actions) --> |modify command| B(Character update logic)
+	B --> |update event| C(scene update)
+{{</mermaid>}}
+
+
+[NOTE]
+====
+It's worth mentioning here that in simple cases such as keyboard/mouse events all the necessary event-related data is passed along with the event object. In other words, the keypress event receiver can figure out from the event object which key is being pressed. In general I guess the event would at best contain the link to the sender, and it will be the receiver's job to request any necessary information. I believe it is okay to read data from the model in the event handling code. Modifying the model should require more formalities. As mentioned above, ideally each modification should be represented with a certain logically sound atomic operation, which will possibly trigger certain events.
+====
+
+Now imagine we add the capability to add new characters to the current scene. Now we have several `Character` objects in the same window. From the developer's perspective not much has changed: the user still edits one object at time, so any modification of either character triggers the `update` event, which is then delivered to the scene window:
+
+{{<mermaid>}}
+graph LR;
+    A1(user actions) --> |modify command| C1(Character A update logic)
+	C1 --> |update event| S(scene update)
+    A2(user actions) --> |modify command| C2(Character B update logic)
+	C2 --> |update event| S(scene update)
+{{</mermaid>}}
+
+Next, consider what happens then the user checks the animation with the slider. Changing the current animation frame updates character poses. For each character it means processing the `modify` command with new pose data. Conceptually, moving the slider is the same as changing the poses of both characters with a mouse done simultaneously:
+
+{{<mermaid>}}
+graph LR;
+	A(slider) --> |modify command| C1(Character A update logic)
+	C1 --> |update event| S(scene update)
+    A --> |modify command| C2(Character B update logic)
+	C2 --> |update event| S(scene update)
+{{</mermaid>}}
+
+It is understandable that changing the pose of either character might trigger full scene repaint, but in this case we repaint the scene twice to change the current frame! Imagine doing this kind of procedure for a scene with a few dozens of characters.
+
+I see no issues with the software design process here, which is irritating. The approach is sound, and the separation into components is reasonable. And yet the end result is seriously flawed.
+
+There are ways to fix the current design, but none of them is simple and straightforward, as far as I can tell. For example, the `modify` command can be extended with the counter for the objects to be modified. User-initiated modifications will have the counter set to one, while slider-initiated modifications will be initialized with the total number of characters on the scene (two in our case). This counter will be passed as is to the `update` event. Next, upon receiving `update` initialized with `N`, the scene update handler will actually refresh the scene only after receiving the subsequent `N-1` messages. Another option in the same vein is to rework the system so that the "model" part incorporates all onscreen objects, removing the capability of an individual character to fire events.
+
+An obvious alternative would be to let the slider generate `update` messages directly:
+
+{{<mermaid>}}
+graph LR;
+	A(slider) --> |modify command| C1(Character A update logic)
+	A --> |update event| S(scene update)
+    A --> |modify command| C2(Character B update logic)
+{{</mermaid>}}
+
+I would avoid generating events from controllers like the slider, but the principal problem here is the reliance on the order of message delivery. (One may argue the trouble with order is caused by the event-generating controller, but doubt it is possible to pinpoint the source so easily in the general case.) If both characters receive `update` before the scene, the system will work perfectly. Any other order, and the scene won't be repainted correctly.
+
+Note that direct function calls with all their troubles are free from this particular issue. I guess sometimes the situation with unpredictable event handling order might become desperate. In Unity, it is possible to specify the order in which classes handle their messages. Thus, the situation like explained above can be resolved merely by placing character-handling code before the scene-handling code in this list. I'd avoid this option if I see any better choice, but the mere existence of this functionality is telling.
+
+To wrap up today's discussion I'd repeat that the goal of decoupling modules is worthy of pursuit. However, "decoupled" architecture needs to be thoroughly designed: in general case it is not really possible to replace function calls with events and consider the job done. Unfortunately, most code snippets around are devoted to simple cases of GUI building, and are primarily created to demonstrate how to use frameworks like Qt. As I show here, it is unfortunately very easy to get into troubles as soon as you depart from model CRUD-like scenarios.
+
+Communicating objects should see each other or a global "messenger" object. Events have to be carefully designed to avoid overlapping messages and cascade event propagation. The architecture should be insensitive to message delivery order and allow easy incorporation of new event senders and receivers. These goals are achievable, but have to be clearly stated and understood. 
