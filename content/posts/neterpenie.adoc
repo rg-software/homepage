@@ -1,0 +1,39 @@
+---
+title: "🎤 Neterpenie"
+date: 2024-02-16T18:56:20+09:00
+draft: false
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+
+[quote,Олег Кашин]
+Российская Федерация — государство-червь, государство-пидор.
+
+https://en.wikipedia.org/wiki/Yury_Trifonov[Yuri Trifonov's] novel "Neterpenie" ("The Impatient Ones") is not the easiest reading. It is a classic Russian work in a sense that it is full of human misery, and hardly any hope. "Neterpenie" can be translated as "impatience", but with a strong flavor of "not being able to stand something anymore".
+
+The novel is devoted to the activities of "revolutionary socialist" or simply terrorist organization https://en.wikipedia.org/wiki/Narodnaya_Volya[Narodnaya Volya], ultimately resulted in the assassination of https://en.wikipedia.org/wiki/Alexander_II_of_Russia[Alexander II]. This ruler inherited the country from his father https://en.wikipedia.org/wiki/Nicholas_I_of_Russia[Nicolas I], who was an honest and decent man, but his views on the organization of society were unfortunate. Basically, he wanted a to build a well-oiled machine, and the ideas like civil liberties or entrepreneurship were foreign to him.
+
+This politics could have worked well somewhere in Middle Ages, but in the middle of XIX century it meant lagging behind technologically, which Nicolas could tolerate, but the miliary defeat in the https://en.wikipedia.org/wiki/Crimean_War[Crimean War] became the real wake-up call: something has to be done. Nicolas quickly passed away. He witnessed the bitter fruits of his politics, which likely came as shock and affected his health condition.
+
+Alexander was raised in conservative circles, and his own personality was not of a great reformer. Yet he listened to advice, and while his actions had certain back-and-forth character, he ultimately ended the https://en.wikipedia.org/wiki/Emancipation_reform_of_1861[serfdom] and initiated many other important changes. However, political freedoms in his time were still extremely limited, and punishment was often disproportionate.
+
+The suspects of crimes like theft or manslaughter could expect a proper judicial process and a trial by jury. In contrast, any political activity seen by the authorities as illegal could be punished by ssylka, a kind of exile. This could be done by the order of certain high authorities, without any need to through a trial. Basically, a governor could point finger on anyone and order to send that person for living in a specified location for the specified time period. Such punishment could range from mild (a few months in your family village) to very harsh (lifetime in a very remote location of the Empire).
+
+Thus, while in the grand scheme of things Alexander II played a positive role in history, his rule did not make life easier for local political activists. Narodnaya Volya and their preceding organizations consisted of very naive young people. Initially they thought to bring change by educating the uneducated, meaning traveling across villages, speaking to the people, and publishing brochures.
+
+These activities were mostly harmless, and their proclamations did not called for violence. However, it was enough for the authorities to arrest and dispatch their members to various faraway regions as dangerous criminals. Naturally, poisoned air and poisoned soil bear poisoned plants. The organization started to lean more and more towards radicalism. Should we put up with the authorities, harshly suppressing peaceful activities? If they don't listen to reason, let them listen to guns.
+
+As I said, their views were naive. Turning to terrorism, they though that their ultimate goal is to kill the Emperor and this way trigger social change. It's hard to say why they thought so, and why they targeted the ruler who was absolutely not the worst option.
+
+I guess, Trifonov's answer is _neterpenie_: it might be true that killing Alexander is not a solution, but it is simply impossible to tolerate the present situation any longer.
+
+The aftermath of their success was negative. Alexander's son turned out to be a more conservative leader, who reversed some of his father decisions and generally put Russia on hold. His motives were clear: the attempts to transform society killed his parent, so it seems reasonable to him not to pursue this direction. This period of stagnation ended with a series of violent protests and eventual abolition of monarchy in 1917. This way, one may imagine a much better fate for Russia had Alexander stayed alive.
+
+Yet I don't really blame the murderous Narodnaya Volya for being murderous. They were the fruits of poisonous air, who saw violence the only way to be heard. Looking from our times, I sympathize with both parties. The country had a chance to transform. the Emperor wasn't a villain, and didn't deserve to be killed. Young revolutionaries were true patriots, and could do a great service for their land. Both sides lacked certain political shrewd, and did evil deeds not being evil people. They were raised in the atmosphere of reverence to noble values, and promoted noble behavior as they understood it. _Neterpenie_ is a noble value: one should not tolerate being treated as a slave, _unconditionally_, even if the cure is worse than the disease.
+
+_Neterpenie_ is my feeling of the day. It doesn't matter anymore whether the present Russia has a chance to evolve into something semi-decent. Its "leaders", literally all of them, have even no semblance of human decency. They are greedy, cynical, and profess no values whatsoever except sadism. They prove it on a daily basis, and the most recent https://en.wikipedia.org/wiki/Death_of_Alexei_Navalny[outrageous example] of what they do and how they react is merely one event in a long line of events. They https://en.wikipedia.org/wiki/Aleksandra_Skochilenko#Arrest_and_detention[feast] on human blood https://ru.wikipedia.org/wiki/%D0%94%D0%B5%D0%BB%D0%BE_%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D1%8B_%D0%96%D1%83%D1%80%D0%B0%D0%B2%D0%B5%D0%BB%D1%8F[just for fun], and _neterpenie_ must sooner or later reveal itself. Probably, it won't make much good, but leaving evil without retribution is evil, too.
+
+I don't see any clear ways to turn _neterpenie_ into action. We don't have naive and fearless young people anymore, and men of power are harder to reach. Yet the emotion is here, and it won't go away. Even bystanders like me are outraged, and what feel those who actually suffered? It's not the time to be saint, it is not the time to forgive.
