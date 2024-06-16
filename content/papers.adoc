@@ -92,6 +92,11 @@ link:mozgovoy05ir.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Semantical Analyzer a
 
 // TODO: CoG pages
 
+link:msm24.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, C.&nbsp;Suero Montero. Exploring Students Solutions to Concurrent and Parallel Programming Exercises &mdash; Impact of Generative AI. _ACM Conference on International Computing Education Research (ICER) 2024_, Melbourne, Australia, 2024.
+
+link:bmn24.pdf[icon:file-pdf-o[]] J.&nbsp;Blake, M.&nbsp;Mozgovoy, A.&nbsp;Nicholas. Computerized Dynamic Assessment for
+Pragmatic Competence in Second Language Learners' English Email Requests. _14th International Conference on Methodologies and Intelligent Systems for Technology Enhanced Learning_, Salamanca, Spain, 2024.
+
 link:tm23b.pdf[icon:file-pdf-o[]] Y.&nbsp;Tu, M.&nbsp;Mozgovoy. Deep Reinforcement Learning for Real-Time Fear Induction in an SCP-087-Inspired Horror Game. _Proceedings of the 2023 IEEE Conference on Games_, Boston, USA, 2023.
 
 link:tm23a.pdf[icon:file-pdf-o[]] Y.&nbsp;Tu, M.&nbsp;Mozgovoy. Interactive Horror Gaming: Integrating Facial Expression Recognition to Enhance Player Engagement and Immersion. _Proceedings of the 14th International Congress on Advanced Applied Informatics_, Koriyama, Japan, 2023.
