@@ -2,7 +2,20 @@
 title: "Books"
 ---
 
-It's been a while since I had a chance to write something of a book length. I have ideas for future writings, but no firm plans as of today. Maybe I should try some other formats instead? We'll see.
+[%noheader,cols="1,4",grid=none]
+|===
+|https://www.routledge.com/Playful-Python-Projects-Modeling-and-Animation/Maxim/p/book/9781032595849[image:ppp.png[]]
+|M.&nbsp;Mozgovoy
+
+Playful Python Projects: Modeling and Animation
+
+_Chapman & Hall_, 2024, 248&nbsp;p.
+|===
+
+It had been my long-time plan to revise the content of "Entertaining Programming", give it extension and overhaul. This book is the first step on this path. I used the first chapter of "Entertaining Programming" as a starting point, and extended it into a full-size title. In terms of content, it is mostly revisions of well-known computer models and simulations, but careful choice of topics and the use of modern tools provide a lot of added value.
+
+
+'''
 
 [%noheader,cols="1,4",grid=none]
 |===
