@@ -5,13 +5,15 @@ title: "Research publications"
 
 == Edited Volumes
 
-M.&nbsp;Mozgovoy, P.&nbsp;Burelli (Eds). _Applied Sciences: Special Issue on Applications of Artificial Intelligence and Machine Learning in Games_, 2022.
+link:https://www.mdpi.com/journal/applsci/special_issues/974I3K7L30[icon:external-link[]] M.&nbsp;Mozgovoy, P.&nbsp;Burelli (Eds). _Applied Sciences: Special Issue on Applications of Artificial Intelligence and Machine Learning in Games: 2nd Edition_, 2024.
 
-M.&nbsp;Mozgovoy, M.&nbsp;Preuss, R.&nbsp;Bidarra (Eds). _IEEE Transactions on Games: Special Issue on Team AI in Games_, 2021.
+link:https://www.mdpi.com/journal/applsci/special_issues/70FTX2M71F[icon:external-link[]] M.&nbsp;Mozgovoy, P.&nbsp;Burelli (Eds). _Applied Sciences: Special Issue on Applications of Artificial Intelligence and Machine Learning in Games_, 2022.
 
-M.&nbsp;Mozgovoy, C.&nbsp;Suero Montero (Eds). _Applied Sciences: Special Issue on Machine Learning and Natural Language Processing_, 2021.
+link:https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=9652015&punumber=7782673[icon:external-link[]] M.&nbsp;Mozgovoy, M.&nbsp;Preuss, R.&nbsp;Bidarra (Eds). _IEEE Transactions on Games: Special Issue on Team AI in Games_, 2021.
 
-V.&nbsp;Klyuev, M.&nbsp;Mozgovoy (Eds). _Informatica: Special Issue on Advances in Semantic Information Retrieval_, vol.&nbsp;35(4), 2011.
+link:https://www.mdpi.com/journal/applsci/special_issues/Natural_Language_Machine_Processing[icon:external-link[]] M.&nbsp;Mozgovoy, C.&nbsp;Suero Montero (Eds). _Applied Sciences: Special Issue on Machine Learning and Natural Language Processing_, 2021.
+
+link:https://informatica.si/index.php/informatica/issue/view/141[icon:external-link[]] V.&nbsp;Klyuev, M.&nbsp;Mozgovoy (Eds). _Informatica: Special Issue on Advances in Semantic Information Retrieval_, vol.&nbsp;35(4), 2011.
 
 
 == Book Chapters
