@@ -1,0 +1,40 @@
+---
+title: "⚙️ A New Way to Shoot Yourself in the Foot with vcpkg"
+date: 2024-08-08T15:10:20+09:00
+draft: false
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+
+I have a long history of {cpp} programming that far predates any commercial software development I participated in. My feeling is a strange mixture of geniune love and https://en.wikipedia.org/wiki/Stockholm_syndrome[Stockholm syndrome]: started with BASIC, I had C as my first "serious" language. After all, https://en.wikipedia.org/wiki/Real_Programmers_Don%27t_Use_Pascal[real programmers's don't use Pascal], so whatever experiences I had with Pascal, they don't count. After C, going into {cpp} programming was a natural direction, especially at that time (late 90s).
+
+I was more or less following {cpp} evolution till around 2007. It coincided with a long period of no official updates: we had {cpp}98, then _very_ slightly updated {cpp}03, and then {cpp}11 that appeared in late 2011. Then things got accelerated, and I am somewhat lost track of all the numerous changes, some of them quite doubtful. This was happening at the time when my own interests forced me to either use other languages like Python and C#, or to stick to older {cpp}, supported by not always up to date compilers.
+
+Anyway, I am trying to stay current on what's going on in {cpp} world, even if I rarely have a chance to use new features in pracice. However, I don't hesitate to try them out if they offer some noticeable benefit. One recent addition to my toolset is dependency manager `vcpkg`. When integrated with Visual Studio, it offers quite an improvement over my former workflow.
+
+Since {cpp} lack standard means for 3rd-party library management, I normally had to incorporate these sources or binaries directly into my projects. In more recent times, my preference was to keep all such libraries in a single shared location (like global `npm` packages).
+
+Fortunately, `vcpkg` brings modern conveniences to the world of {cpp}. Its recent versions support package management in style of `npm` or `pip`. It's easy to mock {cpp} for being late to the party, but the langauge wasn't really designed with such capabilities in mind, and I guess `vcpkg` relies on a chain of hacks, so common in {cpp}. Theoretically, there are https://en.cppreference.com/w/cpp/language/modules[modules since {cpp}20], but I am yet to see them in the wild. The feature of `vcpkg` I especially like is Visual Studio integration: all libary paths are "automagically" added to the respective environment variables, and there is no need to think where to find this or that `.h` file, or what `.lib` files must be added to the project.
+
+This works fine except when it doesn't. There are minor woes I had to struggle with recently. For example, for some versions https://vcpkg.roundtrip.dev/ports/fakeit[fakeit] could not decide where to put its headers, and I had to update my project to keep it compilable. However, my latest experience that caused some days of debugging, is a boss of another level. Here it is:
+
+image::vcpkg-debug-release.png[]
+
+The value of `Vcpkg Configuration` must match `Configuration`: debug goes with debug, release goes with release.
+
+One, of course, can say there is nothing new here: there is a similar setting called `Runtime Library` (under `C/{cpp}`, `Code Generation`). Mismatching debug/release or static/dynamic libraries here is a common source of headache, especially for cross-project dependencies. One has to make sure the same configuration is applied to all binaries linked to the project, which is not easy to check.
+
+I spent countless hours tracing such mismatches, but at least it was clear what was going on. Misconfigured projects are either cannot be built at all, or spout endless "function already defined" warnings.
+
+The `vcpkg` guy is different: no warnings, no compilation errors. Everything compiles perfectly, and the project crashes in some random place when ran. In my case it was deep inside Boost.Serialization. I feel somewhat intimidated with this library: it relies on all kinds of tricks to achieve a semblance of reflection in {cpp}, and I'd prefer not to touch its sources with a 10-feet pole. Yet I felt compelled to do it to figure out what was going on.
+
+Naturally, my debugging sessions yielded no results. At a moment of desperation I recalled that very similar code used to work in another project of mine (it certainly didn't help that I received the current project from a colleague, so it wasn't me who configured `vcpkg`). I ran my code to make sure it works, then started comparing project settings line by line in the absence of better ideas, and bingo!
+
+In hindsight, I could have guessed earlier. I knew I had my own tool with the same code working, but my original guess was broken serialization compatibility. The project I was debugging had to read some previously serialized data, and I presumed `vcpkg` pulled newer Boost.Serialization that somehow updated serialized archive format, making it impossible to deserialize the existing archives. I am still not sure whether Boost.Serialization produces archives suitable for long-term storage (for example, Java's serialization module _does not_), but in my case it was a false track.
+
+My colleague wasn't paying proper attention to project configuration, but the real culprits are, of course, `vcpkg`, Visual Studio and whatever other {cpp} tools involved. Such severe misconfiguration must not be silently compilable. The crash I had was really deep inside Boost.Serialization, it wasn't like crash upon crossing the library boundary, not even the first function I called.
+
+Lesson learned, I guess. Experience gained, thank you very much, `vcpkg`.

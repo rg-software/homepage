@@ -1,5 +1,5 @@
 ---
-title: "💡Cooperative Wingspan"
+title: "💡 Cooperative Wingspan"
 date: 2023-03-27T15:10:20+09:00
 draft: false
 ---
