@@ -96,7 +96,7 @@ link:mozgovoy05ir.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy. Semantical Analyzer a
 
 // TODO: CoG pages
 
-link:msm24.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, C.&nbsp;Suero Montero. Exploring Students Solutions to Concurrent and Parallel Programming Exercises &mdash; Impact of Generative AI. _ACM Conference on International Computing Education Research (ICER) 2024_, Melbourne, Australia, 2024.
+link:msm24.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, C.&nbsp;Suero Montero. Exploring Students Solutions to Concurrent and Parallel Programming Exercises &mdash; Impact of Generative AI. _Proceedings of the 2024 ACM Conference on International Computing Education Research (ICER)_, Melbourne, Australia, 2024, vol.&nbsp;2, pp.&nbsp;533-534.
 
 link:bmn24.pdf[icon:file-pdf-o[]] J.&nbsp;Blake, M.&nbsp;Mozgovoy, A.&nbsp;Nicholas. Computerized Dynamic Assessment for
 Pragmatic Competence in Second Language Learners' English Email Requests. _14th International Conference on Methodologies and Intelligent Systems for Technology Enhanced Learning_, Salamanca, Spain, 2024.
