@@ -1,0 +1,20 @@
+---
+title: "💡 On Blogging"
+date: 2025-03-29T09:30:20+09:00
+draft: false
+---
+
+:source-highlighter: rouge
+:rouge-css: style
+:rouge-style: pastie
+:icons: font
+
+Looks like I still can't get the hang of regular blogging. There are people who write nearly every day, posting bite-size yet interesting pieces of texts. Some manage to write longer posts, maybe twice a week or so. How do they do it?
+
+Granted, you do need free time to write, something that I sorely lack these months. In addition, blogging should feel like a welcome change from everyday chores, but in my case writing (papers, books, emails) takes maybe a half of my spare time. Still, that's not all. Some people are good at turning their regular brain dumps into something coherent. It isn't really my case. My format is midsize: I get tired when writing lengthy posts, but I can't fit anything of a value into a paragraph or two.
+
+Perhaps, this isn't the right attitude: a blog is supposed to be a record of a personal journey, something you learn as you go rather than the end result, cast in stone. And yet it doesn't work for me. Maybe it's the choice of topics. For example, now I have three posts in progress: one on my approach to Unity program architecture, another one on the freedom of will (or lack of it), and the third one on major technological shifts I witnessed but never participated in.
+
+All these topics do require time, effort, research, and dedication. My understanding of code architecture change with gained experience, so every day feels different. My understanding of the free will debate changes as I read more about it. My views on technological shifts simply require time to be turned into a coherent narrative.
+
+I guess it should be okay to revisit the same topics from time to time. Maybe this is what I should do, but rooted habits are hard to change. Let's see how much I'll manage to write in the coming weeks (given that I missed a book deadline in January!)
