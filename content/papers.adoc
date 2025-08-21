@@ -27,6 +27,12 @@ link:km12.pdf[icon:file-pdf-o[]] T.&nbsp;Kakkonen, M.&nbsp;Mozgovoy. Students' C
 
 == Journal Papers
 
+////
+Nicholas, A., Blake, J., Perkins, J., and Mozgovoy, M. (2025). Impact of graduated versus explicit-only feedback in a computerized dynamic assessment of Japanese learners' L2 email writing. Applied Pragmatics. TO APPEAR 
+
+Blake, J. and A.N. Other (under review). Raising genre awareness though visualizing language features.
+////
+
 link:nbpm24.pdf[icon:file-pdf-o[]] A.&nbsp;Nicholas, J.&nbsp;Blake, J.&nbsp;Perkins, M.&nbsp;Mozgovoy. Evaluating the Effectiveness of a Computerised dynamic Assessment of L2 English Email Requests. _Computer Assisted Language Learning_, 1-33, 2024. DOI:&nbsp;https://doi.org/10.1080/09588221.2024.2374775[10.1080/09588221.2024.2374775].
 
 link:mpbpl22.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, E.&nbsp;Pyshkin, J.&nbsp;Blake, M.&nbsp;Purgina, A.&nbsp;Leung. Teacher-oriented Source Code Similarity Detection and Visualization for Programming Assignments. _IIAI Letters on Informatics and Interdisciplinary Research_, vol.&nbsp;2, 2022. DOI:&nbsp;https://doi.org/10.52731/liir.v002.082[10.52731/liir.v002.082].
