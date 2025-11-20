@@ -30,10 +30,14 @@ link:km12.pdf[icon:file-pdf-o[]] T.&nbsp;Kakkonen, M.&nbsp;Mozgovoy. Students' C
 ////
 Nicholas, A., Blake, J., Perkins, J., and Mozgovoy, M. (2025). Impact of graduated versus explicit-only feedback in a computerized dynamic assessment of Japanese learners' L2 email writing. Applied Pragmatics. TO APPEAR 
 
-Blake, J. and A.N. Other (under review). Raising genre awareness though visualizing language features.
+Allan Nicholas, John Blake, Maxim Mozgovoy,
+A Design-based Research Approach to Developing a Computerised Dynamic Assessment of Oral Pragmatic Competence: Solvable and Persistent Challenges
+AEIT 2026 (accepted)
 ////
 
-link:nbpm24.pdf[icon:file-pdf-o[]] A.&nbsp;Nicholas, J.&nbsp;Blake, J.&nbsp;Perkins, M.&nbsp;Mozgovoy. Evaluating the Effectiveness of a Computerised dynamic Assessment of L2 English Email Requests. _Computer Assisted Language Learning_, 1-33, 2024. DOI:&nbsp;https://doi.org/10.1080/09588221.2024.2374775[10.1080/09588221.2024.2374775].
+link:bm25.pdf[icon:file-pdf-o[]] J.&nbsp;Blake, M.&nbsp;Mozgovoy. Raising Genre Awareness through Visualizing Language Features. _Applied Corpus Linguistics_, 2025. DOI:&nbsp;https://doi.org/10.1016/j.acorp.2025.100162[10.1016/j.acorp.2025.100162].
+
+link:nbpm24.pdf[icon:file-pdf-o[]] A.&nbsp;Nicholas, J.&nbsp;Blake, J.&nbsp;Perkins, M.&nbsp;Mozgovoy. Evaluating the Effectiveness of a Computerised Dynamic Assessment of L2 English Email Requests. _Computer Assisted Language Learning_, 1-33, 2024. DOI:&nbsp;https://doi.org/10.1080/09588221.2024.2374775[10.1080/09588221.2024.2374775].
 
 link:mpbpl22.pdf[icon:file-pdf-o[]] M.&nbsp;Mozgovoy, E.&nbsp;Pyshkin, J.&nbsp;Blake, M.&nbsp;Purgina, A.&nbsp;Leung. Teacher-oriented Source Code Similarity Detection and Visualization for Programming Assignments. _IIAI Letters on Informatics and Interdisciplinary Research_, vol.&nbsp;2, 2022. DOI:&nbsp;https://doi.org/10.52731/liir.v002.082[10.52731/liir.v002.082].
 
